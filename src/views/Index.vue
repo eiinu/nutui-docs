@@ -9,6 +9,7 @@
             <div class="title">{{ componentName.name }}&nbsp;{{ isZh ? componentName.cName : '' }}</div>
             <div
               class="doc-content-tabs"
+              :class="{ hidden: !fixed }"
               v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"
             >
               <template v-for="item in tabs">
@@ -25,6 +26,7 @@
             </div>
             <div
               class="doc-content-tabs single"
+              :class="{ hidden: !fixed }"
               v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"
             >
               <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>
@@ -34,25 +36,29 @@
         </div>
       </div>
       <div class="doc-content-document" :class="{ isComponent: isShow(), full: !isShow() }">
-        <!-- <div class="doc-content-tabs" v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')">
+        <div
+          class="doc-content-tabs"
+          :class="{ hidden: fixed }"
+          v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"
+        >
           <template v-for="item in tabs">
             <div
               class="tab-item"
               :class="{ cur: curKey === item.key }"
               :key="item.key"
-              v-if="item.key==language || item.key=='taro'"
+              v-if="item.key == language || item.key == 'taro'"
               @click="handleTabs(item.key)"
-            >{{ item.text }}</div
+              >{{ item.text }}</div
             >
           </template>
-
         </div>
         <div
           class="doc-content-tabs single"
+          :class="{ hidden: fixed }"
           v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"
         >
-          <div class="tab-item cur">{{language=='react' ? 'react':'vue'}} / taro</div>
-        </div> -->
+          <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>
+        </div>
 
         <router-view />
 
@@ -316,9 +322,9 @@ $doc-title-height: 137px;
       }
     }
     &-tabs {
-      // position: absolute;
-      // right: 475px;
-      // top: 48px;
+      position: absolute;
+      right: 475px;
+      top: 48px;
       display: flex;
       height: 40px;
       align-items: center;
@@ -352,6 +358,10 @@ $doc-title-height: 137px;
           color: #323232;
           background: #fff;
         }
+      }
+      &.hidden {
+        visibility: hidden;
+        opacity: 0;
       }
     }
     &-contributors {
@@ -422,7 +432,7 @@ $doc-title-height: 137px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: calc(100% - 370px);
+      width: calc(100% - 408px);
     }
     &-position {
       top: 0px;
@@ -444,6 +454,9 @@ $doc-title-height: 137px;
         .title {
           font-size: 24px;
           font-weight: bold;
+        }
+        .doc-content-tabs {
+          position: revert;
         }
       }
       &.hidden {
