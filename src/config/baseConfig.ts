@@ -12,7 +12,7 @@ export const SiteReact = {
     git: 'https://github.com/jdf2e/nutui-react',
     gitee: '',
     releases: 'https://github.com/jdf2e/nutui-react/releases', // git 更新日志
-    issues: 'https://github.com/jdf2e/nutui-react/issues',
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui-react&lang=zh-cn',
     discussions: 'https://github.com/jdf2e/nutui-react/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
@@ -113,7 +113,7 @@ export const SiteVue = {
     git: 'https://github.com/jdf2e/nutui',
     gitee: 'https://gitee.com/jd-platform-opensource/nutui',
     releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
-    issues: 'https://github.com/jdf2e/nutui/issues',
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
@@ -261,7 +261,7 @@ export const SiteJDT = {
     git: 'https://github.com/jdf2e/nutui',
     gitee: 'https://gitee.com/jd-platform-opensource/nutui',
     releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
-    issues: 'https://github.com/jdf2e/nutui/issues',
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
@@ -442,7 +442,7 @@ export const SiteJDB = {
     git: 'https://github.com/jdf2e/nutui',
     gitee: 'https://gitee.com/jd-platform-opensource/nutui',
     releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
-    issues: 'https://github.com/jdf2e/nutui/issues',
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
