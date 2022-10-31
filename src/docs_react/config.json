@@ -1,5 +1,5 @@
 {
-  "version": "1.3.7",
+  "version": "1.3.8",
   "nav": [
     {
       "name": "基础组件",
@@ -554,8 +554,9 @@
           "cName": "返回顶部",
           "desc": "提供较长的页面快捷返回顶部功能。",
           "sort": 2,
+          "tarodoc": true,
           "show": true,
-          "taro": false,
+          "taro": true,
           "author": "vickyYe"
         },
         {
