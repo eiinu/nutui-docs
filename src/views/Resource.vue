@@ -108,7 +108,7 @@ import HeaderJDT from '@/docs_jdt/Header.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
-import { isJDT } from '@/assets/util';
+import { isJDReact, isJDT } from '@/assets/util';
 export default defineComponent({
   name: 'doc',
   components: {
@@ -146,8 +146,18 @@ export default defineComponent({
       watchDemoUrl(route);
 
       // 文章列表接口
+      let params = {
+        nutui_version: ''
+      };
+
+      if (isJDReact()) {
+        params.nutui_version = '0,8';
+      } else {
+        params.nutui_version = '0,1,2,3,4,5,6,7,9';
+      }
+
       const apiService = new ApiService();
-      apiService.getArticle().then((res) => {
+      apiService.getArticle(params).then((res) => {
         if (res?.state == 0) {
           const categoryMap: {
             [props: string]: string;
@@ -180,11 +190,15 @@ export default defineComponent({
       });
 
       // 视频列表接口1
-      apiService.getVideo().then((res) => {
-        if (res?.state == 0) {
-          data.videoList = res.value.data.arrays;
-        }
-      });
+      apiService
+        .getVideo({
+          nutui_version: 0
+        })
+        .then((res) => {
+          if (res?.state == 0) {
+            data.videoList = res.value.data.arrays;
+          }
+        });
     });
     onBeforeRouteUpdate((to) => {
       watchDemoUrl(to);

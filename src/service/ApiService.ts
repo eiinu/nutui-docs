@@ -11,11 +11,15 @@ export class ApiService {
    * @returns
    * @memberof ArticleApiService
    */
-  getArticle() {
-    return this.httpClient.request('/openapi/article', 'get', {
-      pageIndex: 1,
-      pageSize: 100
-    });
+  getArticle(params: any = {}) {
+    return this.httpClient.request(
+      '/openapi/article',
+      'get',
+      Object.assign(params, {
+        pageIndex: 1,
+        pageSize: 100
+      })
+    );
   }
   /**
    * 获取nutui使用案例
@@ -23,11 +27,14 @@ export class ApiService {
    * @returns
    * @memberof ArticleApiService
    */
-  getCases(is_recommend: number = 1) {
+  //  is_recommend: number = 1
+  getCases(params: { is_recommend: number; nutui_version?: number; first_department?: number }) {
     return this.httpClient.request('/openapi/cases', 'get', {
       pageIndex: 1,
       pageSize: 100,
-      is_recommend
+      is_recommend: params.is_recommend > -1 ? params.is_recommend : 1,
+      nutui_version: params.nutui_version || '',
+      first_department: params.first_department || ''
     });
   }
   /**
@@ -88,11 +95,15 @@ export class ApiService {
    * @returns
    * @memberof VideoApiService
    */
-  getVideo() {
-    return this.httpClient.request('/openapi/video', 'get', {
-      pageIndex: 1,
-      pageSize: 100
-    });
+  getVideo(params: any = {}) {
+    return this.httpClient.request(
+      '/openapi/video',
+      'get',
+      Object.assign(params, {
+        pageIndex: 1,
+        pageSize: 100
+      })
+    );
   }
 
   /**
@@ -100,7 +111,7 @@ export class ApiService {
    * @returns
    * @memberof bannerApiService
    */
-   getBannerList() {
+  getBannerList() {
     return this.httpClient.request('/openapi/banner', 'get', {
       pageIndex: 1,
       pageSize: 10

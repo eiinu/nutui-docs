@@ -99,7 +99,7 @@ import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import Swiper from 'swiper/swiper-bundle.min.js';
 import { ApiService } from '@/service/ApiService';
-import { isJDT } from '@/assets/util';
+import { isJDT, isJDReact } from '@/assets/util';
 export default defineComponent({
   name: 'doc',
   components: {
@@ -125,12 +125,34 @@ export default defineComponent({
 
       // 文章列表接口
       const apiService = new ApiService();
-      apiService.getCases(0).then((res) => {
+
+      let params: any = {
+        is_recommend: 0
+      };
+
+      if (isJDT()) {
+        params = Object.assign(params, {
+          first_department: 2
+        });
+      } else if (isJDReact()) {
+        params = Object.assign(params, {
+          nutui_version: 8
+        });
+      } else {
+        params = Object.assign(params, {
+          nutui_version: -1
+        });
+      }
+
+      apiService.getCases(params).then((res) => {
         if (res?.state == 0) {
           let list = res.value.data.arrays;
-          if (isJDT()) {
-            list = list.filter((item: { first_department: number }) => item.first_department == 2);
+
+          // NutUI vue 版本过滤 React 版本
+          if (!isJDReact() && !isJDT()) {
+            list = list.filter((item: { nutui_version: number }) => item.nutui_version !== 8);
           }
+
           (list as any[]).forEach((element: { create_time: string }) => {
             let year = element.create_time.split('-')[0];
             let index = data.caseList.findIndex((item) => item.year == year);
@@ -223,6 +245,7 @@ $mainRed: #fa685d;
     }
   }
   &-content {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 50px 0;

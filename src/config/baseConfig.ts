@@ -45,6 +45,13 @@ export const SiteReact = {
     //   path: 'demo.html'
     // },
     {
+      name: '/zh-CN/case',
+      cName: '案例',
+      eName: 'Cases',
+      path: '/zh-CN/case',
+      pathName: 'case'
+    },
+    {
       name: 'resource',
       cName: '资源',
       path: '/zh-CN/resource',
