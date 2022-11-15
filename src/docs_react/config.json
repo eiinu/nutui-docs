@@ -1,5 +1,5 @@
 {
-  "version": "1.3.8",
+  "version": "1.3.10",
   "nav": [
     {
       "name": "基础组件",
@@ -226,7 +226,7 @@
           "desc": "用于列表快速定位以及索引的显示",
           "sort": 4,
           "show": true,
-          "taro": false,
+          "taro": true,
           "author": "songsong"
         },
         {
@@ -590,7 +590,7 @@
           "desc": "列表滚动到底部自动加载更多数据。",
           "sort": 5,
           "show": true,
-          "taro": false,
+          "taro": true,
           "author": "swag~jun"
         },
         {

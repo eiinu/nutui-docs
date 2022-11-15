@@ -17,10 +17,10 @@
           ><a class="sub-link" target="_blank" href="https://taro.jd.com" v-hover>Taro</a>
         </div>
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://nutui.jd.com/cat/#/" v-hover>Cat</a>
+          ><a class="sub-link" target="_blank" href="https://github.com/JDFED/leo" v-hover>Leo 脚手架</a>
         </div>
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://nutui.jd.com/bingo/#/" v-hover>Bingo</a>
+          ><a class="sub-link" target="_blank" href="https://github.com/JDFED/pubfree" v-hover>Pubfree</a>
         </div>
 
         <!-- <div class="doc-footer-item"
@@ -33,7 +33,7 @@
           ><a class="sub-link" target="_blank" href="https://ling.jd.com/jdw" v-hover>羚珑</a>
         </div> -->
         <div class="doc-footer-item"
-          ><a class="sub-link" target="_blank" href="https://legao.jd.com/" v-hover>Legao</a>
+          ><a class="sub-link" target="_blank" href="http://drip-design.jd.com/index-cn" v-hover>Drip Design</a>
         </div>
       </div>
       <div class="doc-footer-list">

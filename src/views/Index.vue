@@ -470,4 +470,53 @@ $doc-title-height: 137px;
     }
   }
 }
+::v-deep(.contributors-banner) {
+  display: flex;
+  width: 800px;
+  .banner-link {
+    position: relative;
+    flex: 1;
+    margin-right: 20px;
+    .shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: all linear 0.2s;
+    }
+    &:hover {
+      .shadow {
+        opacity: 1;
+      }
+      .img-icon {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: 200px;
+  }
+  .img-icon {
+    position: absolute;
+    z-index: 999;
+    bottom: -10px;
+    right: 0;
+    width: 80px;
+    height: 70px;
+    transition: all linear 0.2s;
+  }
+  .img-icon-book {
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    right: 10px;
+  }
+}
 </style>
