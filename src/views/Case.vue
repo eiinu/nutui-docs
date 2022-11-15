@@ -136,22 +136,17 @@ export default defineComponent({
         });
       } else if (isJDReact()) {
         params = Object.assign(params, {
-          nutui_version: 8
+          nutui_version: -1 //'3,8'
         });
       } else {
         params = Object.assign(params, {
-          nutui_version: -1
+          nutui_version: '0,1,2,3,4,5,6,7,9'
         });
       }
 
       apiService.getCases(params).then((res) => {
         if (res?.state == 0) {
           let list = res.value.data.arrays;
-
-          // NutUI vue 版本过滤 React 版本
-          if (!isJDReact() && !isJDT()) {
-            list = list.filter((item: { nutui_version: number }) => item.nutui_version !== 8);
-          }
 
           (list as any[]).forEach((element: { create_time: string }) => {
             let year = element.create_time.split('-')[0];
