@@ -25,7 +25,7 @@ export default defineComponent({
     onMounted(() => {});
 
     const onGoHome = () => {
-      console.log('onGoHome');
+      // console.log('onGoHome');
       emit('goHome');
     };
 
@@ -34,7 +34,7 @@ export default defineComponent({
       nextTick(() => {
         state.reload = true;
       });
-      console.log('onRefresh');
+      // console.log('onRefresh');
       emit('onRefresh');
     };
 

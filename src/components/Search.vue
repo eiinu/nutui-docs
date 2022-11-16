@@ -66,7 +66,7 @@ export default defineComponent({
             const rx = new RegExp(sVal, 'gi');
             return rx.test(item.name + ' ' + item.cName + '' + item.desc);
           });
-          console.log('rx2', data.searchList.length, data.searchList);
+          // console.log('rx2', data.searchList.length, data.searchList);
         } else {
           data.searchCName = '';
           data.searchIndex = 0;

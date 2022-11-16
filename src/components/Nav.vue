@@ -105,7 +105,7 @@ export default defineComponent({
 
     onBeforeRouteUpdate((to: any) => {
       let name: any = '';
-      console.log('当前路由', to);
+      // console.log('当前路由', to);
       if (to) {
         name = to.path;
       } else {

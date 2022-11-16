@@ -110,7 +110,7 @@ export default defineComponent({
     };
 
     const handleFocus = () => {
-      console.log(1);
+      // console.log(1);
     };
 
     const handleGuidFocusOut = () => {

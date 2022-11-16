@@ -26,7 +26,7 @@ for (const path in modulesPage) {
 }
 
 const modulesEnPage = (import.meta as any).glob('/src/docs_react/docs/**/doc.en-US.md');
-console.log(modulesEnPage);
+// console.log(modulesEnPage);
 for (const path in modulesEnPage) {
   let name = (/docs_react\/docs\/(.*)\/doc\.en-US\.md/.exec(path) as any[])[1];
   pagesEnRouter.push({

@@ -281,7 +281,7 @@ export default defineComponent({
         'https://img10.360buyimg.com/imagetools/jfs/t1/29781/3/19183/142442/6332a685Eb8ac2a85/9880cdaea3a1ca14.png'
       ];
       loadImageEnd(imgArr, () => {
-        console.log('加载完');
+        // console.log('加载完');
         data.backgroundLoading = false;
 
         if (!bannerSwiper) renderBannerSwiper();
@@ -289,14 +289,14 @@ export default defineComponent({
       apiService.getBannerList().then((res) => {
         if (res?.state == 0 && res?.value.data.length != 0) {
           data.bannerList = [].concat(res.value.data.arrays);
-          console.log(data.backgroundLoading);
+          // console.log(data.backgroundLoading);
           if (!data.backgroundLoading) renderBannerSwiper();
         }
       });
     };
 
     const renderBannerSwiper = () => {
-      console.log('更新 banner');
+      // console.log('更新 banner');
       const self = data.bannerList;
       setTimeout(() => {
         bannerSwiper = new Swiper('.doc-content-banner-swiper .swiper-container', {
@@ -336,7 +336,7 @@ export default defineComponent({
       });
     };
     const onQRLeft = () => {
-      console.log(123467467467467467);
+      // console.log(123467467467467467);
       qrcodeSwiper.slidePrev();
     };
     const onQRRight = () => {

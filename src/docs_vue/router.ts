@@ -53,7 +53,7 @@ for (const path in modulesPageTaro) {
 
 /** vite */
 const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
-console.log('路由', modulesDocs);
+// console.log('路由', modulesDocs);
 for (const path in modulesDocs) {
   let name = (/docs\/(.*).md/.exec(path) as any[])[1];
   guideRouters.push({
@@ -71,7 +71,7 @@ for (const path in modulesEnDocs) {
     name: `en-${name}`
   });
 }
-console.log(guideRouters);
+// console.log(guideRouters);
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',

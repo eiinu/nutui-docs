@@ -52,7 +52,7 @@ export default defineComponent({
       RefData.getInstance().currentRoute.value = router.name as string;
     };
     const link = (item: any) => {
-      console.log(item);
+      // console.log(item);
       window.open(item.link);
       // router.push('/noticedetail');
     };
