@@ -26,6 +26,7 @@ export const SiteReact = {
       link: 'https://nutui.jd.com/'
     }
   ],
+  newHeader: [],
   header: [
     {
       name: 'intro-react,theme-react,start-react',
@@ -150,7 +151,6 @@ export const SiteVue = {
       link: 'https://nutui.jd.com/jdt/'
     }
   ],
-
   header: [
     {
       name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
@@ -191,6 +191,30 @@ export const SiteVue = {
       eName: 'Notice',
       path: '/zh-CN/notice',
       pathName: '/zh-CN/notice'
+    },
+    {
+      name: 'joinus',
+      cName: '加入我们',
+      eName: 'Join us',
+      path: '/zh-CN/guide/joinus',
+      pathName: '/zh-CN/guide/joinus'
+    }
+  ],
+
+  newHeader: [
+    {
+      name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
+      cName: '资源共享',
+      eName: 'Guide',
+      path: '/zh-CN/guide/intro',
+      pathName: 'intro'
+    },
+    {
+      name: 'component',
+      cName: '生态产品',
+      eName: 'Components',
+      path: '/zh-CN/component/button',
+      pathName: 'zh-CN/component/button'
     },
     {
       name: 'joinus',
@@ -354,7 +378,7 @@ export const SiteJDT = {
       }
     ]
   },
-
+  newHeader: [],
   header: [
     {
       name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing',
@@ -535,7 +559,7 @@ export const SiteJDB = {
       }
     ]
   },
-
+  newHeader: [],
   header: [
     {
       name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing',

@@ -74,5 +74,5 @@ if ((import.meta as any).env.BASE_URL.includes('react')) {
   };
 }
 
-export const { nav, docs, version, demoUrl, homePage, versions, header, language, repository } = config;
+export const { nav, docs, version, demoUrl, homePage, versions, newHeader, header, language, repository } = config;
 export { guide };

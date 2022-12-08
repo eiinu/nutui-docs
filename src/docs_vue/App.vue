@@ -15,7 +15,7 @@ export default defineComponent({
   color: #fff;
 }
 #doc {
-  background: #fff;
+  background: #070505;
   height: 100%;
   width: 100%;
   display: flex;

@@ -5,6 +5,7 @@ import Resource from '@/views/Resource.vue';
 import Case from '@/views/Case.vue';
 import Notice from '@/views/Notice.vue';
 import Main from '@/views/Main.vue';
+import NewMain from '@/views/NewMain.vue';
 import Guide from '@/views/Guide.vue';
 import Component from '@/views/Component.vue';
 import config from '@/config/env';
@@ -77,6 +78,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: '/',
     component: Main
+    // children: pagesRouter
+  },
+  {
+    path: '/new-home',
+    name: 'new-home',
+    component: NewMain
     // children: pagesRouter
   },
   {
