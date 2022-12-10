@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Index from '@/views/Index.vue';
-import Resource from '@/views/Resource.vue';
-import Case from '@/views/Case.vue';
-import Notice from '@/views/Notice.vue';
-import Main from '@/views/Main.vue';
-import NewMain from '@/views/NewMain.vue';
-import Guide from '@/views/Guide.vue';
-import Component from '@/views/Component.vue';
+import Index from './views/Index.vue';
+import Resource from './views/Resource.vue';
+import Case from './views/Case.vue';
+import Notice from './views/Notice.vue';
+import Guide from './views/Guide.vue';
+import Component from './views/Component.vue';
 import config from '@/config/env';
 const pagesRouter: Array<RouteRecordRaw> = [];
 const pagesEnRouter: Array<RouteRecordRaw> = [];
@@ -16,9 +14,9 @@ const guideEnRouters: Array<RouteRecordRaw> = [];
 
 /** vite */
 
-const modulesPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.md');
+const modulesPage = (import.meta as any).glob('./docs/**/doc.md');
 for (const path in modulesPage) {
-  let name = (/docs_vue\/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
+  let name = (/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
   pagesRouter.push({
     path: `/zh-CN/component/${name}`,
     component: modulesPage[path],
@@ -26,29 +24,13 @@ for (const path in modulesPage) {
   });
 }
 
-const modulesEnPage = (import.meta as any).glob('/src/docs_vue/docs/**/doc.en-US.md');
+const modulesEnPage = (import.meta as any).glob('./docs/**/doc.en-US.md');
 for (const path in modulesEnPage) {
-  let name = (/docs_vue\/docs\/(.*)\/doc.en-US.md/.exec(path) as any[])[1];
+  let name = (/docs\/(.*)\/doc.en-US.md/.exec(path) as any[])[1];
   pagesEnRouter.push({
     path: `/en-US/component/${name}`,
     component: modulesEnPage[path],
     name: `en-US/component/${name}`
-  });
-}
-
-/** vite-taro **/
-const modulesPageTaro = (import.meta as any).glob('/src/docs_vue/docs/**/*.taro.md');
-for (const path in modulesPageTaro) {
-  let name = (/docs_vue\/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
-  pagesRouter.push({
-    path: `/zh-CN/component/${name}-taro`,
-    component: modulesPageTaro[path],
-    name: `zh-CN/component/${name}-taro`
-  });
-  pagesEnRouter.push({
-    path: `/en-US/component/${name}-taro`,
-    component: modulesPageTaro[path],
-    name: `en-US/component/${name}-taro`
   });
 }
 
@@ -72,23 +54,12 @@ for (const path in modulesEnDocs) {
     name: `en-${name}`
   });
 }
+
 // console.log(guideRouters);
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: '/',
-    component: Main
-    // children: pagesRouter
-  },
-  {
-    path: '/new-home',
-    name: 'new-home',
-    component: NewMain
-    // children: pagesRouter
-  },
-  {
-    path: '/index',
-    name: 'index',
     component: Index,
     children: [
       {

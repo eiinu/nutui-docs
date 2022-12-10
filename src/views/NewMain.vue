@@ -223,7 +223,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue';
-import NewHeader from '@/components/NewHeader.vue';
+import NewHeader from './NewHeader.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import { loadImageEnd } from '@/assets/util/loadImageEnd';
@@ -507,6 +507,18 @@ export default defineComponent({
 // }
 </style>
 <style lang="scss" scoped>
+::selection {
+  background: $doc-default-color;
+  color: #fff;
+}
+#doc {
+  background: #070505;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // padding-top: $doc-header-height;
+}
 .skew-box {
   display: flex;
   justify-content: space-around;

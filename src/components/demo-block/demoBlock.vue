@@ -148,10 +148,10 @@ export default defineConfig({
           'tsconfig.node.json': {
             content: codesandboxNode
           },
-          'vite.config.ts': {
+          'vite.config.vue.ts': {
             content: codesandboxVite
           },
-          'index.html': {
+          'index.vue.html': {
             content: codesandboxHtml
           },
           'src/main.ts': {
