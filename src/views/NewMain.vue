@@ -259,7 +259,7 @@
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs, computed } from 'vue';
-import NewHeader from '@/components/NewHeader.vue';
+import NewHeader from './NewHeader.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
@@ -623,6 +623,18 @@ export default defineComponent({
 }
 </style>
 <style lang="scss" scoped>
+::selection {
+  background: $doc-default-color;
+  color: #fff;
+}
+#doc {
+  background: #070505;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // padding-top: $doc-header-height;
+}
 .skew-box {
   display: flex;
   justify-content: space-around;
@@ -697,6 +709,7 @@ export default defineComponent({
 }
 .doc-content {
   background: #070505;
+  padding: 5px 0;
   &-hd {
     height: 52px;
     line-height: 52px;

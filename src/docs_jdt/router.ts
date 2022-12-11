@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Index from '@/views/Index.vue';
-import Resource from '@/views/Resource.vue';
-import Case from '@/views/Case.vue';
-import Notice from '@/views/Notice.vue';
-import Main from './Main.vue';
-import Guide from '@/views/Guide.vue';
-import Component from '@/views/Component.vue';
+import Index from './views/Index.vue';
+import Resource from './views/Resource.vue';
+import Case from './views/Case.vue';
+import Notice from './views/Notice.vue';
+import Main from './views/Main.vue';
+import Guide from './views/Guide.vue';
+import Component from './views/Component.vue';
 import config from '@/config/env';
 const pagesRouter: Array<RouteRecordRaw> = [];
 const pagesEnRouter: Array<RouteRecordRaw> = [];
