@@ -203,23 +203,26 @@ export const SiteVue = {
 
   newHeader: [
     {
-      name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
-      cName: '资源共享',
-      eName: 'Guide',
-      path: '/zh-CN/guide/intro',
-      pathName: 'intro'
-    },
-    {
       name: 'component',
       cName: '生态产品',
       eName: 'Components',
+      key: '1',
       path: '/zh-CN/component/button',
       pathName: 'zh-CN/component/button'
+    },
+    {
+      name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
+      cName: '资源共享',
+      eName: 'Guide',
+      key: '2',
+      path: '/zh-CN/guide/intro',
+      pathName: 'intro'
     },
     {
       name: 'joinus',
       cName: '加入我们',
       eName: 'Join us',
+      key: '3',
       path: '/zh-CN/guide/joinus',
       pathName: '/zh-CN/guide/joinus'
     }

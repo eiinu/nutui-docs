@@ -34,19 +34,23 @@
               <div class="resource-infor">
                 <img src="@/assets/images/React.png" class="small-icon" />
                 <span class="infor-name">NutUI-React</span>
-                <span class="infor-version">1.2.2</span>
+                <!-- <span class="infor-version">1.2.2</span> -->
               </div>
             </div>
             <div class="resource-item">
               <div class="resource-infor">
                 <img src="@/assets/images/Vue.png" class="small-icon" />
                 <span class="infor-name">NutUI-Vue</span>
-                <span class="infor-version">1.2.2</span>
+                <!-- <span class="infor-version">1.2.2</span> -->
+                <div class="infor-child">
+                  <span class="infor-child-name">NutUI-Cat</span>
+                  <span class="infor-child-name">NutUI-Bingo</span>
+                </div>
               </div>
-              <div class="infor-child">
+              <!-- <div class="infor-child">
                 <span class="infor-child-name">NutUI-Cat</span>
                 <span class="infor-child-name">NutUI-Bingo</span>
-              </div>
+              </div> -->
             </div>
 
             <div class="resource-item">
@@ -68,16 +72,16 @@
               <div class="resource-infor">
                 <img src="@/assets/images/Taro.png" class="small-icon" />
                 <span class="infor-name">多端小程序</span>
-                <span class="infor-version">1.2.2</span>
-              </div>
-              <div class="infor-child">
-                <span class="infor-child-name">NutUI-React</span>
-                <span class="infor-child-name">NutUI-Vue</span>
+                <!-- <span class="infor-version">1.2.2</span> -->
+                <div class="infor-child">
+                  <span class="infor-child-name">NutUI-React</span>
+                  <span class="infor-child-name">NutUI-Vue</span>
+                </div>
               </div>
             </div>
             <div class="resource-item">
               <div class="resource-infor">
-                <img src="@/assets/images/Angular.png" class="small-icon" />
+                <img src="@/assets/images/Jdweapp.png" class="small-icon" />
                 <span class="infor-name">京东小程序</span>
                 <span class="infor-version infor-goline">待上线</span>
               </div>
@@ -173,7 +177,7 @@
         </div>
       </div>
     </div>
-    <div class="doc-content-more" v-if="homePage.article.show && articleList.length">
+    <div class="doc-content-more" v-if="homePage.article.show">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">资源共享</h4>
         <a class="sub-more" :href="homePage.article.moreRouter" v-if="homePage.article.moreRouter">More</a>
@@ -184,31 +188,28 @@
           <p class="more-title" v-hover>{{ item.title }}</p>
         </li>
       </ul> -->
-      <div
-        :class="[
-          'doc-content-banner-img',
-          bannerList.length > 0 && !backgroundLoading ? 'doc-content-banner-imgcover' : ''
-        ]"
-      >
+      <div class="doc-content-banner-img doc-content-banner-imgcover">
         <div class="skew-box">
-          <div class="doc-content-banner-swiper" v-for="doc of 3" :key="doc">
-            <div class="swiper-container" v-if="bannerList.length > 0 && !backgroundLoading">
-              <span class="swiper-tag">文章</span>
+          <template v-for="(item, index) of articleProxy">
+            <div class="doc-content-banner-swiper" :key="item.name" v-if="item.article.length > 0">
+              <div :class="['swiper-container', 'swiper-container-' + index]">
+                <span class="swiper-tag">{{ item.name }}</span>
 
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(arr, index) in articleList.slice(0, 4)" :key="index">
-                  <div class="swiper-slide-item">
-                    <div class="slide-item-infor">
-                      <span class="item-title-name">原理篇</span>
-                      <span class="item-title-subtitle">{{ arr.title }}</span>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" v-for="(childItem, idx) in item.article" :key="idx">
+                    <div class="swiper-slide-item">
+                      <div class="slide-item-infor">
+                        <span class="item-title-name">{{ item.tag }}</span>
+                        <span class="item-title-subtitle" :title="childItem.title">{{ childItem.title }}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <!-- 如果需要分页器 -->
+              <div :class="['swiper-pagination', 'swiper-pagination-' + index]"></div>
             </div>
-            <!-- 如果需要分页器 -->
-            <div class="swiper-pagination"></div>
-          </div>
+          </template>
         </div>
       </div>
     </div>
@@ -216,24 +217,61 @@
       <div class="doc-content-hd">
         <h4 class="doc-content-title">开源共建</h4>
       </div>
-      <div class="jointly-list"> </div>
+      <div class="jointly-box">
+        <div class="jointly-box-left">
+          <div class="left-title">
+            <h1>开源迭代，持续创新</h1>
+            <span class="sub-title">NutUI 保持开源精神，采用 MIT 协议，诚邀大家共建 NutUI 开源生态。</span>
+          </div>
+          <div class="left-contributor">
+            <!-- <div class="contributor-item" v-for="item of 80" :key="item">
+              <div class="headPortrait-img-panel avatarRotation" v-if="item == 1"> </div>
+              <img src="@/assets/images/logo-red.png" class="contributor-head" />
+            </div> -->
+            <div class="contributor-item">
+              <img src="https://opencollective.com/nutui/contributors.svg?width=890&button=false" />
+            </div>
+          </div>
+        </div>
+        <div class="jointly-box-right">
+          <div class="card-list">
+            <div class="card-item">
+              <img src="@/assets/images/card-icon-1.png" class="item-icon" />
+              <h3 class="card-title">多技术栈</h3>
+              <span class="desc">支持业界流行的 React、Vue、小程序技术栈</span>
+            </div>
+            <div class="card-item">
+              <img src="@/assets/images/card-icon-3.png" class="item-icon" />
+              <h3 class="card-title">多端适配</h3>
+              <span class="desc">适配 Taro，实现一码多端功能，保持设计统一性</span>
+            </div>
+            <div class="card-item">
+              <img src="@/assets/images/card-icon-2.png" class="item-icon" />
+              <h3 class="card-title">资源丰富</h3>
+              <span class="desc">80+ 组件，70+ 文章视频，优秀的设计资源和官方主题</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <doc-footer></doc-footer>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue';
+import { defineComponent, onMounted, reactive, toRefs, computed } from 'vue';
 import NewHeader from '@/components/NewHeader.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
-import { loadImageEnd } from '@/assets/util/loadImageEnd';
 import { ApiService } from '@/service/ApiService';
+// import Swiper from 'swiper/swiper-bundle.min.js';
+import Swiper, { EffectFade, Autoplay, Pagination } from 'swiper';
 import 'swiper/swiper.min.css';
-import Swiper from 'swiper/swiper-bundle.min.js';
 import { useRouter } from 'vue-router';
 import { language, homePage } from '@/config/index';
 import { arrayGroup } from '@/assets/util/index';
 import { useLocale } from '@/assets/util/locale';
+Swiper.use([EffectFade, Autoplay, Pagination]);
+
 export default defineComponent({
   name: 'main',
   components: {
@@ -243,9 +281,39 @@ export default defineComponent({
   setup() {
     const router = useRouter();
     const { currentLang } = useLocale();
-    const data = reactive({
+    const data: any = reactive({
       // theme: 'white',
       articleList: [],
+      articleProxy: [
+        {
+          name: '原理',
+          tag: '源码揭秘',
+          article: [],
+          swiperEle: null
+        },
+        {
+          name: '实践',
+          tag: '项目开发',
+          article: [],
+          swiperEle: null
+        },
+        {
+          name: '发展',
+          tag: '成长历程',
+          article: [],
+          swiperEle: null
+        },
+        {
+          name: '学习',
+          tag: '视频教程',
+          article: [],
+          swiperEle: null
+        }
+      ],
+      principleArticle: [],
+      practiceArticle: [],
+      studyArticle: [],
+      videoArticle: [],
       casesImages: [],
       currentCaseItem: {},
       currentCaseIndex: 0,
@@ -257,42 +325,20 @@ export default defineComponent({
     });
     let caseSwiper: any = null;
     let qrcodeSwiper: any = null;
-    let bannerSwiper: any = null;
 
     onMounted(() => {
-      if (homePage.article.show) getArticle();
+      if (homePage.article.show) {
+        getArticle();
+        getVideo();
+      }
       if (homePage.cases.show) getCasesImages();
       if (homePage.qrcodeShow) getQRCode();
-
-      initBannerSwiper();
     });
-
-    const initBannerSwiper = () => {
-      const apiService = new ApiService();
-
-      const imgArr = [
-        'https://img10.360buyimg.com/imagetools/jfs/t1/29781/3/19183/142442/6332a685Eb8ac2a85/9880cdaea3a1ca14.png'
-      ];
-      loadImageEnd(imgArr, () => {
-        // console.log('加载完');
-        data.backgroundLoading = false;
-
-        if (!bannerSwiper) renderBannerSwiper();
-      });
-      apiService.getBannerList().then((res) => {
-        if (res?.state == 0 && res?.value.data.length != 0) {
-          data.bannerList = [].concat(res.value.data.arrays);
-          // console.log(data.backgroundLoading);
-          if (!data.backgroundLoading) renderBannerSwiper();
-        }
-      });
-    };
-
-    const renderBannerSwiper = () => {
+    const renderBannerSwiper = (idx) => {
       // console.log('更新 banner');
       const self = data.bannerList;
       setTimeout(() => {
-        bannerSwiper = new Swiper('.doc-content-banner-swiper .swiper-container', {
+        data.articleProxy[idx]['swiperEle'] = new Swiper('.doc-content-banner-swiper .swiper-container-' + idx, {
           direction: 'horizontal',
           autoplay: {
             delay: 3000,
@@ -301,7 +347,8 @@ export default defineComponent({
           loop: true,
           // 如果需要分页器
           pagination: {
-            el: '.swiper-pagination'
+            el: '.swiper-pagination-' + idx,
+            clickable: true
           },
           on: {
             click: (event) => {
@@ -310,6 +357,21 @@ export default defineComponent({
             }
           }
         });
+
+        /*鼠标移入停止轮播，鼠标离开 继续轮播*/
+        var container: any = document.getElementsByClassName('swiper-container-' + idx)[0];
+        container.onmouseenter = function () {
+          data.articleProxy[idx]['swiperEle'].autoplay.stop();
+        };
+        container.onmouseleave = function () {
+          data.articleProxy[idx]['swiperEle'].autoplay.start();
+        };
+        //鼠标滑过pagination控制swiper切换
+        for (let i = 0; i < data.articleProxy[idx]['swiperEle'].pagination.bullets.length; i++) {
+          data.articleProxy[idx]['swiperEle'].pagination.bullets[i].onmouseover = function () {
+            this.click();
+          };
+        }
       }, 500);
     };
     //获取案例二维码
@@ -340,16 +402,39 @@ export default defineComponent({
       const apiService = new ApiService();
       apiService.getArticle().then((res) => {
         if (res?.state == 0) {
-          data.articleList = (res.value.data.arrays as any[])
-            .map((item) => {
-              if (item.type == 1) {
-                return item;
-              }
-            })
-            .filter((i) => i);
+          let dataAry = res.value.data.arrays;
+          data.articleList = dataAry;
+          dataAry.forEach((item, index) => {
+            let type = parseInt(item.category);
+            // let varData = ['practiceArticle', 'principleArticle', 'studyArticle'];
+            let key = type - 1;
+            if (data.articleProxy[key]['article']?.length != 5) {
+              data.articleProxy[key]['article']?.push(item);
+            }
+          });
+          data.articleProxy.forEach((m, x) => {
+            setTimeout(() => {
+              renderBannerSwiper(x);
+            }, 500 * x);
+          });
         }
       });
     };
+    // 视频列表接
+    const getVideo = () => {
+      const apiService = new ApiService();
+      apiService
+        .getVideo({
+          nutui_version: 0
+        })
+        .then((res) => {
+          if (res?.state == 0) {
+            data.articleProxy[3]['article'] = res.value.data.arrays.splice(0, 5);
+            renderBannerSwiper(4);
+          }
+        });
+    };
+
     // 获取案例
     const getCasesImages = () => {
       const apiService = new ApiService();
@@ -465,7 +550,7 @@ export default defineComponent({
   }
 });
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 // @keyframes fadeInLeft {
 //   from {
 //     opacity: 0;
@@ -505,14 +590,42 @@ export default defineComponent({
 //     }
 //   }
 // }
+
+// 定义外部光环旋转动画
+@keyframes externalHalo {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+// 定义内部头像旋转动画
+@keyframes internalAvatar {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
 </style>
 <style lang="scss" scoped>
 .skew-box {
   display: flex;
   justify-content: space-around;
-  &:nth-child(2) {
-    margin: 0 10px;
-  }
 }
 .doc-content-banner-swiper {
   position: relative;
@@ -559,14 +672,27 @@ export default defineComponent({
     font-size: 12px;
     letter-spacing: 2px;
     font-weight: 600;
-    color: #161627;
-    border: 1px solid #161627;
+    color: #fff;
+    margin: 0 auto;
+    // background-image: linear-gradient(315deg, #6772ff 0, #00f9e5 100%);
+    background-image: linear-gradient(45deg, #2215f1 0, #9e10db 100%);
   }
   .item-title-subtitle {
     display: block;
+    width: 230px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin-top: 20px;
     color: #0000c2;
-    font-size: 12px;
+    font-size: 16px;
+  }
+  &:nth-child(2) {
+    margin: 0 10px;
+  }
+  &:nth-child(3) {
+    margin-right: 10px;
   }
 }
 .doc-content {
@@ -630,11 +756,16 @@ export default defineComponent({
       }
     }
     .resource-item {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(88, 88, 88, 0.8);
+      }
       .infor-child {
-        margin-left: 50px;
         .infor-child-name {
           padding: 3px 10px;
-          margin-left: 15px;
+          margin-right: 15px;
           font-size: 12px;
           color: #00b2bd;
           border: 1px solid #00b2bd;
@@ -903,10 +1034,101 @@ export default defineComponent({
     }
   }
   &-jointly {
-    .doc-content-jointly-swipe {
-      .swiper-slide {
-        padding: 0 80px;
+    width: 1366px;
+    overflow: hidden;
+    margin: 0 auto 90px;
+    .jointly-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      // .jointly-box-left,
+      // .jointly-box-right {
+      //   flex: 1;
+      // }
+    }
+    .jointly-box-left {
+      .sub-title {
+        display: block;
+        margin: 30px 0;
+      }
+      .left-contributor {
+        overflow: hidden;
+        // .contributor-item {
+        //   position: relative;
+        //   float: left;
+        //   width: 40px;
+        //   height: 40px;
+        //   margin: 0 8px 8px 0;
+        // }
+        .contributor-item {
+          width: 660px;
+          height: 330px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        // 头像旋转动画
+        .avatarRotation {
+          animation: internalAvatar 3s linear;
+          // 动画无限循环
+          animation-iteration-count: infinite;
+        }
+        /*头像显示层*/
+        .headPortrait-img-panel {
+          position: absolute;
+          width: 101%;
+          height: 101%;
+          border: solid 5px #00c9fd;
+          border-top-color: #00f9e5;
+          border-bottom-color: #00f9e5;
+          border-radius: 50%;
+          z-index: 100;
+          // background: url('@/assets/images/circle.png') no-repeat;
+          // background-size: 100% 100%;
+        }
+        .contributor-head {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+      }
+    }
+    .jointly-box-right {
+      .card-list {
+        overflow: hidden;
         display: flex;
+        justify-content: space-around;
+      }
+      .card-item {
+        width: 190px;
+        height: 280px;
+        margin: 0 0 0 30px;
+        border-radius: 10px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+        background: url(@/assets/images/card-bg.png) no-repeat;
+        background-size: 100% 100%;
+        .item-icon {
+          margin: 20px auto;
+          width: 180px;
+          height: 130px;
+        }
+        .card-title {
+          color: #f2f2f2;
+          text-align: center;
+        }
+        .desc {
+          display: block;
+          width: 80%;
+          text-align: center;
+          margin: 10px auto 0;
+          color: #f2f2f2;
+          font-size: 12px;
+        }
       }
     }
   }
@@ -936,7 +1158,7 @@ export default defineComponent({
     z-index: 999;
     // padding-top: 6%;
     .content-title {
-      font-size: 48px;
+      font-size: 60px;
       color: rgba(255, 255, 255, 1);
       font-weight: 800;
     }
@@ -944,35 +1166,35 @@ export default defineComponent({
       font-weight: 800;
     }
     .content-smile {
-      width: 50px;
-      height: 20px;
+      width: 70px;
+      height: 30px;
       background: url(https://storage.360buyimg.com/imgtools/09516173b9-9b32b9d0-3864-11eb-9a56-0104487ad2b0.png)
         no-repeat;
-      background-size: cover;
+      background-size: contain;
     }
     .content-subTitle {
       margin: 20px 0;
-      font-size: 20px;
+      font-size: 34px;
       color: rgba(255, 255, 255, 1);
     }
     .content-desc {
       margin-bottom: 10px;
-      font-size: 14px;
+      font-size: 18px;
       color: rgb(194, 194, 194);
     }
   }
 
   .doc-content-banner-box {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin-top: 30px;
     // padding: 8% 0 0 10%;
 
     .doc-content-banner-image {
       img {
-        width: 700px;
-        height: 550px;
+        width: 675px;
+        height: 450px;
       }
     }
   }

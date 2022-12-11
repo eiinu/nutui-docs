@@ -6,7 +6,7 @@ import { isJDT, isJDB, isJDDKH } from '@/assets/util';
 
 let config: any = {};
 
-let guide = [
+const guide = [
   {
     type: 'Vue',
     icon: 'https://img11.360buyimg.com/imagetools/jfs/t1/221256/40/8490/1929/61d64810Ec6a88d27/99270cce560545d5.png',
