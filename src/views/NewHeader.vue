@@ -3,7 +3,7 @@
     NutUI 正在参与 OSC 2021 年度中国开源项目评选（您的鼓励是我们坚持不懈的源动力)，请为我们投上宝贵的一票吧。
     <a href="https://www.oschina.net/project/top_cn_2021/?id=65&fr=nutui" target="_blank">去投票</a>
   </div> -->
-  <div class="site-doc-header" :class="themeName()">
+  <div class="site-doc-header site-doc-header-red" :class="themeName()">
     <div class="site-header-logo">
       <a class="logo-link" :class="{ [language]: language }" @click="toHome"></a>
     </div>
@@ -12,12 +12,12 @@
       <div class="nav-box">
         <ul class="nav-list">
           <template v-for="item in newHeader" :key="item.name">
-            <li class="nav-item" :class="{ active: isActive(item.name) }" v-if="item.key != '1'">
+            <li class="nav-item nav-normal" :class="{ active: isActive(item.name) }" v-if="item.key != '1'">
               <a @click="toLink(item)">
                 {{ isZh ? item.cName : item.eName }}
               </a>
             </li>
-            <li class="nav-item" v-else>
+            <li class="nav-item nav-normal" v-else>
               <div
                 @mouseenter="onMouseHover(true)"
                 @mouseleave="onMouseHover(false)"
@@ -27,14 +27,13 @@
                 @click.stop="data.isShowGuid = !data.isShowGuid"
               >
                 <a>生态产品</a>
-                <div class="guild-line"></div>
               </div>
             </li>
           </template>
           <!-- <li v-if="language == 'vue'" class="nav-item" @click="translate">En/中</li> -->
-          <li class="nav-item">
-            <a class="user-link" target="_blank" v-if="repository.git" :href="repository.git"></a>
-            <a class="user-link gitee" target="_blank" v-if="repository.gitee" :href="repository.gitee"></a>
+          <li class="nav-item nav-git">
+            <a class="user-link" target="_blank" v-if="newRepository.git" :href="newRepository.git"></a>
+            <a class="user-link gitee" target="_blank" v-if="newRepository.gitee" :href="newRepository.gitee"></a>
           </li>
           <transition name="fade">
             <div
@@ -43,6 +42,7 @@
               @mouseleave="onMouseHover(false)"
               v-show="data.isShowGuid"
             >
+              <div class="site-guid-data-arrow"></div>
               <div
                 class="info"
                 v-for="(item, indexKey) in guide"
@@ -79,7 +79,7 @@
 <script lang="ts">
 import { defineComponent, reactive, computed } from 'vue';
 // import Search from './Search.vue';
-import { newHeader, versions, version, nav, repository, language, guide } from '@/config/index';
+import { newHeader, versions, version, nav, newRepository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
 import { useLocale } from '@/assets/util/locale';
@@ -175,7 +175,7 @@ export default defineComponent({
       newHeader,
       versions,
       version,
-      repository,
+      newRepository,
       data,
       language,
       toHome,
@@ -262,7 +262,7 @@ export default defineComponent({
     float: right;
     // width: calc(100% - 240px);
     // min-width: 900px;
-    padding: 0 40px;
+    // padding: 0 40px;
     .nav-box {
       // margin-right: 140px;
       .nav-list {
@@ -273,9 +273,9 @@ export default defineComponent({
         align-items: center;
         // justify-content: flex-end;
       }
-      .nav-item {
+      .nav-normal {
         position: relative;
-        margin-right: 30px;
+        margin-right: 50px;
         font-size: 14px;
         height: 63px;
         line-height: 63px;
@@ -288,11 +288,12 @@ export default defineComponent({
           color: rgb(244, 244, 244);
         }
         // overflow: hidden;
+
         &:hover {
           font-weight: bold;
           &:after {
             content: '';
-            display: inline-block;
+            display: block;
             width: 35px;
             height: 13px;
             position: absolute;
@@ -303,6 +304,12 @@ export default defineComponent({
               no-repeat;
             background-size: 100% 100%;
           }
+        }
+      }
+      .nav-item {
+        &:nth-child(4),
+        &:nth-child(5) {
+          margin-right: 0;
         }
       }
       .user-link {
@@ -335,6 +342,13 @@ export default defineComponent({
   border-radius: 12px;
   font-size: 14px;
   color: #fff;
+  .site-guid-data-arrow {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    top: -30px;
+    left: 0;
+  }
   .info {
     // &:first-child {
     //   border-bottom: 1px solid $theme-black-nav-select-border;

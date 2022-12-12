@@ -16,6 +16,7 @@ export const SiteReact = {
     discussions: 'https://github.com/jdf2e/nutui-react/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
+  newRepository: {},
   versions: [
     {
       name: '1.x',
@@ -120,6 +121,14 @@ export const SiteVue = {
   repository: {
     git: 'https://github.com/jdf2e/nutui',
     gitee: 'https://gitee.com/jd-platform-opensource/nutui',
+    releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
+    discussions: 'https://github.com/jdf2e/nutui/discussions',
+    plan: 'https://github.com/jdf2e/nutui/projects/1'
+  },
+  newRepository: {
+    git: 'https://github.com/jdf2e',
+    gitee: 'https://gitee.com/jd-platform-opensource',
     releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
     issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
     discussions: 'https://github.com/jdf2e/nutui/discussions',
@@ -299,6 +308,7 @@ export const SiteJDT = {
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
+  newRepository: {},
   versions: [
     {
       name: '1.x',
@@ -480,6 +490,8 @@ export const SiteJDB = {
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
+  newRepository: {},
+
   versions: [
     {
       name: '1.x',

@@ -31,20 +31,20 @@
           </div>
           <div class="item-resource">
             <div class="resource-item">
-              <div class="resource-infor">
+              <div class="resource-infor" @click="goMainSite('react')">
                 <img src="@/assets/images/React.png" class="small-icon" />
                 <span class="infor-name">NutUI-React</span>
                 <!-- <span class="infor-version">1.2.2</span> -->
               </div>
             </div>
             <div class="resource-item">
-              <div class="resource-infor">
+              <div class="resource-infor" @click="goMainSite('vue')">
                 <img src="@/assets/images/Vue.png" class="small-icon" />
                 <span class="infor-name">NutUI-Vue</span>
                 <!-- <span class="infor-version">1.2.2</span> -->
                 <div class="infor-child">
-                  <span class="infor-child-name">NutUI-Cat</span>
-                  <span class="infor-child-name">NutUI-Bingo</span>
+                  <span class="infor-child-name" @click.stop="toDetail('cat')">NutUI-Cat</span>
+                  <span class="infor-child-name" @click.stop="toDetail('bingo')">NutUI-Bingo</span>
                 </div>
               </div>
               <!-- <div class="infor-child">
@@ -74,13 +74,16 @@
                 <span class="infor-name">多端小程序</span>
                 <!-- <span class="infor-version">1.2.2</span> -->
                 <div class="infor-child">
-                  <span class="infor-child-name">NutUI-React</span>
-                  <span class="infor-child-name">NutUI-Vue</span>
+                  <span class="infor-child-name" @click="goMainSite('react')">NutUI-React</span>
+                  <span class="infor-child-name" @click="goMainSite('vue')">NutUI-Vue</span>
                 </div>
               </div>
             </div>
             <div class="resource-item">
-              <div class="resource-infor">
+              <div
+                class="resource-infor"
+                @click="toJointDetails('https://mp-docs.jd.com/jdmpTechnology/nutui/nutui.html')"
+              >
                 <img src="@/assets/images/Jdweapp.png" class="small-icon" />
                 <span class="infor-name">京东小程序</span>
                 <span class="infor-version infor-goline">待上线</span>
@@ -229,26 +232,25 @@
               <img src="@/assets/images/logo-red.png" class="contributor-head" />
             </div> -->
             <div class="contributor-item">
-              <img src="https://opencollective.com/nutui/contributors.svg?width=890&button=false" />
+              <img :src="contributorImg" v-if="contributorImgShow" />
+              <img
+                src="https://img10.360buyimg.com/imagetools/jfs/t1/165584/36/30765/292664/6396d3bbEf987376d/3dfbb9cfc532dbe5.png"
+                v-else
+              />
             </div>
           </div>
         </div>
         <div class="jointly-box-right">
-          <div class="card-list">
-            <div class="card-item">
-              <img src="@/assets/images/card-icon-1.png" class="item-icon" />
-              <h3 class="card-title">多技术栈</h3>
-              <span class="desc">支持业界流行的 React、Vue、小程序技术栈</span>
-            </div>
-            <div class="card-item">
-              <img src="@/assets/images/card-icon-3.png" class="item-icon" />
-              <h3 class="card-title">多端适配</h3>
-              <span class="desc">适配 Taro，实现一码多端功能，保持设计统一性</span>
-            </div>
-            <div class="card-item">
-              <img src="@/assets/images/card-icon-2.png" class="item-icon" />
-              <h3 class="card-title">资源丰富</h3>
-              <span class="desc">80+ 组件，70+ 文章视频，优秀的设计资源和官方主题</span>
+          <div class="jointly-direction">
+            <div class="direction-center">
+              <div
+                v-for="(item, index) of jointDirection"
+                :class="['direction-item', 'direction-item-' + index]"
+                :key="item"
+                @click="toJointDetails(item.url)"
+              >
+                <span class="word">{{ item.key }}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -263,6 +265,7 @@ import NewHeader from './NewHeader.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
+import { loadImageEnd } from '@/assets/util/loadImageEnd';
 // import Swiper from 'swiper/swiper-bundle.min.js';
 import Swiper, { EffectFade, Autoplay, Pagination } from 'swiper';
 import 'swiper/swiper.min.css';
@@ -321,12 +324,34 @@ export default defineComponent({
       showAwait: false,
       qrcodeList: [],
       bannerList: [],
-      backgroundLoading: true
+      contributorImgShow: false,
+      contributorImg: '',
+      backgroundLoading: true,
+      jointDirection: [
+        { key: '合作共建', url: 'https://jelly.jd.com/article/6320528b92d94a0068685525' },
+        { key: 'Issue 类', url: 'https://github.com/jdf2e/nutui/issues' },
+        { key: 'Bug 类', url: 'https://github.com/jdf2e/nutui/issues' },
+        { key: '新增组件', url: 'https://github.com/jdf2e/nutui/issues/1671' },
+        { key: '国际化', url: 'https://nutui.jd.com/#/zh-CN/guide/international' },
+        {
+          key: 'UI 定制',
+          url: 'https://www.bilibili.com/video/BV1wa411n74q/?spm_id_from=333.337.search-card.all.click'
+        },
+        {
+          key: '平台类适配',
+          url: 'https://www.bilibili.com/video/BV1aB4y1j7WV/?spm_id_from=333.999.0.0&vd_source=8a2b2ff0852d3ad502bd22dc02338db2'
+        },
+        {
+          key: '跨端扩展',
+          url: 'https://www.bilibili.com/video/BV1aB4y1j7WV/?spm_id_from=333.999.0.0&vd_source=8a2b2ff0852d3ad502bd22dc02338db2'
+        }
+      ]
     });
     let caseSwiper: any = null;
     let qrcodeSwiper: any = null;
 
     onMounted(() => {
+      initHeadimg();
       if (homePage.article.show) {
         getArticle();
         getVideo();
@@ -334,6 +359,14 @@ export default defineComponent({
       if (homePage.cases.show) getCasesImages();
       if (homePage.qrcodeShow) getQRCode();
     });
+    const initHeadimg = () => {
+      const imgArr = ['https://opencollective.com/nutui/contributors.svg?width=890&button=false'];
+      loadImageEnd(imgArr, (res) => {
+        console.log('加载完', res);
+        data.contributorImg = imgArr[0];
+        data.contributorImgShow = true;
+      });
+    };
     const renderBannerSwiper = (idx) => {
       // console.log('更新 banner');
       const self = data.bannerList;
@@ -520,8 +553,16 @@ export default defineComponent({
         router.push({ path: `/${currentLang.value}/guide/intro` });
       }
     }
-    const toDetail = () => {
-      window.open('/cat');
+    const toDetail = (f: string) => {
+      window.open(f == 'cat' ? 'https://nutui.jd.com/cat/#/' : 'https://nutui.jd.com/bingo/#/');
+    };
+    const goMainSite = (f: string) => {
+      window.open(
+        f == 'vue' ? 'https://nutui.jd.com/#/zh-CN/guide/intro' : 'https://nutui.jd.com/react/#/zh-CN/guide/intro-react'
+      );
+    };
+    const toJointDetails = (url: string) => {
+      window.open(url);
     };
 
     const goBannerList = (banner: any) => {
@@ -545,52 +586,14 @@ export default defineComponent({
       bannerName,
       onQRLeft,
       onQRRight,
-      goBannerList
+      goBannerList,
+      toJointDetails,
+      goMainSite
     };
   }
 });
 </script>
 <style lang="scss" scoped>
-// @keyframes fadeInLeft {
-//   from {
-//     opacity: 0;
-//     transform: translate3d(-100%, 0, 0);
-//   }
-//   to {
-//     opacity: 1;
-//     transform: translate3d(0, 0, 0);
-//   }
-// }
-// .doc-content-index {
-//   /* background: url(https://storage.360buyimg.com/imgtools/a423faab46-8b142e80-8bb1-11eb-853a-6fded8704e77.png)
-//       no-repeat;
-//     background-size: 1050px 540px;
-//     background-position-x: right;
-//     background-position-y: 110px; */
-//   .content-left {
-//     .content-title {
-//       animation: fadeInLeft 1s both;
-//     }
-//     .content-smile {
-//       animation: fadeInLeft 1s both 0.5s;
-//     }
-//     .content-subTitle {
-//       animation: fadeInLeft 1s both 0.5s;
-//     }
-//     .content-button {
-//       iframe {
-//         animation: fadeInLeft 1s both 1.2s;
-//       }
-//       .leftButton {
-//         animation: fadeInLeft 1s both 1.2s;
-//       }
-//       .rightButton {
-//         animation: fadeInLeft 1s both 1.2s;
-//       }
-//     }
-//   }
-// }
-
 // 定义外部光环旋转动画
 @keyframes externalHalo {
   0% {
@@ -623,6 +626,37 @@ export default defineComponent({
 }
 </style>
 <style lang="scss" scoped>
+@mixin breathe-circle($color, $area, $seacond) {
+  width: $area;
+  height: $area;
+  background-color: $color;
+  border-radius: 50%;
+  &::before {
+    content: '';
+    display: block;
+    width: $area;
+    height: $area;
+    border-radius: 50%;
+    opacity: 0.7;
+    background-color: $color;
+    animation: breathe $seacond infinite cubic-bezier(0, 0, 0.49, 1.02);
+  }
+}
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+
+  50%,
+  75% {
+    transform: scale(3);
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+  }
+}
 ::selection {
   background: $doc-default-color;
   color: #fff;
@@ -1055,10 +1089,9 @@ export default defineComponent({
       justify-content: space-between;
       align-items: center;
       padding: 20px;
-      // .jointly-box-left,
-      // .jointly-box-right {
-      //   flex: 1;
-      // }
+      .jointly-box-left {
+        flex: 2;
+      }
     }
     .jointly-box-left {
       .sub-title {
@@ -1067,81 +1100,142 @@ export default defineComponent({
       }
       .left-contributor {
         overflow: hidden;
-        // .contributor-item {
-        //   position: relative;
-        //   float: left;
-        //   width: 40px;
-        //   height: 40px;
-        //   margin: 0 8px 8px 0;
-        // }
-        .contributor-item {
-          width: 660px;
-          height: 330px;
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-        // 头像旋转动画
-        .avatarRotation {
-          animation: internalAvatar 3s linear;
-          // 动画无限循环
-          animation-iteration-count: infinite;
-        }
-        /*头像显示层*/
-        .headPortrait-img-panel {
-          position: absolute;
-          width: 101%;
-          height: 101%;
-          border: solid 5px #00c9fd;
-          border-top-color: #00f9e5;
-          border-bottom-color: #00f9e5;
-          border-radius: 50%;
-          z-index: 100;
-          // background: url('@/assets/images/circle.png') no-repeat;
-          // background-size: 100% 100%;
-        }
-        .contributor-head {
-          position: absolute;
+        max-width: 900px;
+        img {
           width: 100%;
           height: 100%;
-          border-radius: 50%;
         }
+        // 头像旋转动画
+        // .avatarRotation {
+        //   animation: internalAvatar 3s linear;
+        //   // 动画无限循环
+        //   animation-iteration-count: infinite;
+        // }
+        // /*头像显示层*/
+        // .headPortrait-img-panel {
+        //   position: absolute;
+        //   width: 101%;
+        //   height: 101%;
+        //   border: solid 5px #00c9fd;
+        //   border-top-color: #00f9e5;
+        //   border-bottom-color: #00f9e5;
+        //   border-radius: 50%;
+        //   z-index: 100;
+        //   // background: url('@/assets/images/circle.png') no-repeat;
+        //   // background-size: 100% 100%;
+        // }
+        // .contributor-head {
+        //   position: absolute;
+        //   width: 100%;
+        //   height: 100%;
+        //   border-radius: 50%;
+        // }
       }
     }
     .jointly-box-right {
-      .card-list {
-        overflow: hidden;
-        display: flex;
-        justify-content: space-around;
+      flex: 1;
+      width: 100%;
+      height: 400px;
+      // .card-list {
+      //   overflow: hidden;
+      //   display: flex;
+      //   justify-content: space-around;
+      // }
+      // .card-item {
+      //   width: 190px;
+      //   height: 280px;
+      //   margin: 0 0 0 30px;
+      //   border-radius: 10px;
+      //   background: #fff;
+      //   overflow: hidden;
+      //   box-shadow: 0 0 5px rgb(0 0 0 / 10%);
+      //   background: url(@/assets/images/card-bg.png) no-repeat;
+      //   background-size: 100% 100%;
+      //   .item-icon {
+      //     margin: 20px auto;
+      //     width: 180px;
+      //     height: 130px;
+      //   }
+      //   .card-title {
+      //     color: #f2f2f2;
+      //     text-align: center;
+      //   }
+      //   .desc {
+      //     display: block;
+      //     width: 80%;
+      //     text-align: center;
+      //     margin: 10px auto 0;
+      //     color: #f2f2f2;
+      //     font-size: 12px;
+      //   }
+      // }
+      .jointly-direction {
       }
-      .card-item {
-        width: 190px;
-        height: 280px;
-        margin: 0 0 0 30px;
-        border-radius: 10px;
-        background: #fff;
-        overflow: hidden;
-        box-shadow: 0 0 5px rgb(0 0 0 / 10%);
-        background: url(@/assets/images/card-bg.png) no-repeat;
-        background-size: 100% 100%;
-        .item-icon {
-          margin: 20px auto;
-          width: 180px;
-          height: 130px;
+      .direction-center {
+        position: relative;
+        width: 100%;
+        height: 400px;
+      }
+
+      .direction-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: absolute;
+        &:hover {
+          transition: all linear 0.2s;
+          transform: scale(1.2);
         }
-        .card-title {
-          color: #f2f2f2;
-          text-align: center;
-        }
-        .desc {
+        .word {
           display: block;
-          width: 80%;
-          text-align: center;
-          margin: 10px auto 0;
-          color: #f2f2f2;
           font-size: 12px;
+          width: 50px;
+          white-space: nowrap;
+          position: absolute;
+          text-align: center;
+          bottom: -30px;
+          left: 22%;
         }
+      }
+      .direction-item-0 {
+        left: 50%;
+        top: 50%;
+        @include breathe-circle(#d83e4a, 80px, 2s);
+      }
+      .direction-item-1 {
+        left: 70px;
+        top: 70px;
+        @include breathe-circle(#ffa853, 40px, 3.5s);
+      }
+      .direction-item-2 {
+        left: 200px;
+        top: 80px;
+        @include breathe-circle(#3ed0f7, 40px, 2.5s);
+      }
+      .direction-item-3 {
+        left: 350px;
+        top: 170px;
+        @include breathe-circle(#eb7271, 40px, 3s);
+      }
+      .direction-item-4 {
+        left: 80px;
+        top: 210px;
+        @include breathe-circle(#bbe9aa, 30px, 2.5s);
+      }
+      .direction-item-5 {
+        left: 380px;
+        top: 30px;
+        @include breathe-circle(#27c2a3, 40px, 3s);
+      }
+      .direction-item-6 {
+        left: 360px;
+        top: 310px;
+        @include breathe-circle(#ff999c, 20px, 4s);
+      }
+      .direction-item-7 {
+        left: 140px;
+        top: 330px;
+        @include breathe-circle(#fed791, 20px, 4s);
       }
     }
   }
