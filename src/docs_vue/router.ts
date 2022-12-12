@@ -35,19 +35,19 @@ for (const path in modulesEnPage) {
 }
 
 /** vite */
-const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
+const modulesDocs = (import.meta as any).glob('/src/docs/vue/*.md');
 // console.log('路由', modulesDocs);
 for (const path in modulesDocs) {
-  let name = (/docs\/(.*).md/.exec(path) as any[])[1];
+  let name = (/docs\/vue\/(.*).md/.exec(path) as any[])[1];
   guideRouters.push({
     path: `/zh-CN/guide/${name}`,
     component: modulesDocs[path],
     name
   });
 }
-const modulesEnDocs = (import.meta as any).glob('/src/docs/*.en-US.md');
+const modulesEnDocs = (import.meta as any).glob('/src/docs/vue/*.en-US.md');
 for (const path in modulesEnDocs) {
-  let name = (/docs\/(.*).en-US.md/.exec(path) as any[])[1];
+  let name = (/docs\/vue\/(.*).en-US.md/.exec(path) as any[])[1];
   guideEnRouters.push({
     path: `/en-US/guide/${name}`,
     component: modulesEnDocs[path],

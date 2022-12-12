@@ -126,14 +126,14 @@ export const SiteVue = {
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
-  newRepository: {
-    git: 'https://github.com/jdf2e',
-    gitee: 'https://gitee.com/jd-platform-opensource',
-    releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
-    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
-    discussions: 'https://github.com/jdf2e/nutui/discussions',
-    plan: 'https://github.com/jdf2e/nutui/projects/1'
-  },
+  // newRepository: { // 本地跑 dev:jdt报错了，我先注释掉了，😂
+  //   git: 'https://github.com/jdf2e',
+  //   gitee: 'https://gitee.com/jd-platform-opensource',
+  //   releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
+  //   issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
+  //   discussions: 'https://github.com/jdf2e/nutui/discussions',
+  //   plan: 'https://github.com/jdf2e/nutui/projects/1'
+  // },
   versions: [
     {
       name: '1.x',

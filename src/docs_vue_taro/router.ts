@@ -51,26 +51,26 @@ for (const path in modulesPageTaro) {
 }
 
 /** vite */
-const modulesDocs = (import.meta as any).glob('/src/docs/*.md');
+const modulesDocs = (import.meta as any).glob('/src/docs/vue_taro/*.md');
 // console.log('路由', modulesDocs);
 for (const path in modulesDocs) {
-  let name = (/docs\/(.*).md/.exec(path) as any[])[1];
+  let name = (/docs\/vue_taro\/(.*).md/.exec(path) as any[])[1];
   guideRouters.push({
     path: `/zh-CN/guide/${name}`,
     component: modulesDocs[path],
     name
   });
 }
-const modulesEnDocs = (import.meta as any).glob('/src/docs/*.en-US.md');
+const modulesEnDocs = (import.meta as any).glob('/src/docs/vue_taro/*.en-US.md');
 for (const path in modulesEnDocs) {
-  let name = (/docs\/(.*).en-US.md/.exec(path) as any[])[1];
+  let name = (/docs\/vue_taro\/(.*).en-US.md/.exec(path) as any[])[1];
   guideEnRouters.push({
     path: `/en-US/guide/${name}`,
     component: modulesEnDocs[path],
     name: `en-${name}`
   });
 }
-// console.log(guideRouters);
+
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
