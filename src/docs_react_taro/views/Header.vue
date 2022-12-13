@@ -64,12 +64,13 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, computed, onMounted } from 'vue';
+import { defineComponent, reactive, computed } from 'vue';
 import Search from '@/components/Search.vue';
 import { header, versions, version, nav, repository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
 import { useLocale } from '@/assets/util/locale';
+import { isJDB, isJDDKH } from '@/assets/util/index';
 export default defineComponent({
   name: 'doc-header',
   components: {
@@ -179,7 +180,9 @@ export default defineComponent({
       guide,
       toLink,
       translate,
-      isZh
+      isZh,
+      isJDB,
+      isJDDKH
     };
   }
 });

@@ -47,7 +47,6 @@
 <script lang="ts">
 import { defineComponent, onMounted, reactive, toRefs, computed } from 'vue';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
-import { RefData } from '@/sites/assets/util/ref';
 import { language } from '@/config/index';
 import { Icon } from '@nutui/nutui';
 export default defineComponent({
