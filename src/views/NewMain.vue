@@ -42,10 +42,10 @@
                 <img src="@/assets/images/Vue.png" class="small-icon" />
                 <span class="infor-name">NutUI-Vue</span>
                 <!-- <span class="infor-version">1.2.2</span> -->
-                <div class="infor-child">
+                <!-- <div class="infor-child">
                   <span class="infor-child-name" @click.stop="toDetail('cat')">NutUI-Cat</span>
                   <span class="infor-child-name" @click.stop="toDetail('bingo')">NutUI-Bingo</span>
-                </div>
+                </div> -->
               </div>
               <!-- <div class="infor-child">
                 <span class="infor-child-name">NutUI-Cat</span>
@@ -248,6 +248,7 @@
                 :class="['direction-item', 'direction-item-' + index]"
                 :key="item"
                 @click="toJointDetails(item.url)"
+                title="点击参与共建"
               >
                 <span class="word">{{ item.key }}</span>
               </div>
@@ -368,8 +369,6 @@ export default defineComponent({
       });
     };
     const renderBannerSwiper = (idx: number) => {
-      // console.log('更新 banner');
-      const self = data.bannerList;
       setTimeout(() => {
         data.articleProxy[idx]['swiperEle'] = new Swiper('.doc-content-banner-swiper .swiper-container-' + idx, {
           direction: 'horizontal',
@@ -418,7 +417,6 @@ export default defineComponent({
       });
     };
     const onQRLeft = () => {
-      // console.log(123467467467467467);
       qrcodeSwiper.slidePrev();
     };
     const onQRRight = () => {
@@ -441,13 +439,15 @@ export default defineComponent({
           });
           data.articleProxy.forEach((m, x) => {
             setTimeout(() => {
-              renderBannerSwiper(x);
-            }, 500 * x);
+              if (x < 3) {
+                renderBannerSwiper(x);
+              }
+            }, 200 * x);
           });
         }
       });
     };
-    // 视频列表接
+    // 视频列表接口
     const getVideo = () => {
       const apiService = new ApiService();
       apiService
@@ -457,7 +457,7 @@ export default defineComponent({
         .then((res) => {
           if (res?.state == 0) {
             data.articleProxy[3]['article'] = res.value.data.arrays.splice(0, 5);
-            renderBannerSwiper(4);
+            renderBannerSwiper(3);
           }
         });
     };
@@ -668,6 +668,7 @@ export default defineComponent({
 .doc-content-banner-swiper {
   position: relative;
   flex: 1;
+  cursor: pointer;
   .swiper-tag {
     position: absolute;
     background: linear-gradient(90deg, #00b2bd, #2ceb85);
@@ -1403,6 +1404,10 @@ export default defineComponent({
 </style>
 
 <style lang="scss">
+html,
+body {
+  background-color: #070505;
+}
 .doc-footer {
   .doc-footer-list {
     &:last-of-type {

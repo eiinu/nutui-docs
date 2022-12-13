@@ -17,7 +17,7 @@
                 {{ isZh ? item.cName : item.eName }}
               </a>
             </li>
-            <li class="nav-item nav-normal" v-else>
+            <li class="nav-item nav-normal" :class="{ active: data.isShowGuid }" v-else>
               <div
                 @mouseenter="onMouseHover(true)"
                 @mouseleave="onMouseHover(false)"
@@ -76,8 +76,21 @@
                         ></div
                       >
                       <div class="version" v-if="info.status == 1 && item.type == 'H5'">
-                        Version：{{ info.name.indexOf('React') > -1 ? reactVersion : vueVersion }}</div
-                      >
+                        <a
+                          :href="
+                            'https://www.npmjs.com/package/@nutui/nutui' +
+                            (info.name.indexOf('React') > -1 ? '-react' : '')
+                          "
+                        >
+                          <img
+                            :src="
+                              'https://img.shields.io/npm/v/@nutui/nutui' +
+                              (info.name.indexOf('React') > -1 ? '-react' : '') +
+                              '.svg?style=flat-square'
+                            "
+                          />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -151,15 +164,18 @@ export default defineComponent({
     };
 
     const toLink = (item: any) => {
-      if (item) {
-        if (isEn.value) {
-          item.path = item.path.replace('zh-CN', 'en-US');
-        } else {
-          item.path = item.path.replace('en-US', 'zh-CN');
-        }
-        router.push({ path: item.path });
-      } else {
-        router.push({ name: '/' });
+      // if (item) {
+      //   if (isEn.value) {
+      //     item.path = item.path.replace('zh-CN', 'en-US');
+      //   } else {
+      //     item.path = item.path.replace('en-US', 'zh-CN');
+      //   }
+      //   router.push({ path: item.path });
+      // } else {
+      //   router.push({ name: '/' });
+      // }
+      if (item.url) {
+        window.open(item.url);
       }
     };
 
@@ -199,7 +215,7 @@ export default defineComponent({
       const response = await fetch(`https://registry.npmmirror.com/${repoId}`);
       const result = await response.json();
       const versionsList = await Object.keys(result.versions);
-      const releases = await versionsList.filter((item) => item.indexOf('beta') == -1);
+      const releases = await versionsList.filter((item) => item.indexOf('beta') == -1).reverse();
       if (repoId == '@nutui/nutui') {
         versionList.vueVersion = releases[0];
       } else {
@@ -254,6 +270,7 @@ export default defineComponent({
 }
 .site-doc {
   &-header {
+    position: sticky;
     // position: fixed;
     z-index: 9999;
     top: 0px;
@@ -325,7 +342,8 @@ export default defineComponent({
         }
         // overflow: hidden;
 
-        &:hover {
+        &:hover,
+        &.active {
           font-weight: bold;
           &:after {
             content: '';
@@ -343,7 +361,6 @@ export default defineComponent({
         }
       }
       .nav-item {
-        &:nth-child(4),
         &:nth-child(5) {
           margin-right: 0;
         }
@@ -369,10 +386,10 @@ export default defineComponent({
   // display: block !important;
   position: absolute;
   z-index: 10;
-  top: 70px;
-  left: -150px;
+  top: 60px;
+  left: -210px;
   padding: 20px;
-  width: 490px;
+  width: 510px;
   background: $theme-black-nav-select-bg;
   border: 1px solid $theme-black-nav-select-border;
   border-radius: 12px;
@@ -380,10 +397,10 @@ export default defineComponent({
   color: #fff;
   .site-guid-data-arrow {
     position: absolute;
-    width: 100%;
+    width: 100px;
     height: 30px;
     top: -30px;
-    left: 0;
+    left: 37%;
   }
   .info {
     // &:first-child {
@@ -405,7 +422,7 @@ export default defineComponent({
     flex-wrap: wrap;
   }
   .content {
-    width: 220px;
+    width: 230px;
     display: flex;
     align-items: center;
     padding: 15px;

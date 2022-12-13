@@ -133,14 +133,15 @@ export const SiteVue = {
     discussions: 'https://github.com/jdf2e/nutui/discussions',
     plan: 'https://github.com/jdf2e/nutui/projects/1'
   },
-  // newRepository: { // 本地跑 dev:jdt报错了，我先注释掉了，😂
-  //   git: 'https://github.com/jdf2e',
-  //   gitee: 'https://gitee.com/jd-platform-opensource',
-  //   releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
-  //   issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
-  //   discussions: 'https://github.com/jdf2e/nutui/discussions',
-  //   plan: 'https://github.com/jdf2e/nutui/projects/1'
-  // },
+  newRepository: {
+    // 本地跑 dev:jdt 报错了，我先注释掉了，😂
+    git: 'https://github.com/jdf2e',
+    gitee: 'https://gitee.com/jd-platform-opensource',
+    releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
+    discussions: 'https://github.com/jdf2e/nutui/discussions',
+    plan: 'https://github.com/jdf2e/nutui/projects/1'
+  },
   versions: [
     {
       name: '1.x',
@@ -228,19 +229,30 @@ export const SiteVue = {
     },
     {
       name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
-      cName: '资源共享',
+      cName: '资源',
       eName: 'Guide',
       key: '2',
       path: '/zh-CN/guide/intro',
-      pathName: 'intro'
+      pathName: 'intro',
+      url: 'https://nutui.jd.com/#/zh-CN/resource'
+    },
+    {
+      name: '/zh-CN/case',
+      cName: '案例',
+      eName: 'Cases',
+      path: '/zh-CN/case',
+      pathName: 'case',
+      key: '3',
+      url: 'https://nutui.jd.com/#/zh-CN/case'
     },
     {
       name: 'joinus',
       cName: '加入我们',
       eName: 'Join us',
-      key: '3',
+      key: '4',
       path: '/zh-CN/guide/joinus',
-      pathName: '/zh-CN/guide/joinus'
+      pathName: '/zh-CN/guide/joinus',
+      url: 'https://nutui.jd.com/#/zh-CN/guide/joinus'
     }
   ],
   // 官网 首页
