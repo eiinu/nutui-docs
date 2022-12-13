@@ -57,6 +57,80 @@ const guide = [
     ]
   }
 ];
+
+const products = [
+  {
+    type: 'H5',
+    data: [
+      {
+        name: 'NutUI-React',
+        icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/111058/12/30939/2225/639703a1E27d6984e/38cbe27759020dc9.png',
+        status: 1,
+        statusDesc: '已上线',
+        link: 'https://nutui.jd.com/react/#/zh-CN/guide/intro-react'
+      },
+      {
+        name: 'NutUI-Vue',
+        icon: 'https://img12.360buyimg.com/imagetools/jfs/t1/196475/33/30665/2108/639703a1Ef17ae707/ad59fc912f3681d2.png',
+        status: 1,
+        statusDesc: '已上线',
+        link: 'https://nutui.jd.com/#/'
+      },
+      {
+        name: 'NutUI-Angular',
+        icon: 'https://img14.360buyimg.com/imagetools/jfs/t1/74435/24/19418/2152/639703a1E0883f2c3/1ef702a42b818294.png',
+        status: 0,
+        statusDesc: '规划中',
+        link: ''
+      }
+    ]
+  },
+  {
+    type: '小程序',
+    data: [
+      {
+        name: '多端小程序',
+        icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/169186/5/33010/1762/639703a1E898bcb96/6c372c661c6dddfe.png',
+        status: 1,
+        statusDesc: '已上线',
+        link: 'https://taro-docs.jd.com/docs/nutui'
+      },
+      {
+        name: '京东小程序',
+        icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/103951/26/21635/41737/639703a1Eddcccb0d/cab0dc9f249b5596.png',
+        status: 2,
+        statusDesc: '待上线',
+        link: 'https://mp-docs.jd.com/jdmpTechnology/nutui/nutui.html'
+      },
+      {
+        name: '微信小程序',
+        icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/168379/20/33440/54623/639703a1E93579691/cee76d1b50865cb9.png',
+        status: 2,
+        statusDesc: '待上线',
+        link: ''
+      }
+    ]
+  },
+  {
+    type: 'APP',
+    data: [
+      {
+        name: 'React Native',
+        icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/111058/12/30939/2225/639703a1E27d6984e/38cbe27759020dc9.png',
+        status: 2,
+        statusDesc: '待上线',
+        link: ''
+      },
+      {
+        name: 'Flutter',
+        icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/128292/32/33310/449/639703a1E75accc2b/f672fe7f87ce6d32.png',
+        status: 0,
+        statusDesc: '规划中',
+        link: ''
+      }
+    ]
+  }
+];
 if ((import.meta as any).env.BASE_URL.includes('react')) {
   config = {
     ...reactConfig,
@@ -87,4 +161,4 @@ export const {
   repository,
   newRepository
 } = config;
-export { guide };
+export { guide, products };

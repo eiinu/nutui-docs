@@ -45,12 +45,12 @@
               <div class="site-guid-data-arrow"></div>
               <div
                 class="info"
-                v-for="(item, indexKey) in guide"
+                v-for="(item, indexKey) in products"
                 :key="indexKey"
                 :class="{ contentKey: indexKey === 1 }"
               >
                 <div class="header">
-                  <div class="type">H5</div>
+                  <div class="type">{{ item.type }}</div>
                 </div>
                 <div class="product-type">
                   <div
@@ -60,11 +60,24 @@
                     @click.stop="checkGuidTheme(info)"
                   >
                     <div class="item-logo">
-                      <img src="@/assets/images/React.png" alt="" />
+                      <img :src="info.icon" />
                     </div>
                     <div class="item-info">
-                      <div class="name"> NutUI-React <span class="status">已上线</span></div>
-                      <div class="version"> Version：1.2.3</div>
+                      <div class="name">
+                        {{ info.name }}
+                        <span
+                          :class="[
+                            'status',
+                            info.status == 0 && 'infor-disabled',
+                            ,
+                            info.status == 2 && 'infor-goline'
+                          ]"
+                          >{{ info.statusDesc }}</span
+                        ></div
+                      >
+                      <div class="version" v-if="info.status == 1 && item.type == 'H5'">
+                        Version：{{ info.name.indexOf('React') > -1 ? reactVersion : vueVersion }}</div
+                      >
                     </div>
                   </div>
                 </div>
@@ -77,9 +90,9 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue';
+import { defineComponent, reactive, computed, onMounted, toRefs } from 'vue';
 // import Search from './Search.vue';
-import { newHeader, versions, version, nav, newRepository, language, guide } from '@/config/index';
+import { newHeader, nav, newRepository, language, guide, products } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
 import { useLocale } from '@/assets/util/locale';
@@ -100,6 +113,10 @@ export default defineComponent({
       navIndex: 0,
       activeIndex: 2,
       isShowGuid: false
+    });
+    const versionList = reactive({
+      reactVersion: '已发版',
+      vueVersion: '已发版'
     });
     let { currentLang, isZh, isEn } = useLocale();
 
@@ -167,14 +184,32 @@ export default defineComponent({
       };
     });
     const checkGuidTheme = (item: any, index: number) => {
-      data.isShowGuid = false;
-      window.open(item.link);
+      if (item.link) {
+        data.isShowGuid = false;
+        window.open(item.link);
+      }
+    };
+    onMounted(() => {
+      fetchVersions('@nutui/nutui');
+      setTimeout(() => {
+        fetchVersions('@nutui/nutui-react');
+      }, 400);
+    });
+    const fetchVersions = async (repoId: string) => {
+      const response = await fetch(`https://registry.npmmirror.com/${repoId}`);
+      const result = await response.json();
+      const versionsList = await Object.keys(result.versions);
+      const releases = await versionsList.filter((item) => item.indexOf('beta') == -1);
+      if (repoId == '@nutui/nutui') {
+        versionList.vueVersion = releases[0];
+      } else {
+        versionList.reactVersion = releases[0];
+      }
     };
 
     return {
       newHeader,
-      versions,
-      version,
+      ...toRefs(versionList),
       newRepository,
       data,
       language,
@@ -186,6 +221,7 @@ export default defineComponent({
       handleGuidFocusOut,
       onMouseHover,
       guide,
+      products,
       toLink,
       translate,
       isZh
@@ -336,7 +372,7 @@ export default defineComponent({
   top: 70px;
   left: -150px;
   padding: 20px;
-  width: 480px;
+  width: 490px;
   background: $theme-black-nav-select-bg;
   border: 1px solid $theme-black-nav-select-border;
   border-radius: 12px;
@@ -369,6 +405,7 @@ export default defineComponent({
     flex-wrap: wrap;
   }
   .content {
+    width: 220px;
     display: flex;
     align-items: center;
     padding: 15px;
@@ -397,6 +434,13 @@ export default defineComponent({
       background: linear-gradient(119deg, #00b2bd 11%, #2ceb85 55%);
       transform: scale(0.8);
       border-radius: 10px;
+    }
+    .infor-disabled {
+      background: gray;
+      cursor: not-allowed;
+    }
+    .infor-goline {
+      background: linear-gradient(315deg, #6772ff 0, #00f9e5 100%);
     }
     .version {
       margin-top: 6px;

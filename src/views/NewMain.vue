@@ -200,7 +200,7 @@
 
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(childItem, idx) in item.article" :key="idx">
-                    <div class="swiper-slide-item">
+                    <div class="swiper-slide-item" @click="toJointDetails(childItem.link)">
                       <div class="slide-item-infor">
                         <span class="item-title-name">{{ item.tag }}</span>
                         <span class="item-title-subtitle" :title="childItem.title">{{ childItem.title }}</span>
@@ -286,7 +286,6 @@ export default defineComponent({
     const { currentLang } = useLocale();
     const data: any = reactive({
       // theme: 'white',
-      articleList: [],
       articleProxy: [
         {
           name: '原理',
@@ -344,7 +343,9 @@ export default defineComponent({
         {
           key: '跨端扩展',
           url: 'https://www.bilibili.com/video/BV1aB4y1j7WV/?spm_id_from=333.999.0.0&vd_source=8a2b2ff0852d3ad502bd22dc02338db2'
-        }
+        },
+        { key: '文章', url: 'https://juejin.cn/user/3949101495616919' },
+        { key: '视频', url: 'https://space.bilibili.com/549965366' }
       ]
     });
     let caseSwiper: any = null;
@@ -362,19 +363,18 @@ export default defineComponent({
     const initHeadimg = () => {
       const imgArr = ['https://opencollective.com/nutui/contributors.svg?width=890&button=false'];
       loadImageEnd(imgArr, (res) => {
-        console.log('加载完', res);
         data.contributorImg = imgArr[0];
         data.contributorImgShow = true;
       });
     };
-    const renderBannerSwiper = (idx) => {
+    const renderBannerSwiper = (idx: number) => {
       // console.log('更新 banner');
       const self = data.bannerList;
       setTimeout(() => {
         data.articleProxy[idx]['swiperEle'] = new Swiper('.doc-content-banner-swiper .swiper-container-' + idx, {
           direction: 'horizontal',
           autoplay: {
-            delay: 3000,
+            delay: 5000,
             disableOnInteraction: false
           },
           loop: true,
@@ -382,12 +382,6 @@ export default defineComponent({
           pagination: {
             el: '.swiper-pagination-' + idx,
             clickable: true
-          },
-          on: {
-            click: (event) => {
-              const banner = self[event.realIndex];
-              if (banner && banner.link) window.open(banner.link);
-            }
           }
         });
 
@@ -435,12 +429,12 @@ export default defineComponent({
       const apiService = new ApiService();
       apiService.getArticle().then((res) => {
         if (res?.state == 0) {
-          let dataAry = res.value.data.arrays;
-          data.articleList = dataAry;
+          let dataAry = res.value.data.arrays.filter((item) => item.type == 1);
           dataAry.forEach((item, index) => {
+            let iList = [3, 1, 0, 2];
             let type = parseInt(item.category);
             // let varData = ['practiceArticle', 'principleArticle', 'studyArticle'];
-            let key = type - 1;
+            let key = iList[type];
             if (data.articleProxy[key]['article']?.length != 5) {
               data.articleProxy[key]['article']?.push(item);
             }
@@ -626,32 +620,30 @@ export default defineComponent({
 }
 </style>
 <style lang="scss" scoped>
-@mixin breathe-circle($color, $area, $seacond) {
-  width: $area;
-  height: $area;
+@mixin breathe-circle($color, $size, $time) {
+  width: $size;
+  height: $size;
   background-color: $color;
   border-radius: 50%;
   &::before {
     content: '';
     display: block;
-    width: $area;
-    height: $area;
+    width: $size;
+    height: $size;
     border-radius: 50%;
     opacity: 0.7;
     background-color: $color;
-    animation: breathe $seacond infinite cubic-bezier(0, 0, 0.49, 1.02);
+    animation: breathe $time infinite cubic-bezier(0, 0, 0.49, 1.02);
   }
 }
 @keyframes breathe {
   0% {
     transform: scale(1);
   }
-
   50%,
   75% {
     transform: scale(3);
   }
-
   78%,
   100% {
     opacity: 0;
@@ -1169,8 +1161,6 @@ export default defineComponent({
       //     font-size: 12px;
       //   }
       // }
-      .jointly-direction {
-      }
       .direction-center {
         position: relative;
         width: 100%;
@@ -1183,6 +1173,7 @@ export default defineComponent({
         border-radius: 50%;
         position: absolute;
         &:hover {
+          cursor: pointer;
           transition: all linear 0.2s;
           transform: scale(1.2);
         }
@@ -1236,6 +1227,16 @@ export default defineComponent({
         left: 140px;
         top: 330px;
         @include breathe-circle(#fed791, 20px, 4s);
+      }
+      .direction-item-8 {
+        left: 160px;
+        top: 240px;
+        @include breathe-circle(#70a78c, 20px, 5.5s);
+      }
+      .direction-item-9 {
+        left: 410px;
+        top: 260px;
+        @include breathe-circle(#b65db7, 20px, 5.5s);
       }
     }
   }
@@ -1402,6 +1403,13 @@ export default defineComponent({
 </style>
 
 <style lang="scss">
+.doc-footer {
+  .doc-footer-list {
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
 .swiper-pagination {
   position: absolute;
   width: 100%;
