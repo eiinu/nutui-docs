@@ -98,8 +98,8 @@ const products = [
       {
         name: '京东小程序',
         icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/103951/26/21635/41737/639703a1Eddcccb0d/cab0dc9f249b5596.png',
-        status: 2,
-        statusDesc: '待上线',
+        status: 1,
+        statusDesc: '已上线',
         link: 'https://mp-docs.jd.com/jdmpTechnology/nutui/nutui.html'
       },
       {

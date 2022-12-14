@@ -2,7 +2,7 @@
   <new-header></new-header>
 
   <div class="doc-content" :class="themeName()">
-    <div :class="docContentIndex">
+    <div :class="docContentIndex" :style="{ height: getHeight }">
       <!-- vue -->
       <div class="doc-content-banner-box">
         <div :class="bannerName()">
@@ -13,8 +13,28 @@
           <div class="content-desc">适配 H5、小程序、APP</div>
         </div>
 
-        <div class="doc-content-banner-image">
+        <!-- <div class="doc-content-banner-image">
           <img src="@/assets/images/banner1.png" class="banner-image" />
+        </div> -->
+        <div
+          :class="[
+            'doc-content-banner-img',
+            bannerList.length > 0 && !backgroundLoading ? 'doc-content-banner-imgcover' : ''
+          ]"
+        >
+          <div class="skew-box">
+            <div class="doc-content-banner-swiper">
+              <div class="swiper-container swiper-container-banner" v-if="bannerList.length > 0 && !backgroundLoading">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide" v-for="(arr, index) in bannerList" :key="index">
+                    <div class="swiper-slide-item"><img :src="arr.cover_image" /></div>
+                  </div>
+                </div>
+              </div>
+              <!-- 如果需要分页器 -->
+              <div class="swiper-pagination swiper-pagination-banner"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -86,7 +106,7 @@
               >
                 <img src="@/assets/images/Jdweapp.png" class="small-icon" />
                 <span class="infor-name">京东小程序</span>
-                <span class="infor-version infor-goline">待上线</span>
+                <!-- <span class="infor-version infor-goline">待上线</span> -->
               </div>
             </div>
             <div class="resource-item">
@@ -126,7 +146,7 @@
     <div class="doc-content-cases" v-if="homePage.cases.show && casesImages.length">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">应用案例</h4>
-        <a class="sub-more" :href="homePage.cases.moreRouter" v-if="homePage.cases.moreRouter">More</a>
+        <a class="sub-more" :href="homePage.cases.moreRouter" v-if="homePage.cases.moreRouter">更多</a>
       </div>
 
       <div class="doc-content-desc"
@@ -183,7 +203,7 @@
     <div class="doc-content-more" v-if="homePage.article.show">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">资源共享</h4>
-        <a class="sub-more" :href="homePage.article.moreRouter" v-if="homePage.article.moreRouter">More</a>
+        <a class="sub-more" :href="homePage.article.moreRouter" v-if="homePage.article.moreRouter">更多</a>
       </div>
       <!-- <ul class="more-list">
         <li class="more-item" v-for="item in articleList.slice(0, 4)" :key="item.id" @click="toLink(item.id)">
@@ -196,13 +216,14 @@
           <template v-for="(item, index) of articleProxy">
             <div class="doc-content-banner-swiper" :key="item.name" v-if="item.article.length > 0">
               <div :class="['swiper-container', 'swiper-container-' + index]">
-                <span class="swiper-tag">{{ item.name }}</span>
+                <span class="swiper-tag">{{ item.tag }}</span>
 
                 <div class="swiper-wrapper">
                   <div class="swiper-slide" v-for="(childItem, idx) in item.article" :key="idx">
                     <div class="swiper-slide-item" @click="toJointDetails(childItem.link)">
+                      <img :src="childItem.cover_image" class="slide-item-bg" />
                       <div class="slide-item-infor">
-                        <span class="item-title-name">{{ item.tag }}</span>
+                        <!-- <span class="item-title-name">{{ item.tag }}</span> -->
                         <span class="item-title-subtitle" :title="childItem.title">{{ childItem.title }}</span>
                       </div>
                     </div>
@@ -360,7 +381,63 @@ export default defineComponent({
       }
       if (homePage.cases.show) getCasesImages();
       if (homePage.qrcodeShow) getQRCode();
+      initBannerSwiper();
     });
+
+    // 首屏轮播图
+    let bannerSwiper: any = null;
+    const initBannerSwiper = () => {
+      const apiService = new ApiService();
+      const imgArr = [
+        'https://img10.360buyimg.com/imagetools/jfs/t1/29781/3/19183/142442/6332a685Eb8ac2a85/9880cdaea3a1ca14.png'
+      ];
+      loadImageEnd(imgArr, () => {
+        // console.log('加载完');
+        data.backgroundLoading = false;
+        if (!bannerSwiper) renderBannerSwiper();
+      });
+      apiService.getBannerList().then((res) => {
+        if (res?.state == 0 && res?.value.data.length != 0) {
+          data.bannerList = [].concat(res.value.data.arrays);
+          // console.log(data.backgroundLoading);
+          if (!data.backgroundLoading) renderBannerSwiper();
+        }
+      });
+    };
+    const renderBannerSwiper = () => {
+      // console.log('更新 banner');
+      const self = data.bannerList;
+      setTimeout(() => {
+        bannerSwiper = new Swiper('.doc-content-banner-swiper .swiper-container-banner', {
+          direction: 'horizontal',
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false
+          },
+          loop: true,
+          // 如果需要分页器
+          pagination: {
+            el: '.swiper-pagination-banner',
+            clickable: true
+          },
+          on: {
+            click: (event) => {
+              const banner = self[event.realIndex];
+              if (banner && banner.link) window.open(banner.link);
+            }
+          }
+        });
+        console.log(bannerSwiper.pagination.bullets);
+
+        for (let i = 0; i < bannerSwiper.pagination.bullets.length; i++) {
+          bannerSwiper.pagination.bullets[i].onmouseover = function () {
+            console.log(2);
+            this.click();
+          };
+        }
+      }, 500);
+    };
+
     const initHeadimg = () => {
       const imgArr = ['https://opencollective.com/nutui/contributors.svg?width=890&button=false'];
       loadImageEnd(imgArr, (res) => {
@@ -368,14 +445,15 @@ export default defineComponent({
         data.contributorImgShow = true;
       });
     };
-    const renderBannerSwiper = (idx: number) => {
+    const renderSwiperArticle = (idx: number) => {
       setTimeout(() => {
         data.articleProxy[idx]['swiperEle'] = new Swiper('.doc-content-banner-swiper .swiper-container-' + idx, {
           direction: 'horizontal',
-          autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-          },
+          autoplay: false,
+          // autoplay: {
+          //   delay: 5000,
+          //   disableOnInteraction: false
+          // },
           loop: true,
           // 如果需要分页器
           pagination: {
@@ -385,13 +463,13 @@ export default defineComponent({
         });
 
         /*鼠标移入停止轮播，鼠标离开 继续轮播*/
-        var container: any = document.getElementsByClassName('swiper-container-' + idx)[0];
-        container.onmouseenter = function () {
-          data.articleProxy[idx]['swiperEle'].autoplay.stop();
-        };
-        container.onmouseleave = function () {
-          data.articleProxy[idx]['swiperEle'].autoplay.start();
-        };
+        // var container: any = document.getElementsByClassName('swiper-container-' + idx)[0];
+        // container.onmouseenter = function () {
+        //   data.articleProxy[idx]['swiperEle'].autoplay.stop();
+        // };
+        // container.onmouseleave = function () {
+        //   data.articleProxy[idx]['swiperEle'].autoplay.start();
+        // };
         //鼠标滑过pagination控制swiper切换
         for (let i = 0; i < data.articleProxy[idx]['swiperEle'].pagination.bullets.length; i++) {
           data.articleProxy[idx]['swiperEle'].pagination.bullets[i].onmouseover = function () {
@@ -440,7 +518,7 @@ export default defineComponent({
           data.articleProxy.forEach((m, x) => {
             setTimeout(() => {
               if (x < 3) {
-                renderBannerSwiper(x);
+                renderSwiperArticle(x);
               }
             }, 200 * x);
           });
@@ -457,7 +535,7 @@ export default defineComponent({
         .then((res) => {
           if (res?.state == 0) {
             data.articleProxy[3]['article'] = res.value.data.arrays.splice(0, 5);
-            renderBannerSwiper(3);
+            renderSwiperArticle(3);
           }
         });
     };
@@ -552,7 +630,9 @@ export default defineComponent({
     };
     const goMainSite = (f: string) => {
       window.open(
-        f == 'vue' ? 'https://nutui.jd.com/#/zh-CN/guide/intro' : 'https://nutui.jd.com/react/#/zh-CN/guide/intro-react'
+        f == 'vue'
+          ? 'https://nutui.jd.com/#/zh-CN/guide/starttaro'
+          : 'https://nutui.jd.com/react/#/zh-CN/guide/starttaro-react'
       );
     };
     const toJointDetails = (url: string) => {
@@ -562,6 +642,12 @@ export default defineComponent({
     const goBannerList = (banner: any) => {
       if (banner && banner.link) window.open(banner.link);
     };
+
+    const getHeight = computed(() => {
+      const _h = document.body.clientHeight;
+      const height = _h - 64;
+      return height + 'px';
+    });
     return {
       toIntro,
       ...toRefs(data),
@@ -582,7 +668,8 @@ export default defineComponent({
       onQRRight,
       goBannerList,
       toJointDetails,
-      goMainSite
+      goMainSite,
+      getHeight
     };
   }
 });
@@ -649,6 +736,14 @@ export default defineComponent({
     opacity: 0;
   }
 }
+@keyframes maskedAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
 ::selection {
   background: $doc-default-color;
   color: #fff;
@@ -675,7 +770,7 @@ export default defineComponent({
     -moz-border-radius: 0 24px 24px 0;
     border-radius: 0 24px 24px 0;
     left: 0;
-    top: 20px;
+    top: 10px;
     z-index: 1000;
     font-size: 12px;
     padding: 3px 20px;
@@ -697,10 +792,25 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid rgba(84, 84, 84, 0.3);
+    .slide-item-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
   img {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
+  }
+  .slide-item-infor {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 5px 15px;
+    background-color: rgba(0, 0, 0, 0.5);
   }
   .item-title-name {
     display: block;
@@ -718,14 +828,12 @@ export default defineComponent({
   }
   .item-title-subtitle {
     display: block;
-    width: 230px;
-    text-align: center;
+    width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    margin-top: 20px;
-    color: #0000c2;
-    font-size: 16px;
+    color: #fff;
+    font-size: 12px;
   }
   &:nth-child(2) {
     margin: 0 10px;
@@ -764,7 +872,7 @@ export default defineComponent({
 
   .doc-content-product {
     width: 1366px;
-    margin: 0 auto;
+    margin: 20px auto 0;
     .product-list {
       width: 100%;
       display: flex;
@@ -1243,10 +1351,11 @@ export default defineComponent({
   }
 }
 .doc-content-index {
-  width: 1366px;
-  margin: 0 auto 20px;
+  // width: 1366px;
+  // margin: 9% 0 9% 14%;
   position: relative;
   background-color: #070505;
+  min-height: 900px;
 
   &.doc-content-index-react {
     display: flex;
@@ -1265,9 +1374,10 @@ export default defineComponent({
   .content-left {
     position: relative;
     z-index: 999;
+    top: 17%;
     // padding-top: 6%;
     .content-title {
-      font-size: 60px;
+      font-size: 64px;
       color: rgba(255, 255, 255, 1);
       font-weight: 800;
     }
@@ -1283,27 +1393,83 @@ export default defineComponent({
     }
     .content-subTitle {
       margin: 20px 0;
-      font-size: 34px;
+      font-size: 26px;
       color: rgba(255, 255, 255, 1);
+      letter-spacing: 2px;
     }
     .content-desc {
       margin-bottom: 10px;
-      font-size: 18px;
+      font-size: 22px;
       color: rgb(194, 194, 194);
+      background-image: -webkit-linear-gradient(left, #147b96, #e6d205 25%, #147b96 50%, #e6d205 75%, #147b96);
+      // background-image: -webkit-linear-gradient(left, #ff232c, #e6d205 25%, #147b96 50%, #e6d205 75%, #ff232c);
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-background-size: 200% 100%;
+      -webkit-animation: maskedAnimation 4s infinite linear;
     }
   }
 
   .doc-content-banner-box {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 30px;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+
+    // margin-top: 30px;
     // padding: 8% 0 0 10%;
 
     .doc-content-banner-image {
       img {
         width: 675px;
         height: 450px;
+      }
+    }
+    .doc-content-banner-img {
+      position: relative;
+      top: 0;
+      right: -20%;
+      width: 1050px;
+      transform: translateX(60px);
+      flex: 1;
+      height: 540px;
+      background: url(https://storage.360buyimg.com/imgtools/a423faab46-8b142e80-8bb1-11eb-853a-6fded8704e77.png)
+        no-repeat;
+      background-size: 1050px 540px;
+      background-position-x: right;
+      &.doc-content-banner-imgcover {
+        background: url(https://img10.360buyimg.com/imagetools/jfs/t1/29781/3/19183/142442/6332a685Eb8ac2a85/9880cdaea3a1ca14.png)
+          no-repeat;
+        background-size: 1050px 540px;
+        background-position-x: right;
+      }
+      .skew-box {
+        position: absolute;
+        right: 88px;
+        top: 95px;
+        transform: skew(60deg, -27deg);
+        cursor: pointer;
+      }
+      .doc-content-banner-swiper {
+        .swiper-container {
+          width: 330px;
+          height: 150px;
+          box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
+          border-radius: 10px;
+          background: #fff;
+        }
+        .swiper-slide-item {
+          width: 330px;
+          height: 150px;
+          overflow: hidden;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
@@ -1415,10 +1581,12 @@ body {
     }
   }
 }
+
 .swiper-pagination {
   position: absolute;
   width: 100%;
-  bottom: 8px !important;
+  left: 130px;
+  bottom: 6px !important;
   z-index: 9999;
   text-align: center;
 }
@@ -1435,6 +1603,11 @@ body {
   &.swiper-pagination-bullet-active {
     width: 12px !important;
     opacity: 1;
+  }
+}
+::v-deep(.swiper-pagination-banner) {
+  .swiper-pagination {
+    left: 0;
   }
 }
 </style>
