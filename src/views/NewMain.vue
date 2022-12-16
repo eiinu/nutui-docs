@@ -245,7 +245,7 @@
         <div class="jointly-box-left">
           <div class="left-title">
             <h1>开源迭代，持续创新</h1>
-            <span class="sub-title">NutUI 保持开源精神，采用 MIT 协议，诚邀大家共建 NutUI 开源生态。</span>
+            <span class="sub-title">汇集 20+ 团队的 80+ 贡献者，欢迎成为 Contributor 一起共建共享。</span>
           </div>
           <div class="left-contributor">
             <!-- <div class="contributor-item" v-for="item of 80" :key="item">
@@ -1355,7 +1355,7 @@ export default defineComponent({
   // margin: 9% 0 9% 14%;
   position: relative;
   background-color: #070505;
-  min-height: 900px;
+  min-height: 800px;
 
   &.doc-content-index-react {
     display: flex;
@@ -1374,8 +1374,8 @@ export default defineComponent({
   .content-left {
     position: relative;
     z-index: 999;
-    top: 17%;
-    // padding-top: 6%;
+    top: -10%;
+    width: 420px;
     .content-title {
       font-size: 64px;
       color: rgba(255, 255, 255, 1);
@@ -1412,10 +1412,10 @@ export default defineComponent({
 
   .doc-content-banner-box {
     display: flex;
-    flex-direction: column;
-    // justify-content: space-between;
-    // align-items: center;
-    width: 70%;
+    // flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 1390px;
     height: 100%;
     margin: 0 auto;
 
@@ -1430,11 +1430,11 @@ export default defineComponent({
     }
     .doc-content-banner-img {
       position: relative;
-      top: 0;
-      right: -20%;
+      // top: -14%;
+      // right: -20%;
       width: 1050px;
-      transform: translateX(60px);
-      flex: 1;
+      // transform: translateX(60px);
+      // flex: 1;
       height: 540px;
       background: url(https://storage.360buyimg.com/imgtools/a423faab46-8b142e80-8bb1-11eb-853a-6fded8704e77.png)
         no-repeat;
