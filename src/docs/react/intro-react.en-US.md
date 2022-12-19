@@ -15,7 +15,6 @@ NutUI is a JD-style React mobile component library that develops and serves ente
 ## Features
 
 * 🚀 70+ high-quality components covering mainstream mobile scenarios
-* 💪 Supports a set of code to develop multi-terminal Mini Programs +H5 at the same time (Taro version planning)
 * 📖 Based on JD APP 10.0 visual specification
 * 🍭 Support on-demand reference
 * 📖 Detailed documentation and examples

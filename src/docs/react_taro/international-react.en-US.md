@@ -7,8 +7,8 @@ NutUI-React support multiple languages. NutUI uses Chinese as the default langua
 ### Switch languages
 
 ```javascript
-import { ConfigProvider } from "@nutui/nutui-react";
-import en from "@nutui/nutui-react/dist/locales/en-US";
+import { ConfigProvider } from "@nutui/nutui-react-taro";
+import en from "@nutui/nutui-react-taro/dist/locales/en-US";
 
 ReactDOM.render(
   <ConfigProvider locale={en}>

@@ -35,7 +35,7 @@ $primary-color-end: #fa6419;
 import **nutui.scss**
 
 ```javascript
-import "@nutui/nutui-react/dist/styles/themes/default.scss";
+import "@nutui/nutui-react-taro/dist/styles/themes/default.scss";
 ```
 
 ## Custom Theme
@@ -62,7 +62,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";@import "./your/custom_theme.scss";`
+        additionalData: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";@import "./your/custom_theme.scss";`
       }
     }
   }

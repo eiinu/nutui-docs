@@ -76,12 +76,12 @@ config = {
 
 #### 3. 添加@nuiui-react-taro组件库
 ```bash
-yarn add @nutui/nutui-react-taro
+yarn add @nutui/nutui-react-taro-taro
 ```
 
 #### 4. 代码中引入nutui-react-taro库，进行测试
 ```js
-import { Button } from '@nutui/nutui-react-taro';
+import { Button } from '@nutui/nutui-react-taro-taro';
 render () {
   return (
     <View className='index'>
@@ -97,7 +97,7 @@ render () {
 // config/index.js
 ```js
 sass:{
-  data: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`
+  data: `@import "@nutui/nutui-react-taro-taro/dist/styles/variables.scss";`
 }
 ```
 
@@ -108,7 +108,7 @@ plugins: [
   [
     "import",
     {
-      "libraryName": "@nutui/nutui-react-taro",
+      "libraryName": "@nutui/nutui-react-taro-taro",
       "libraryDirectory": "dist/esm",
       "style": true,
       "camel2DashComponentName": false

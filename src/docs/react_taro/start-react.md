@@ -9,7 +9,7 @@
 ## NPM 安装
 
 ```bash
-npm i @nutui/nutui-react
+npm i @nutui/nutui-react-taro
 ```
 
 ### NPM 使用示例
@@ -17,8 +17,8 @@ npm i @nutui/nutui-react
 ```javascript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import '@nutui/nutui-react/dist/style.css'
-import { Icon } from '@nutui/nutui-react';
+import '@nutui/nutui-react-taro/dist/style.css'
+import { Icon } from '@nutui/nutui-react-taro';
 
 ReactDOM.render(
   <div className="App">
@@ -31,7 +31,7 @@ ReactDOM.render(
 
 #### 为什么只按需引入样式
 
-NutUI-React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 `import { Button } from '@nutui/nutui-react'` 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
+NutUI-React 默认支持基于 ES modules 的 tree shaking，对于 JS 部分，直接引入 `import { Button } from '@nutui/nutui-react-taro'` 就会有按需加载的效果。因此仅样式不是按需导入的，因此只需按需导入样式即可。
 
 #### WebPack 构建工具 通过 babel 使用按需加载
 
@@ -49,7 +49,7 @@ npm install babel-plugin-import --save-dev
     [
       "import",
       {
-        "libraryName": "@nutui/nutui-react",
+        "libraryName": "@nutui/nutui-react-taro",
         "libraryDirectory": "dist/esm",
         "style": true,
         "camel2DashComponentName": false
@@ -64,7 +64,7 @@ npm install babel-plugin-import --save-dev
 //...
 // 给 sass-loader 传递选项
 scss: {
-    data: `@import "@nutui/nutui-react/dist/styles/variables.scss";`,
+    data: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`,
 }
 //...
 ```
@@ -95,7 +95,7 @@ module.exports = {
         sass: {
             loaderOptions: {
                 sourceMap: true,
-                additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";` /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */,
+                additionalData: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";` /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */,
             },
         },
     },
@@ -104,7 +104,7 @@ module.exports = {
             [
                 "import",
                 {
-                    libraryName: "@nutui/nutui-react",
+                    libraryName: "@nutui/nutui-react-taro",
                     libraryDirectory: "dist/esm",
                     style: true,
                     camel2DashComponentName: false,
@@ -139,7 +139,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // 配置 nutui 全局 scss 变量
-        additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";`,
+        additionalData: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`,
       },
     },
   },
@@ -148,10 +148,10 @@ export default defineConfig({
     styleImport({
       libs: [
         {
-          libraryName: "@nutui/nutui-react",
+          libraryName: "@nutui/nutui-react-taro",
           libraryNameChangeCase: "pascalCase",
           resolveStyle: (name) => {
-            return `@nutui/nutui-react/dist/esm/${name}/style`
+            return `@nutui/nutui-react-taro/dist/esm/${name}/style`
           },
         },
       ],
@@ -174,7 +174,7 @@ export default defineConfig({
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <!-- 引入样式 -->
   <link rel='stylesheet'
-        href='https://cdn.jsdelivr.net/npm/@nutui/nutui-react/dist/style.css' />
+        href='https://cdn.jsdelivr.net/npm/@nutui/nutui-react-taro/dist/style.css' />
   <!-- 引入React -->
   <script crossorigin
           src='https://unpkg.com/react@17/umd/react.production.min.js'></script>
@@ -182,7 +182,7 @@ export default defineConfig({
           src='https://unpkg.com/react-dom@17/umd/react-dom.production.min.js'></script>
   <!-- 引入NutUI组件库 -->
   <script
-    src='https://cdn.jsdelivr.net/npm/@nutui/nutui-react/dist/nutui.react.umd.js'></script>
+    src='https://cdn.jsdelivr.net/npm/@nutui/nutui-react-taro/dist/nutui.react.umd.js'></script>
 </head>
 <body>
 <div id='app'>

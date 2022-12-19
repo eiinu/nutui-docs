@@ -113,6 +113,10 @@ export default defineComponent({
       }
       getIsGuaid(name);
     });
+    // 过滤taro
+    docs.packages.forEach((p) => {
+      if (p.eName == 'WeChat') p.show = false;
+    });
     return {
       ...toRefs(state),
       isActive,

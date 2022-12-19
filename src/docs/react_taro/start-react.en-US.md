@@ -9,7 +9,7 @@
 ## Install
 
 ```bash
-npm i @nutui/nutui-react
+npm i @nutui/nutui-react-taro
 ```
 
 ### Demo
@@ -17,8 +17,8 @@ npm i @nutui/nutui-react
 ```javascript
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import '@nutui/nutui-react/dist/style.css'
-import { Icon } from '@nutui/nutui-react';
+import '@nutui/nutui-react-taro/dist/style.css'
+import { Icon } from '@nutui/nutui-react-taro';
 
 ReactDOM.render(
   <div className="App">
@@ -31,7 +31,7 @@ ReactDOM.render(
 
 #### Why only import styles on demand
 
-NutUI-React supports tree shaking based on ES modules by default. For the JS part, directly importing `import { Button } from '@nutui/nutui-react'` will have the effect of on-demand loading. So only styles are not imported on demand, so just import styles on demand.
+NutUI-React supports tree shaking based on ES modules by default. For the JS part, directly importing `import { Button } from '@nutui/nutui-react-taro'` will have the effect of on-demand loading. So only styles are not imported on demand, so just import styles on demand.
 
 #### WebPack build tools use on-demand loading via babel
 
@@ -50,7 +50,7 @@ Add configuration in `.babelrc` or `babel.config.js`:
     [
       "import",
       {
-        "libraryName": "@nutui/nutui-react",
+        "libraryName": "@nutui/nutui-react-taro",
         "libraryDirectory": "dist/esm",
         "style": true,
         "camel2DashComponentName": false
@@ -65,7 +65,7 @@ Configure sass-loader in webpack config to import nutui-react style variables gl
 //...
 // Pass options to sass-loader
 scss: {
-    data: `@import "@nutui/nutui-react/dist/styles/variables.scss";`,
+    data: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`,
 }
 //...
 ```
@@ -96,7 +96,7 @@ module.exports = {
         sass: {
             loaderOptions: {
                 sourceMap: true,
-                additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";` /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */,
+                additionalData: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";` /* Any sass-loader configuration options: https://github.com/webpack-contrib/sass-loader. */,
             },
         },
     },
@@ -105,7 +105,7 @@ module.exports = {
             [
                 "import",
                 {
-                    libraryName: "@nutui/nutui-react",
+                    libraryName: "@nutui/nutui-react-taro",
                     libraryDirectory: "dist/esm",
                     style: true,
                     camel2DashComponentName: false,
@@ -140,7 +140,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // Configure nutui global scss variables
-        additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";`,
+        additionalData: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";`,
       },
     },
   },
@@ -149,10 +149,10 @@ export default defineConfig({
     styleImport({
       libs: [
         {
-          libraryName: "@nutui/nutui-react",
+          libraryName: "@nutui/nutui-react-taro",
           libraryNameChangeCase: "pascalCase",
           resolveStyle: (name) => {
-            return `@nutui/nutui-react/dist/esm/${name}/style`
+            return `@nutui/nutui-react-taro/dist/esm/${name}/style`
           },
         },
       ],
@@ -175,7 +175,7 @@ export default defineConfig({
   <meta name='viewport' content='width=device-width, initial-scale=1.0' />
   <!-- import style -->
   <link rel='stylesheet'
-        href='https://cdn.jsdelivr.net/npm/@nutui/nutui-react/dist/style.css' />
+        href='https://cdn.jsdelivr.net/npm/@nutui/nutui-react-taro/dist/style.css' />
   <!-- import React -->
   <script crossorigin
           src='https://unpkg.com/react@17/umd/react.production.min.js'></script>
@@ -183,7 +183,7 @@ export default defineConfig({
           src='https://unpkg.com/react-dom@17/umd/react-dom.production.min.js'></script>
   <!-- import NutUI-React -->
   <script
-    src='https://cdn.jsdelivr.net/npm/@nutui/nutui-react/dist/nutui.react.umd.js'></script>
+    src='https://cdn.jsdelivr.net/npm/@nutui/nutui-react-taro/dist/nutui.react.umd.js'></script>
 </head>
 <body>
 <div id='app'></div>

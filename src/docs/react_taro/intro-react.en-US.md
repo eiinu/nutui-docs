@@ -15,7 +15,7 @@ NutUI is a JD-style React mobile component library that develops and serves ente
 ## Features
 
 * 🚀 70+ high-quality components covering mainstream mobile scenarios
-* 💪 Supports a set of code to develop multi-terminal Mini Programs +H5 at the same time (Taro version planning)
+* 💪 Supports a set of code to develop multi-terminal Mini Programs +H5 at the same time
 * 📖 Based on JD APP 10.0 visual specification
 * 🍭 Support on-demand reference
 * 📖 Detailed documentation and examples
@@ -33,7 +33,7 @@ NutUI is a JD-style React mobile component library that develops and serves ente
 
 ## Version Intros
 
-- @nutui/nutui-react is based on the React and JD APP 10.0 visual specifications and can be developed H5. Taro version planning
+- @nutui/nutui-react-taro-taro is based on the React and JD APP 10.0 visual specifications. 
 
 ## Supported environments
 
@@ -51,7 +51,7 @@ NutUI is a JD-style React mobile component library that develops and serves ente
 
 > Suggest to use es version in AMD and Webpack/Vite environment, use umd compressed version in Non-modular environment(such as use `<script>` tag).
 
-LTS：![npm](https://img.shields.io/npm/v/@nutui/nutui-react.svg)
+LTS：![npm](https://img.shields.io/npm/v/@nutui/nutui-react-taro.svg)
 
 > subscribe： https://github.com/jdf2e/nutui/releases.atom
 

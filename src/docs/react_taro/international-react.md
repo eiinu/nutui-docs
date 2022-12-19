@@ -8,8 +8,8 @@ NutUI 3.0 以上版本支持多语言。组件默认使用中文。具体使用�
 
 ```javascript
 // 多语言版本
-import { ConfigProvider } from "@nutui/nutui-react";
-import en from "@nutui/nutui-react/dist/locales/en-US";
+import { ConfigProvider } from "@nutui/nutui-react-taro";
+import en from "@nutui/nutui-react-taro/dist/locales/en-US";
 
 ReactDOM.render(
   <ConfigProvider locale={en}>

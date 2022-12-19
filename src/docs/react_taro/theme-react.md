@@ -35,7 +35,7 @@ $primary-color-end: #fa6419;
 需要引入 **nutui.scss** 文件
 
 ```javascript
-import "@nutui/nutui-react/dist/styles/themes/default.scss";
+import "@nutui/nutui-react-taro/dist/styles/themes/default.scss";
 ```
 
 ## 定制主题
@@ -61,7 +61,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@nutui/nutui-react/dist/styles/variables.scss";@import "./your/custom_theme.scss";`
+        additionalData: `@import "@nutui/nutui-react-taro/dist/styles/variables.scss";@import "./your/custom_theme.scss";`
       }
     }
   }

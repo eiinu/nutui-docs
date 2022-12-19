@@ -113,6 +113,12 @@ export default defineComponent({
       }
       getIsGuaid(name);
     });
+
+    // 过滤h5
+    docs.packages.forEach((p) => {
+      if (p.name == 'start-react') p.show = false;
+    });
+
     return {
       ...toRefs(state),
       isActive,
