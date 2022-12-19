@@ -24,13 +24,13 @@
                 </div>
               </template>
             </div>
-            <div
-              class="doc-content-tabs single"
-              :class="{ hidden: !fixed }"
-              v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"
-            >
-              <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>
-            </div>
+            <!--            <div-->
+            <!--              class="doc-content-tabs single"-->
+            <!--              :class="{ hidden: !fixed }"-->
+            <!--              v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"-->
+            <!--            >-->
+            <!--              <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>-->
+            <!--            </div>-->
           </div>
           <doc-issue class=""></doc-issue>
         </div>
@@ -52,13 +52,13 @@
             >
           </template>
         </div>
-        <div
-          class="doc-content-tabs single"
-          :class="{ hidden: fixed }"
-          v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"
-        >
-          <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>
-        </div>
+        <!--        <div-->
+        <!--          class="doc-content-tabs single"-->
+        <!--          :class="{ hidden: fixed }"-->
+        <!--          v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"-->
+        <!--        >-->
+        <!--          <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>-->
+        <!--        </div>-->
 
         <router-view />
 
