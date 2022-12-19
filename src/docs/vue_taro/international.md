@@ -8,12 +8,9 @@ NutUI 3.0 以上版本支持多语言。组件默认使用中文。具体使用�
 
 ```javascript
 import Vue from 'vue';
-// Vue3 H5
-import { Locale } from '@nutui/nutui';
-import enUS from '@nutui/nutui/dist/packages/locale/lang/en-US';
 // Taro 多端小程序
-// import { Locale } from '@nutui/nutui-taro';
-// import enUS from '@nutui/nutui-taro/dist/packages/locale/lang/en-US';
+import { Locale } from '@nutui/nutui-taro';
+import enUS from '@nutui/nutui-taro/dist/packages/locale/lang/en-US';
 Locale.use('en-US', enUS);
 
 // 通过 Locale.merge 方法可以实现文案的修改和扩展，示例如下：

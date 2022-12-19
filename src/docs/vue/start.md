@@ -1,4 +1,4 @@
-# H5快速上手
+# 快速上手
 
 ## 预览
 
@@ -15,9 +15,6 @@ npm i @nutui/nutui@2
 
 # Vue3 H5 项目
 npm i @nutui/nutui
-
-# Taro + Vue3 多端小程序项目
-npm i @nutui/nutui-taro
 ```
 
 ### NPM 使用示例
@@ -103,24 +100,6 @@ npm install babel-plugin-import --save-dev
         "camel2DashComponentName": false
       },
       'nutui3-vue'
-    ],
-    [
-      "import",
-      {
-        "libraryName": "@nutui/nutui-taro",
-        "libraryDirectory": "dist/packages/_es",
-        // customName自定义兼容国际化使用
-        "customName": (name, file) => {
-          if (name == 'Locale') {
-            return '@nutui/nutui-taro/dist/packages/locale/lang';
-          } else {
-            return `@nutui/nutui-taro/dist/packages/_es/${name}`;
-          }
-        },
-        "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
-        "camel2DashComponentName": false
-      },
-      'nutui3-taro'
     ]
   ]
 }
@@ -130,7 +109,7 @@ npm install babel-plugin-import --save-dev
 //...
 // 给 sass-loader 传递选项
 scss: {
-    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+    data: `@import "@nutui/nutui/dist/styles/variables.scss";`,
 }
 //...
 ```

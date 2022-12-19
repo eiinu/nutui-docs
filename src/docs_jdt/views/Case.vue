@@ -1,11 +1,9 @@
 <template>
   <doc-header></doc-header>
-  <div class="resource-main" :class="isJDT() ? 'jdt-main' : ''" :style="isJDT() ? mainJdtStyle : ''">
+  <div class="resource-main jdt-main" :style="mainJdtStyle">
     <div class="resource-main-content">
       <h3 class="sub-title">案例</h3>
-      <p class="sub-desc"
-        >这里有 {{ isJDT() ? 'NutUI-JDT' : 'NutUI' }} 开发的优秀项目案例，您也可以上传您的开发成果，期待您的投稿。</p
-      >
+      <p class="sub-desc">这里有 NutUI-JDT 开发的优秀项目案例，您也可以上传您的开发成果，期待您的投稿。</p>
     </div>
   </div>
   <!-- 案例 -->
@@ -18,22 +16,6 @@
         <br />
         <img class="sub-ercode" src="@/assets/images/case-ercode.png" />
       </p>
-      <div v-if="!isJDT()">
-        <p class="sub-desc"
-          >我们将从所有案例中挑出一个优秀案例（每两月），送出一个<a
-            target="_blank"
-            class="download"
-            href="https://img12.360buyimg.com/imagetools/jfs/t1/170596/37/27410/2643716/61b72009Ec4332f11/f7ba0a1f661effac.jpg"
-            >小礼品。</a
-          >
-        </p>
-        <img
-          class="sub-gifs"
-          src="https://img12.360buyimg.com/imagetools/jfs/t1/170596/37/27410/2643716/61b72009Ec4332f11/f7ba0a1f661effac.jpg"
-          alt=""
-          srcset=""
-        />
-      </div>
     </div>
     <div class="resource-block">
       <div class="no-data" v-if="caseList.length === 0">
@@ -98,7 +80,7 @@ import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import Swiper from 'swiper/swiper-bundle.min.js';
 import { ApiService } from '@/service/ApiService';
-import { isJDT, isJDReact } from '@/assets/util';
+import { isJDReact } from '@/assets/util';
 export default defineComponent({
   name: 'doc',
   components: {
@@ -129,19 +111,9 @@ export default defineComponent({
         is_recommend: 0
       };
 
-      if (isJDT()) {
-        params = Object.assign(params, {
-          first_department: 2
-        });
-      } else if (isJDReact()) {
-        params = Object.assign(params, {
-          nutui_version: -1 //'3,8'
-        });
-      } else {
-        params = Object.assign(params, {
-          nutui_version: '0,1,2,3,4,5,6,7,9'
-        });
-      }
+      params = Object.assign(params, {
+        first_department: 2
+      });
 
       apiService.getCases(params).then((res) => {
         if (res?.state == 0) {
@@ -204,7 +176,6 @@ export default defineComponent({
       onRight,
       showDesignImgFun,
       closeSwiper,
-      isJDT,
       mainJdtStyle
     };
   }

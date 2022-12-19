@@ -330,4 +330,166 @@ export default defineComponent({
     }
   }
 }
+.doc {
+  &-header {
+    // position: fixed;
+    z-index: 9999;
+    top: 0px;
+    left: 0;
+    right: 0;
+    min-width: 1300px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: $doc-header-height;
+    line-height: $doc-header-height;
+    text-align: left;
+    padding: 0 50px;
+    font-size: 20px;
+  }
+}
+.header {
+  &-logo {
+    position: relative;
+    display: inline-block;
+    width: 240px;
+    height: 64px;
+    .logo-link {
+      width: 120px;
+      height: 46px;
+      vertical-align: middle;
+      position: absolute;
+      top: 50%;
+      margin-top: -23px;
+      cursor: pointer;
+
+      &.react {
+        width: 197px;
+      }
+      &.jdb,
+      &.jddkh {
+        width: 180px;
+      }
+    }
+    .logo-border {
+      width: 1px;
+      height: 26px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -13px;
+    }
+    .version {
+      position: absolute;
+      right: 70px;
+      font-size: 14px;
+    }
+  }
+  &-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: right;
+    width: calc(100% - 240px);
+    min-width: 900px;
+    padding: 0 40px;
+    .nav-box {
+      margin-right: 140px;
+      .nav-list {
+        min-width: 490px;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        justify-content: flex-end;
+      }
+      .nav-item {
+        position: relative;
+        margin-right: 30px;
+        font-size: 14px;
+        height: 63px;
+        line-height: 63px;
+        text-align: center;
+        cursor: pointer;
+        flex-shrink: 0;
+        a {
+          display: inline-block;
+          line-height: 64px;
+        }
+        // overflow: hidden;
+        &.active {
+          font-weight: bold;
+          &:after {
+            content: '';
+            display: inline-block;
+            width: 35px;
+            height: 13px;
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            margin-left: -17.5px;
+            background: url('@/assets/images/item-active.png');
+          }
+        }
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+      .user-link {
+        display: inline-block;
+        width: 26px;
+        height: 26px;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-image: url('@/assets/images/icon-user.png');
+        background-size: 26px;
+
+        &.gitee {
+          margin-left: 8px;
+          background-image: url('@/assets/images/icon-gitee.png');
+        }
+      }
+    }
+  }
+}
+.header-select {
+  &-box {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    outline: 0;
+  }
+  &-hd {
+    min-width: 77px;
+    height: 28px;
+    padding: 0 30px 0 15px;
+    line-height: 26px;
+    font-size: 14px;
+    color: $theme-red-word;
+    background-position: right 15px top 12px;
+    background-size: 8px 5px;
+    background-repeat: no-repeat;
+    border-radius: 14px;
+  }
+  &-bd {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -60px;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  &-item {
+    width: 120px;
+    height: 28px;
+    padding: 0 12px;
+    line-height: 26px;
+    font-size: 14px;
+    border-width: 0px 1px 1px;
+    border-style: solid;
+    cursor: pointer;
+    &:first-of-type {
+      border-top-width: 1px;
+    }
+  }
+}
 </style>

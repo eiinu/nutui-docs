@@ -11,9 +11,6 @@ import Vue from 'vue';
 // Vue3 H5
 import { Locale } from '@nutui/nutui';
 import enUS from '@nutui/nutui/dist/packages/locale/lang/en-US';
-// Taro
-// import { Locale } from '@nutui/nutui-taro';
-// import enUS from '@nutui/nutui-taro/dist/packages/locale/lang/en-US';
 Locale.use('en-US', enUS);
 
 // The Locale.merge method can be used to modify and expand the text, examples are as follows:

@@ -9,7 +9,7 @@
           :class="{ active: isActive(_package.name) }"
           v-for="_package in docs.packages"
           :key="_package"
-          v-show="_package.show"
+          v-show="_package.show && _package.name !== 'starttaro'"
         >
           <!-- <router-link v-if="!_package.isLink" :to="_package.name.toLowerCase()">{{
             isZh ? _package.cName : _package.eName

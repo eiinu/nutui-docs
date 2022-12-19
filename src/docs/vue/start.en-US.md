@@ -15,9 +15,6 @@ npm i @nutui/nutui@2
 
 # Vue3 H5 project
 npm i @nutui/nutui
-
-# Taro + Vue3 multi-end applet project
-npm i @nutui/nutui-taro
 ```
 
 ### NPM Use
@@ -104,24 +101,6 @@ Configure in `.babelrc` or `babel.config.js`:
         "camel2DashComponentName": false
       },
       'nutui3-vue'
-    ],
-    [
-      "import",
-      {
-        "libraryName": "@nutui/nutui-taro",
-        "libraryDirectory": "dist/packages/_es",
-        // Internationalization
-        "customName": (name, file) => {
-          if (name == 'Locale') {
-            return '@nutui/nutui-taro/dist/packages/locale/lang';
-          } else {
-            return `@nutui/nutui-taro/dist/packages/_es/${name}`;
-          }
-        },
-        "style": (name, file) => name.toLowerCase().replace('_es/', '') + '/index.scss',
-        "camel2DashComponentName": false
-      },
-      'nutui3-taro'
     ]
   ]
 }
@@ -131,7 +110,7 @@ Configure sass-loader in webpack, so that you will have global NutUI variables.
 //...
 // Add data option
 scss: {
-    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`,
+    data: `@import "@nutui/nutui/dist/styles/variables.scss";`,
 }
 //...
 ```

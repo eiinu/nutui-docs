@@ -1,4 +1,4 @@
-# Applet Development
+# Quickstart
 
 ## Intro
 
@@ -15,9 +15,16 @@
 
 <img src="https://storage.360buyimg.com/nutui-static/image/qrcode_en.png" alt="NutUI" />
 
+
 ## Install
 
-* Using npm or yarn
+* Using npm or yarn(node >= 12.10.0)
+
+
+```bash
+# Taro + Vue3 multi-end applet project
+npm i @nutui/nutui-taro
+```
 
 ### Install CLI Tools
 

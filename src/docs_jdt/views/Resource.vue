@@ -1,15 +1,9 @@
 <template>
   <doc-header></doc-header>
-  <div class="resource-main" :class="isJDT() ? 'jdt-main' : ''" :style="isJDT() ? mainJdtStyle : ''">
+  <div class="resource-main jdt-main" :style="mainJdtStyle">
     <div class="resource-main-content">
       <h3 class="sub-title">资源</h3>
-      <p class="sub-desc">
-        {{
-          isJDT()
-            ? '这里提供NutUI-JDT 相关设计资源的下载，更多设计资源正在整理和完善中。'
-            : '想要了解 NutUI 设计体系背后的故事？如何才能更好的应用？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 NutUI官方专栏，这里常有关于 NutUI 设计体系下相关话题内容的最新分享和讨论。'
-        }}
-      </p>
+      <p class="sub-desc">这里提供NutUI-JDT 相关设计资源的下载，更多设计资源正在整理和完善中。</p>
     </div>
   </div>
   <div class="resource-content">
@@ -17,28 +11,14 @@
     <div class="resource-block">
       <h4 class="sub-title">设计资源</h4>
 
-      <div class="sub-box" v-if="!isJDT()">
-        <img
-          src="//img10.360buyimg.com/imagetools/jfs/t1/222088/15/18123/5264/632c1c16Efeb7e568/e0d6b0b3d120c889.png"
-          alt=""
-        />
-        <span class="sub-box-tip">NutUI Sketch 组件包</span>
-        <span class="sub-box-desc left90">通过在Sketch中添加组件库，在设计/修改阶段快速完成项目建设交付</span>
-        <span class="sub-box-time">2021.08.24</span>
-        <a download href="https://storage.360buyimg.com/nutui-static/NutUI3xStyleGuide.sketch" class="sub-box-btn"
-          >下载资源</a
-        >
-      </div>
       <div class="sub-box">
         <img
           src="//img10.360buyimg.com/imagetools/jfs/t1/222088/15/18123/5264/632c1c16Efeb7e568/e0d6b0b3d120c889.png"
           alt=""
         />
-        <span class="sub-box-tip" :class="isJDT() ? 'jdt-tips' : ''">
-          {{ !isJDT() ? 'NutUI-JDT' : '' }} Sketch 组件包</span
-        >
+        <span class="sub-box-tip jdt-tips">Sketch 组件包</span>
         <span class="sub-box-desc">通过在Sketch中添加组件库，在设计/修改阶段快速完成项目建设交付</span>
-        <span class="sub-box-time"> {{ isJDT() ? '更新时间' : '' }} 2022.06.29</span>
+        <span class="sub-box-time"> 更新时间 2022.06.29</span>
         <a download href="https://storage.360buyimg.com/nutui-static/DTDMobileUIkits.sketch" class="sub-box-btn"
           >下载资源</a
         >
@@ -54,49 +34,6 @@
         src="https://img11.360buyimg.com/imagetools/jfs/t1/206767/18/7920/405226/6181e655E6b5be4de/47a13df50b92106b.jpg"
       /> -->
     </div>
-    <!-- 视频 -->
-    <div v-if="!isJDT()" class="resource-block">
-      <div class="no-data" v-if="articleList.length === 0">
-        <img class="nodata-img-joy" src="@/assets/images/img-joy.png" />
-        <p class="nodata-desc">敬请期待</p>
-      </div>
-      <div class="tab-box" v-else>
-        <h4 class="sub-title">视频</h4>
-        <div class="tab-bd">
-          <div
-            class="design-item"
-            v-for="(vItem, i) in videoList"
-            v-show="activeIndex === 0"
-            :key="i"
-            @click="toVideoLink(vItem.link)"
-          >
-            <img class="img-design" :src="vItem.cover_image" />
-            <p class="design-title" v-hover>{{ vItem.title }}</p>
-            <div class="play"><img src="@/assets/images/play-start.png" alt="" /></div>
-          </div>
-        </div>
-        <h4 class="sub-title">文章</h4>
-        <template v-for="pItem in articleList" v-show="activeIndex === 0" :key="pItem.category">
-          <h3>{{ pItem.title }}</h3>
-          <div class="tab-bd">
-            <div class="design-item" v-for="item in pItem.list" :key="item.id" @click="toLink(item.id)">
-              <img class="img-design" :src="item.cover_image" />
-              <p class="design-title" v-hover>{{ item.title }}</p>
-            </div>
-          </div>
-        </template>
-      </div>
-    </div>
-    <!-- 社区文章 -->
-    <div v-if="!isJDT()" class="resource-block">
-      <h4 class="sub-title">社区文章</h4>
-      <p class="sub-desc"></p>
-      <ul class="article-box">
-        <li class="article-item" v-for="item in communityArticleList" :key="item.id">
-          <a class="article-link" target="_blank" :href="item.link"> {{ item.title }} - {{ item.user_name }} </a>
-        </li>
-      </ul>
-    </div>
   </div>
   <doc-footer></doc-footer>
 </template>
@@ -107,7 +44,7 @@ import Header from './Header.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
-import { isJDReact, isJDT } from '@/assets/util';
+import { isJDReact } from '@/assets/util';
 export default defineComponent({
   name: 'doc',
   components: {
@@ -223,7 +160,6 @@ export default defineComponent({
       clickTab,
       toLink,
       toVideoLink,
-      isJDT,
       mainJdtStyle
     };
   }

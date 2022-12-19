@@ -95,7 +95,7 @@
                 <!-- <span class="infor-version">1.2.2</span> -->
                 <div class="infor-child">
                   <span class="infor-child-name" @click="goMainSite('react')">NutUI-React</span>
-                  <span class="infor-child-name" @click="goMainSite('vue')">NutUI-Vue</span>
+                  <span class="infor-child-name" @click="goMainSite('vue-taro')">NutUI-Vue</span>
                 </div>
               </div>
             </div>
@@ -629,11 +629,17 @@ export default defineComponent({
       window.open(f == 'cat' ? 'https://nutui.jd.com/cat/#/' : 'https://nutui.jd.com/bingo/#/');
     };
     const goMainSite = (f: string) => {
-      window.open(
-        f == 'vue'
-          ? 'https://nutui.jd.com/#/zh-CN/guide/starttaro'
-          : 'https://nutui.jd.com/react/#/zh-CN/guide/starttaro-react'
-      );
+      switch (f) {
+        case 'vue':
+          window.open('/vue/index.vue.html#/zh-CN/guide/intro');
+          break;
+        case 'react':
+          window.open('https://nutui.jd.com/react/#/zh-CN/guide/starttaro-react');
+          break;
+        case 'vue-taro':
+          window.open('/vue_taro/index.vue.taro.html#/zh-CN/guide/intro');
+          break;
+      }
     };
     const toJointDetails = (url: string) => {
       window.open(url);

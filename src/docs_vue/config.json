@@ -1214,7 +1214,7 @@
       },
       {
         "name": "starttaro",
-        "cName": "小程序开发",
+        "cName": "快速上手",
         "eName": "WeChat",
         "show": true
       },
@@ -1254,12 +1254,6 @@
         "name": "resource",
         "cName": "资源",
         "eName": "Resources",
-        "show": true
-      },
-      {
-        "name": "notice",
-        "cName": "常见问题",
-        "eName": "FAQ",
         "show": true
       }
     ]

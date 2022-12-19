@@ -69,65 +69,6 @@ $primary-color-end: #496AF2;
 
 ### 第二步：修改本地项目 webpack 或者 vite 的配置文件
 
-修改 vite 或者 webpack 配置文件中 **sass-loader** 的配置。如下示例
-#### vite 演示
-
-``` javascript
-// https://vitejs.dev/config/
-export default defineConfig({
-  //...
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
-        // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
-        // 京东B商城主题 > @import "@nutui/nutui/dist/styles/variables-jdb.scss";
-        // 京东企业业务主题 > @import "@nutui/nutui/dist/styles/variables-jddkh.scss";
-        additionalData: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`
-      }
-    }
-  }
-})
-```
-
-#### webpack 配置方法
-
-``` javascript
-{
-    test: /\.(sa|sc)ss$/,
-    use: [
-        {
-            loader: 'sass-loader',
-            options: {
-                // 默认京东 APP 10.0主题 > @import "@nutui/nutui/dist/styles/variables.scss";
-                // 京东科技主题 > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
-                // 京东B商城主题 > @import "@nutui/nutui/dist/styles/variables-jdb.scss";
-                // 京东企业业务主题 > @import "@nutui/nutui/dist/styles/variables-jddkh.scss";
-                // 注意：在 sass-loader 不同版本，这个选项名是 是不一样的，具体可参考 sass-loader对应的版本文档
-                data: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
-            }
-        }
-    ]
-}
-```
-
-#### vue/cli 3 以上版本修改 **vue.config.js** 进行配置
-
-``` javascript
-module.exports = {
-    css: {
-        loaderOptions: {
-            // 给 sass-loader 传递选项
-            scss: {
-                // @/ 是 src/ 的别名
-                // 注意：在 sass-loader v7 中，这个选项名是 "data"
-                prependData: `@import "@/assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
-            }
-        },
-    }
-}
-```
-
 #### taro 小程序使用示例
 
 修改 `config/index.js` 文件中配置 `scss` 文件全局覆盖如：

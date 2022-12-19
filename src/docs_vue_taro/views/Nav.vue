@@ -9,7 +9,7 @@
           :class="{ active: isActive(_package.name) }"
           v-for="_package in docs.packages"
           :key="_package"
-          v-show="_package.show"
+          v-show="_package.show && _package.name !== 'start'"
         >
           <!-- <router-link v-if="!_package.isLink" :to="_package.name.toLowerCase()">{{
             isZh ? _package.cName : _package.eName
@@ -44,7 +44,8 @@ import { defineComponent, reactive, computed, onMounted, toRefs, ref } from 'vue
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
 import { RefData } from '@/assets/util/ref';
 import { useLocale } from '@/assets/util/locale';
-import { nav, docs } from '@/config/index';
+import { docs, vueConfigTaro } from '@/config/index';
+const { nav } = vueConfigTaro;
 export default defineComponent({
   name: 'doc-nav',
   setup(props: any) {

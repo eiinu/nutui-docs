@@ -69,66 +69,6 @@ $primary-color: #478EF2;
 $primary-color-end: #496AF2;
 ```
 
-### Next：update your webpack or vite configure file
-
-Configure **sass-loader**. For example:
-
-#### vite
-
-``` javascript
-// https://vitejs.dev/config/
-export default defineConfig({
-  //...
-  css: {
-    preprocessorOptions: {
-      scss: {
-        // Default JD APP 10.0 theme > @import "@nutui/nutui/dist/styles/variables.scss";
-        // JDT theme > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
-        // JD ToB Mall theme > @import "@nutui/nutui-taro/dist/styles/variables-jdb.scss";
-        additionalData: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`
-      }
-    }
-  }
-})
-```
-
-#### webpack
-
-``` javascript
-{
-    test: /\.(sa|sc)ss$/,
-    use: [
-        {
-            loader: 'sass-loader',
-            options: {
-                // Default JD APP 10.0 theme > @import "@nutui/nutui/dist/styles/variables.scss";
-                // JDT theme > @import "@nutui/nutui/dist/styles/variables-jdt.scss";
-                // JD ToB mall theme > @import "@nutui/nutui/dist/styles/variables-jdb.scss";
-                // Attention: this option name is not same in diffrent sass-loader versions, refer to sass-loader version documents
-                data: `@import "./assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
-            }
-        }
-    ]
-}
-```
-
-#### Vue/cli 3 and above versions need to configure **vue.config.js**
-
-``` javascript
-module.exports = {
-    css: {
-        loaderOptions: {
-            // add prependData
-            scss: {
-                // @/(src/ alias)
-                // Attention: in sass-loader v7, use "data" instead
-                prependData: `@import "@/assets/custom_theme.scss";@import "@nutui/nutui/dist/styles/variables.scss";`,
-            }
-        },
-    }
-}
-```
-
 #### taro
 
 Configure `scss` file global cover in `config/index.js`:

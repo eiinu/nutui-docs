@@ -182,40 +182,232 @@ export const SiteVue = {
       eName: 'Components',
       path: '/zh-CN/component/button',
       pathName: 'zh-CN/component/button'
-    },
+    }
     // {
     //   name: 'example',
     //   cName: '示例',
     //   path: 'demo.html'
     // },
+    // {
+    //   name: '/zh-CN/case',
+    //   cName: '案例',
+    //   eName: 'Cases',
+    //   path: '/zh-CN/case',
+    //   pathName: 'case'
+    // },
+    // {
+    //   name: 'resource',
+    //   cName: '资源',
+    //   eName: 'Resource',
+    //   path: '/zh-CN/resource',
+    //   pathName: '/zh-CN/resource'
+    // },
+    // {
+    //   name: 'notice',
+    //   cName: '通知',
+    //   eName: 'Notice',
+    //   path: '/zh-CN/notice',
+    //   pathName: '/zh-CN/notice'
+    // },
+    // {
+    //   name: 'joinus',
+    //   cName: '加入我们',
+    //   eName: 'Join us',
+    //   path: '/zh-CN/guide/joinus',
+    //   pathName: '/zh-CN/guide/joinus'
+    // }
+  ],
+
+  newHeader: [
+    {
+      name: 'component',
+      cName: '生态产品',
+      eName: 'Components',
+      key: '1',
+      path: '/zh-CN/component/button',
+      pathName: 'zh-CN/component/button'
+    },
+    {
+      name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
+      cName: '资源',
+      eName: 'Guide',
+      key: '2',
+      path: '/zh-CN/guide/intro',
+      pathName: 'intro',
+      url: 'https://nutui.jd.com/#/zh-CN/resource'
+    },
     {
       name: '/zh-CN/case',
       cName: '案例',
       eName: 'Cases',
       path: '/zh-CN/case',
-      pathName: 'case'
-    },
-    {
-      name: 'resource',
-      cName: '资源',
-      eName: 'Resource',
-      path: '/zh-CN/resource',
-      pathName: '/zh-CN/resource'
-    },
-    {
-      name: 'notice',
-      cName: '通知',
-      eName: 'Notice',
-      path: '/zh-CN/notice',
-      pathName: '/zh-CN/notice'
+      pathName: 'case',
+      key: '3',
+      url: 'https://nutui.jd.com/#/zh-CN/case'
     },
     {
       name: 'joinus',
       cName: '加入我们',
       eName: 'Join us',
+      key: '4',
       path: '/zh-CN/guide/joinus',
-      pathName: '/zh-CN/guide/joinus'
+      pathName: '/zh-CN/guide/joinus',
+      url: 'https://nutui.jd.com/#/zh-CN/guide/joinus'
     }
+  ],
+  // 官网 首页
+  homePage: {
+    gitstar: 'https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui&type=star&count=true&size=large',
+    // 平台资源楼层
+    platform: [
+      {
+        title: '京东风格',
+        desc: '遵循京东 App 10.0 设计规范',
+        url: homefeatures1
+      },
+      {
+        title: '前沿技术',
+        desc: 'Vue3 Vite 2.x TypeScript',
+        url: homefeatures3
+      },
+      {
+        title: '适配多端',
+        desc: '基于 Taro 轻松开发多端小程序',
+        url: homefeatures5
+      },
+      {
+        title: '组件丰富',
+        desc: '70+ 组件，覆盖多数业务场景',
+        url: homefeatures2
+      }
+      // {
+      //   title: '贴心通道',
+      //   desc: '社区维护 高效服务<br />技术支持 经验沉淀',
+      //   url: homefeatures4,
+      // },
+    ],
+    // 是否展示taro楼层
+    taroShow: true,
+    // 是否展示 业务组件
+    bizComponent: [
+      {
+        title: 'cat',
+        desc: '基于 NutUI 的大促组件',
+        release: true
+      },
+      {
+        title: 'bingo',
+        desc: '基于 NutUI 的抽奖组件',
+        release: false
+      }
+    ],
+    // 应用案例
+    cases: {
+      show: true,
+      moreRouter: '#/zh-CN/case'
+    },
+    //是否展示二维码
+    qrcodeShow: true,
+    // 学习资源
+    article: {
+      show: true,
+      moreRouter: '#/zh-CN/resource'
+    }
+  },
+  language: 'vue'
+};
+export const SiteVueTaro = {
+  repository: {
+    git: 'https://github.com/jdf2e/nutui',
+    gitee: 'https://gitee.com/jd-platform-opensource/nutui',
+    releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
+    discussions: 'https://github.com/jdf2e/nutui/discussions',
+    plan: 'https://github.com/jdf2e/nutui/projects/1'
+  },
+  newRepository: {
+    // 本地跑 dev:jdt 报错了，我先注释掉了，😂
+    git: 'https://github.com/jdf2e',
+    gitee: 'https://gitee.com/jd-platform-opensource',
+    releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
+    discussions: 'https://github.com/jdf2e/nutui/discussions',
+    plan: 'https://github.com/jdf2e/nutui/projects/1'
+  },
+  versions: [
+    {
+      name: '1.x',
+      link: '/1x/'
+    },
+    {
+      name: '2.x',
+      link: '/2x/'
+    },
+    {
+      name: '3.x',
+      link: '/'
+    },
+    {
+      name: 'nutui-jdl',
+      link: '/jdl/'
+    },
+    {
+      name: 'nutui-react',
+      link: 'https://nutui.jd.com/react'
+    },
+    {
+      name: 'nutui-jdt',
+      link: 'https://nutui.jd.com/jdt/'
+    }
+  ],
+  header: [
+    {
+      name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
+      cName: '指南',
+      eName: 'Guide',
+      path: '/zh-CN/guide/intro',
+      pathName: 'intro'
+    },
+    {
+      name: 'component',
+      cName: '组件',
+      eName: 'Components',
+      path: '/zh-CN/component/button',
+      pathName: 'zh-CN/component/button'
+    }
+    // {
+    //   name: 'example',
+    //   cName: '示例',
+    //   path: 'demo.html'
+    // },
+    // {
+    //   name: '/zh-CN/case',
+    //   cName: '案例',
+    //   eName: 'Cases',
+    //   path: '/zh-CN/case',
+    //   pathName: 'case'
+    // },
+    // {
+    //   name: 'resource',
+    //   cName: '资源',
+    //   eName: 'Resource',
+    //   path: '/zh-CN/resource',
+    //   pathName: '/zh-CN/resource'
+    // },
+    // {
+    //   name: 'notice',
+    //   cName: '通知',
+    //   eName: 'Notice',
+    //   path: '/zh-CN/notice',
+    //   pathName: '/zh-CN/notice'
+    // },
+    // {
+    //   name: 'joinus',
+    //   cName: '加入我们',
+    //   eName: 'Join us',
+    //   path: '/zh-CN/guide/joinus',
+    //   pathName: '/zh-CN/guide/joinus'
+    // }
   ],
 
   newHeader: [

@@ -129,29 +129,4 @@ module.exports = {
 }
 ```
 
-#### taro
-
-Configure `scss` file global cover in `config/index.js`:
-
-```javascript
-const path = require('path');
-const config = {
-  deviceRatio: {
-    640: 2.34 / 2,
-    750: 1,
-    828: 1.81 / 2,
-    375: 2 / 1
-  },
-  sass: {
-		resource: [
-			path.resolve(__dirname, '..', 'src/assets/styles/custom_theme.scss')
-		],
-    // Default JD APP 10.0 theme > @import "@nutui/nutui-taro/dist/styles/variables.scss";
-    // JDT theme > @import "@nutui/nutui-taro/dist/styles/variables-jdt.scss";
-    // JD ToB Mall theme > @import "@nutui/nutui-taro/dist/styles/variables-jdb.scss";
-    data: `@import "@nutui/nutui-taro/dist/styles/variables.scss";`
-	},
-  // ...
-```
-
-> More(vite 、vue/cli、cdn、ts、taro...) @nutui/nutui demos refer to [Demo](https://github.com/jdf2e/nutui-demo)
+> More(vite 、vue/cli、cdn、ts...) @nutui/nutui demos refer to [Demo](https://github.com/jdf2e/nutui-demo)

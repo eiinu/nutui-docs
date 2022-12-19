@@ -7,7 +7,7 @@
         <div class="doc-title-position" :class="{ fixed: fixed, hidden: hidden }">
           <div class="doc-title-content">
             <div class="title">{{ componentName.name }}&nbsp;{{ isZh ? componentName.cName : '' }}</div>
-            <div
+            <!-- <div
               class="doc-content-tabs"
               :class="{ hidden: !fixed }"
               v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"
@@ -23,20 +23,20 @@
                   {{ item.text }}
                 </div>
               </template>
-            </div>
-            <div
+            </div> -->
+            <!-- <div
               class="doc-content-tabs single"
               :class="{ hidden: !fixed }"
               v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"
             >
               <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>
-            </div>
+            </div> -->
           </div>
           <doc-issue class=""></doc-issue>
         </div>
       </div>
       <div class="doc-content-document" :class="{ isComponent: isShow(), full: !isShow() }">
-        <div
+        <!-- <div
           class="doc-content-tabs"
           :class="{ hidden: fixed }"
           v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"
@@ -51,14 +51,14 @@
               >{{ item.text }}</div
             >
           </template>
-        </div>
-        <div
+        </div> -->
+        <!-- <div
           class="doc-content-tabs single"
           :class="{ hidden: fixed }"
           v-if="isShow() && !isShowTaroDoc && (language == 'vue' || language == 'react')"
         >
           <div class="tab-item cur">{{ language == 'react' ? 'react' : 'vue' }} / taro</div>
-        </div>
+        </div> -->
 
         <router-view />
 

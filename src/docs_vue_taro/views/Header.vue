@@ -77,11 +77,12 @@
 <script lang="ts">
 import { defineComponent, reactive, computed, onMounted } from 'vue';
 import Search from '@/components/Search.vue';
-import { header, versions, version, nav, repository, language, guide } from '@/config/index';
+import { SiteVueTaro, versions, version, nav, repository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
 import { useLocale } from '@/assets/util/locale';
 import { isJDB, isJDDKH } from '@/assets/util/index';
+const { header } = SiteVueTaro;
 export default defineComponent({
   name: 'doc-header',
   components: {

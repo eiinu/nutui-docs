@@ -1,7 +1,8 @@
 import vueConfig from '../docs_vue/config.json';
+import vueConfigTaro from '../docs_vue_taro/config.json';
 import reactConfig from '../docs_react/config.json';
 
-import { SiteReact, SiteVue, SiteJDB, SiteJDT, SiteJDDKH } from './baseConfig';
+import { SiteReact, SiteVue, SiteVueTaro, SiteJDB, SiteJDT, SiteJDDKH } from './baseConfig';
 import { isJDT, isJDB, isJDDKH } from '@/assets/util';
 
 let config: any = {};
@@ -42,20 +43,20 @@ const guide = [
         app: '科技视觉'
       }
     ]
-  },
-
-  {
-    type: 'React',
-    icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/91454/20/21042/3482/61d64815E5c35af0a/ecf7aded2f5ffc6b.png',
-    data: [
-      {
-        name: '1.x',
-        link: 'https://nutui.jd.com/react',
-        language: ['React18'],
-        app: 'App 10.0'
-      }
-    ]
   }
+
+  // {
+  //   type: 'React',
+  //   icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/91454/20/21042/3482/61d64815E5c35af0a/ecf7aded2f5ffc6b.png',
+  //   data: [
+  //     {
+  //       name: '1.x',
+  //       link: 'https://nutui.jd.com/react',
+  //       language: ['React18'],
+  //       app: 'App 10.0'
+  //     }
+  //   ]
+  // }
 ];
 
 const products = [
@@ -161,4 +162,4 @@ export const {
   repository,
   newRepository
 } = config;
-export { guide, products };
+export { guide, products, SiteVueTaro, vueConfigTaro };

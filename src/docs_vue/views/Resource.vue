@@ -1,15 +1,12 @@
 <template>
   <doc-header></doc-header>
-  <div class="resource-main" :class="isJDT() ? 'jdt-main' : ''" :style="isJDT() ? mainJdtStyle : ''">
+  <div class="resource-main">
     <div class="resource-main-content">
       <h3 class="sub-title">资源</h3>
-      <p class="sub-desc">
-        {{
-          isJDT()
-            ? '这里提供NutUI-JDT 相关设计资源的下载，更多设计资源正在整理和完善中。'
-            : '想要了解 NutUI 设计体系背后的故事？如何才能更好的应用？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 NutUI官方专栏，这里常有关于 NutUI 设计体系下相关话题内容的最新分享和讨论。'
-        }}
-      </p>
+      <p class="sub-desc"
+        >想要了解 NutUI 设计体系背后的故事？如何才能更好的应用？你可以查阅下述我们为你精挑细选的文章。也欢迎关注
+        NutUI官方专栏，这里常有关于 NutUI 设计体系下相关话题内容的最新分享和讨论。</p
+      >
     </div>
   </div>
   <div class="resource-content">
@@ -17,7 +14,7 @@
     <div class="resource-block">
       <h4 class="sub-title">设计资源</h4>
 
-      <div class="sub-box" v-if="!isJDT()">
+      <div class="sub-box">
         <img
           src="//img10.360buyimg.com/imagetools/jfs/t1/222088/15/18123/5264/632c1c16Efeb7e568/e0d6b0b3d120c889.png"
           alt=""
@@ -34,11 +31,9 @@
           src="//img10.360buyimg.com/imagetools/jfs/t1/222088/15/18123/5264/632c1c16Efeb7e568/e0d6b0b3d120c889.png"
           alt=""
         />
-        <span class="sub-box-tip" :class="isJDT() ? 'jdt-tips' : ''">
-          {{ !isJDT() ? 'NutUI-JDT' : '' }} Sketch 组件包</span
-        >
+        <span class="sub-box-tip">NutUI-JDT Sketch 组件包</span>
         <span class="sub-box-desc">通过在Sketch中添加组件库，在设计/修改阶段快速完成项目建设交付</span>
-        <span class="sub-box-time"> {{ isJDT() ? '更新时间' : '' }} 2022.06.29</span>
+        <span class="sub-box-time">2022.06.29</span>
         <a download href="https://storage.360buyimg.com/nutui-static/DTDMobileUIkits.sketch" class="sub-box-btn"
           >下载资源</a
         >
@@ -55,7 +50,7 @@
       /> -->
     </div>
     <!-- 视频 -->
-    <div v-if="!isJDT()" class="resource-block">
+    <div class="resource-block">
       <div class="no-data" v-if="articleList.length === 0">
         <img class="nodata-img-joy" src="@/assets/images/img-joy.png" />
         <p class="nodata-desc">敬请期待</p>
@@ -88,7 +83,7 @@
       </div>
     </div>
     <!-- 社区文章 -->
-    <div v-if="!isJDT()" class="resource-block">
+    <div class="resource-block">
       <h4 class="sub-title">社区文章</h4>
       <p class="sub-desc"></p>
       <ul class="article-box">
@@ -107,7 +102,7 @@ import Header from './Header.vue';
 import Footer from '@/components/Footer.vue';
 import { RefData } from '@/assets/util/ref';
 import { ApiService } from '@/service/ApiService';
-import { isJDReact, isJDT } from '@/assets/util';
+import { isJDReact } from '@/assets/util';
 export default defineComponent({
   name: 'doc',
   components: {
@@ -223,7 +218,6 @@ export default defineComponent({
       clickTab,
       toLink,
       toVideoLink,
-      isJDT,
       mainJdtStyle
     };
   }

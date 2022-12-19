@@ -1,7 +1,7 @@
-# NutUI 3.0
+# NutUI
 
 <!-- NutUI 是京东风格的 Vue 移动端组件库，开发和服务于移动Web界面的企业级产品。 -->
-NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在 H5，小程序平台上的应用，帮助研发人员提升开发效率，改善开发体验。
+NutUI 是京东风格的移动端组件库，适合在 Vue 技术栈项目中使用，帮助研发人员提升开发效率，改善开发体验。
 
 <div style="margin:30px 0;">
     <img src="https://img14.360buyimg.com/imagetools/jfs/t1/167902/2/8762/791358/603742d7E9b4275e3/e09d8f9a8bf4c0ef.png" width="150" alt="NutUI">
@@ -16,7 +16,6 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 ##  特性
 
 * 🚀 70+ 高质量组件，覆盖移动端主流场景
-* 💪 支持一套代码同时开发多端小程序+H5
 * 📖 基于京东APP 10.0 视觉规范
 * 🍭 支持按需引用
 * 📖 详尽的文档和示例
@@ -27,20 +26,15 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 * 🍭 单元测试覆盖率超过 80%，保障稳定性
 * 📖 提供 Sketch 设计资源
 
-## 示例 H5 & 小程序
+## 示例
 
 <img src="https://img12.360buyimg.com/imagetools/jfs/t1/162421/39/13392/9425/6052ea60E592310a9/264bdff23ef5fe95.png" width="200" alt="NutUI" />
-<img src="https://storage.360buyimg.com/jdc-article/gh_f2231eb941be_258.jpg" width="200" alt="NutUI" />
-<img src="https://img12.360buyimg.com/imagetools/jfs/t1/205124/1/15643/30360/62aad730Ea5734bf9/703bb91a0b73282f.png" width="200" alt="NutUI" />
 
 ## 版本说明
-
-> @nutui/nutui 和 @nutui/nutui-taro 属于并行版本，存在部分的差异化，版本号始终保持一致。如果想要兼容低版本 ios 10 以下，请使用 @nutui/nutui@2
 
 | 版本 | 支持的框架 | 视觉规范 | 支持的应用类型 | 兼容
 | --- | --- | --- | --- | --- |
 | @nutui/nutui  | Vue 3x | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5 | 现代浏览器以 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
-| @nutui/nutui-taro  | Vue3 + Taro | 京东 [APP 10.0](https://nutui.jd.com/#/resource) 规范 | H5&小程序，可[开发多端](https://nutui.jd.com/#/zh-CN/guide/starttaro) | 现代浏览器及 Chrome >= 51、iOS >= 10.0（与 Vue3 一致）
 | @nutui/nutui@2  | Vue 2x | 京东 APP 7.0 规范 | H5 | 现代浏览器及 Android >= 4.0、iOS >= 8.0
 | @nutui/nutui-jdl  | Vue 2x | [京东物流视觉规范](https://nutui.jd.com/jdl/#/design) | H5 | 现代浏览器及 Android >= 4.0、iOS >= 8.0
 
@@ -84,8 +78,6 @@ NutUI 是京东风格的移动端组件库，使用 Vue 语言来编写可以在
 | 版本 | 微信群 |内部咚咚群 |
 | --- | --- |--- |
 | [NutUI Vue](https://github.com/jdf2e/nutui/issues) | <img src="https://storage.360buyimg.com/nutui-static/image/wx-code.png" width="100" /> 关注后回复「NutUI」 | 82957939
-| [NutUI x Taro](https://github.com/jdf2e/nutui/issues) | <img src="https://camo.githubusercontent.com/db4276b4ee4b443158195e943e9e678cb4d2afb7580f70d4d817ef0a90413aec/687474703a2f2f73746f726167652e333630627579696d672e636f6d2f7461726f2d6a642d636f6d2f7374617469632f636f6e746163745f7461726f5f6e757475695f71722e706e67" width="100" /> 关注后回复「NutUI」 | 1022545110 |
-| [NutUI React](https://github.com/jdf2e/nutui-react/issues) | 回复「NutUI」 | 1022619199
 
 
 ## 贡献者们

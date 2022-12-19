@@ -1,4 +1,4 @@
-# 小程序开发
+# 快速上手
 
 ## 介绍
 
@@ -15,10 +15,15 @@
 
 <img src="https://storage.360buyimg.com/nutui-static/image/qrcode_zh.png" alt="NutUI" />
 
+
 ## 安装
 
-* 通过 Npm 或 Yarn 安装  
-* node版本>=12.10.0
+* 通过 Npm 或 Yarn 安装（node版本>=12.10.0）
+
+```bash
+# Taro + Vue3 多端小程序项目
+npm i @nutui/nutui-taro
+```
 
 ### 安装 Taro 脚手架
 
