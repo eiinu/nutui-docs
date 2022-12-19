@@ -28,7 +28,7 @@
             v-for="_package in reorder(_nav.packages)"
             :key="_package"
           >
-            <li v-if="_package.show">
+            <li v-if="_package.show && _package.taro">
               <router-link :to="_package.name.toLowerCase()" :class="{ active: isActive(_package.name) }">
                 {{ _package.name }}&nbsp;&nbsp;<b v-if="isZh">{{ _package.cName }}</b>
               </router-link>
@@ -67,6 +67,7 @@ export default defineComponent({
     });
 
     const reorder = (packages: any) => {
+      console.log(packages);
       return packages.sort(function (x: any, y: any) {
         return x['name'].localeCompare(y['name']);
       });
