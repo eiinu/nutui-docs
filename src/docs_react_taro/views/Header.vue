@@ -20,37 +20,48 @@
           </li>
           <li class="nav-item">
             <div
-              class="site-guid-data"
               @mouseenter="onMouseHover(true)"
               @mouseleave="onMouseHover(false)"
-              v-show="data.isShowGuid"
+              tabindex="0"
+              class="header-select-box"
+              :class="[data.isShowGuid == true ? 'select-up' : 'select-down']"
+              @click.stop="data.isShowGuid = !data.isShowGuid"
             >
-              <div
-                class="info"
-                v-for="(item, indexKey) in guide"
-                :key="indexKey"
-                :class="{ contentKey: indexKey === 1 }"
-              >
-                <div class="header">
-                  <div class="type">H5</div>
-                </div>
-                <div class="product-type">
+              <div class="header-select-hd">{{ data.verson }}<i class=""></i></div>
+              <div class="guild-line"></div>
+              <transition name="fade">
+                <div class="guid-data" v-show="data.isShowGuid">
                   <div
-                    class="content"
-                    v-for="(info, index) in item.data"
-                    :key="index"
-                    @click.stop="checkGuidTheme(info)"
+                    class="info"
+                    v-for="(item, indexKey) in guide"
+                    :key="indexKey"
+                    :class="{ contentKey: indexKey === 1 }"
                   >
-                    <div class="item-logo">
-                      <img src="@/assets/images/React.png" alt="" />
+                    <div class="header">
+                      <img :src="item.icon" class="icon" />
+                      <div class="type"> {{ item.type }}</div>
                     </div>
-                    <div class="item-info">
-                      <div class="name"> NutUI-React <span class="status">已上线</span></div>
-                      <div class="version"> Version：1.2.3</div>
+                    <div
+                      class="content"
+                      v-for="(info, index) in item.data"
+                      :key="index"
+                      @click.stop="checkGuidTheme(info)"
+                      :class="{
+                        active: (info.name === 'vue 3.x' || info.name === '1.x') && item.type.toLowerCase() == language
+                      }"
+                    >
+                      <div class="version"> {{ info.name }}</div>
+                      <div class="list">
+                        <div class="lang" v-for="(lang, index) in info.language" :key="index"
+                          ><div class="name">{{ lang }}</div>
+                        </div></div
+                      >
+
+                      <div class="app"> {{ info.app }}</div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </transition>
             </div>
           </li>
           <li v-if="language == 'vue'" class="nav-item" @click="translate">En/中</li>
@@ -64,7 +75,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue';
+import { defineComponent, reactive, computed, onMounted } from 'vue';
 import Search from '@/components/Search.vue';
 import { header, versions, version, nav, repository, language, guide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
@@ -118,7 +129,11 @@ export default defineComponent({
     };
 
     const toHome = () => {
-      console.log(1);
+      if (isJDB() || isJDDKH()) {
+        return;
+      }
+      RefData.getInstance().currentRoute.value = '/';
+      window.location.href = `${location.href.includes('jagile') ? '#?jagile=true' : '#'}`;
     };
 
     const toLink = (item: any) => {
@@ -170,6 +185,8 @@ export default defineComponent({
       repository,
       data,
       language,
+      isJDB,
+      isJDDKH,
       toHome,
       isActive,
       checkGuidTheme,
@@ -180,15 +197,13 @@ export default defineComponent({
       guide,
       toLink,
       translate,
-      isZh,
-      isJDB,
-      isJDDKH
+      isZh
     };
   }
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .v3-banner {
   position: fixed;
   top: 0;
@@ -210,7 +225,7 @@ export default defineComponent({
     rgba(242, 77, 12, 1) 100%
   );
 }
-.site-doc {
+.doc {
   &-header {
     // position: fixed;
     z-index: 9999;
@@ -226,12 +241,9 @@ export default defineComponent({
     text-align: left;
     padding: 0 50px;
     font-size: 20px;
-    border: none;
-    display: flex;
-    justify-content: space-between;
   }
 }
-.site-header {
+.header {
   &-logo {
     position: relative;
     display: inline-block;
@@ -245,7 +257,27 @@ export default defineComponent({
       top: 50%;
       margin-top: -23px;
       cursor: pointer;
-      background: url('@/assets/images/logo-header-red.png') no-repeat center/100%;
+
+      &.react {
+        width: 197px;
+      }
+      &.jdb,
+      &.jddkh {
+        width: 180px;
+      }
+    }
+    .logo-border {
+      width: 1px;
+      height: 26px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -13px;
+    }
+    .version {
+      position: absolute;
+      right: 70px;
+      font-size: 14px;
     }
   }
   &-nav {
@@ -259,7 +291,6 @@ export default defineComponent({
     .nav-box {
       margin-right: 140px;
       .nav-list {
-        position: relative;
         min-width: 490px;
         display: flex;
         list-style: none;
@@ -280,9 +311,8 @@ export default defineComponent({
           line-height: 64px;
         }
         // overflow: hidden;
-        &:hover {
+        &.active {
           font-weight: bold;
-          color: #fff;
           &:after {
             content: '';
             display: inline-block;
@@ -292,10 +322,11 @@ export default defineComponent({
             bottom: 3px;
             left: 50%;
             margin-left: -17.5px;
-            background: url(https://storage.360buyimg.com/imgtools/09516173b9-9b32b9d0-3864-11eb-9a56-0104487ad2b0.png)
-              no-repeat;
-            background-size: 100% 100%;
+            background: url('@/assets/images/item-active.png');
           }
+        }
+        &:last-of-type {
+          margin-right: 0;
         }
       }
       .user-link {
@@ -363,54 +394,596 @@ export default defineComponent({
     background-image: $theme-red-header-bg;
     color: $theme-red-word;
     .header {
-      line-height: 24px;
-      border-bottom: 1px solid #9e9e9e;
-      .type {
-        padding: 10px;
+      &-logo {
+        .logo-link {
+          background: url('@/assets/images/logo-header-white.png') no-repeat center/100%;
+          &.react {
+            background: url('@/assets/images/logo-header-white-react.png') no-repeat center/100%;
+          }
+          &.jdb {
+            background: url('@/assets/images/logo-header-white-jdb.png') no-repeat center/100%;
+          }
+          &.jddkh {
+            background: url('@/assets/images/logo-header-white-jddkh.png') no-repeat center/100%;
+          }
+        }
+        .logo-border {
+          background: $theme-red-border;
+        }
+      }
+      &-nav {
+        .search-box {
+          .search-input {
+            color: $theme-red-word;
+            background-position: 0 0;
+            &::-webkit-input-placeholder {
+              color: $theme-red-input;
+            }
+          }
+        }
+        .nav-box {
+          .nav-item {
+            color: $theme-red-word;
+            a {
+              color: $theme-red-word;
+            }
+            &.active {
+              color: $theme-red-actice;
+              &:after {
+                background-position: 0 0;
+              }
+              a {
+                color: $theme-red-actice;
+              }
+            }
+          }
+          .user-link {
+            background-position: 0 0;
+            // &:hover {
+            //   background-position: -26px 0;
+            // }
+          }
+        }
+      }
+    }
+    .header-select {
+      &-box {
+        position: relative;
+        &.select-down {
+          .header-select-hd {
+            background-image: url('@/assets/images/icon-select-white-down.png');
+          }
+        }
+        &.select-up {
+          .header-select-hd {
+            background-image: url('@/assets/images/icon-select-white-up.png');
+          }
+        }
+        .guild-line {
+          position: absolute;
+          height: 20px;
+          width: 77px;
+          right: 0%;
+          background: transparent;
+        }
+        .guid-data {
+          position: absolute;
+          top: 40px;
+          right: 0%;
+          margin-left: -60px;
+          border-radius: 3px;
+          overflow: hidden;
+          padding-left: 29px;
+          padding-right: 29px;
+          width: 336px;
+          background: $theme-black-nav-select-bg;
+          border: 1px solid $theme-black-nav-select-border;
+          border-radius: 12px;
+          z-index: 3;
+          .info {
+            padding-top: 16px;
+            padding-bottom: 22px;
+            &:first-child {
+              border-bottom: 1px solid $theme-black-nav-select-border;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              line-height: 24px;
+              .icon {
+                width: 22px;
+                height: 19px;
+                margin-right: 9px;
+              }
+            }
+            .content {
+              padding-top: 6px;
+              padding-bottom: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              line-height: 24px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              border-radius: 4px;
+              &.active {
+                background-color: $theme-black-nav-select-active-bg;
+              }
+              &:hover {
+                background-color: $theme-black-nav-select-hover-bg;
+              }
+              .version {
+                width: 91px;
+                text-align: center;
+              }
+              .list {
+                width: 95px;
+                height: 24px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                .lang {
+                  height: 24px;
+                  background: $doc-nav-icon-bg1;
+                  border-radius: 4px;
+                  margin-right: 4px;
+                  &:nth-child(2) {
+                    background: $doc-nav-icon-bg2;
+                    .name {
+                      color: $doc-nav-icon-color2;
+                    }
+                  }
+                  .name {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    font-family: PingFangSC;
+                    font-weight: normal;
+                    color: $doc-nav-icon-color1;
+                  }
+                }
+              }
+              .app {
+                display: flex;
+                justify-content: flex-start;
+                width: 64px;
+                margin-left: 18px;
+                margin-right: 19px;
+              }
+            }
+          }
+          .contentKey {
+            @extend .info;
+            .content {
+              .list {
+                .lang {
+                  background: $doc-nav-icon-bg2;
+                  .name {
+                    color: $doc-nav-icon-color2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &-hd {
+        color: $theme-red-word;
+        border: 1px solid $theme-white-select-border;
+      }
+      &-bd {
+        color: $theme-white-select-word;
+      }
+      &-item {
+        border-color: $theme-red-select-border;
+        background-color: $theme-red-select-bg;
+        &:hover {
+          color: $theme-red;
+        }
       }
     }
   }
-  .product-type {
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  }
-  .content {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    transition: all linear 0.2s;
-    &:hover {
-      background-color: rgba(88, 88, 88, 0.8);
-      cursor: pointer;
-    }
-    .item-logo {
-      width: 30px;
-      height: 30px;
-      margin-right: 20px;
-      img {
-        width: 100%;
-        height: 100%;
+  // 白色
+  &-white {
+    background: $white;
+    color: $theme-white-word;
+    border-bottom: 1px solid $theme-white-box-border;
+    .header {
+      &-logo {
+        .logo-link {
+          background: url('@/assets/images/logo-header-red.png') no-repeat center/100%;
+          &.react {
+            background: url('@/assets/images/logo-header-red-react.png') no-repeat center/100%;
+          }
+          &.jdb {
+            background: url('@/assets/images/logo-header-red-jdb.png') no-repeat center/100%;
+          }
+          &.jddkh {
+            background: url('@/assets/images/logo-header-red-jddkh.png') no-repeat center/100%;
+          }
+        }
+        .logo-border {
+          background: $theme-white-border;
+        }
+      }
+      &-nav {
+        .search-box {
+          .search-input {
+            color: $theme-white-word;
+            background-position: 0 -22px;
+            &::-webkit-input-placeholder {
+              color: $theme-white-input;
+            }
+          }
+        }
+        .nav-box {
+          .nav-item {
+            color: $theme-white-word;
+            a {
+              color: $theme-white-word;
+            }
+            &.active {
+              color: $theme-white-actice;
+              &:after {
+                background-position: 0 -13px;
+              }
+              a {
+                color: $theme-white-actice;
+              }
+            }
+          }
+          .user-link {
+            background-position: 0 -25px;
+            // &:hover {
+            //   background-position: -26px -25px;
+            // }
+          }
+        }
       }
     }
-    .name {
-      color: #fff;
-    }
-    .status {
-      display: inline-block;
-      font-size: 12px;
-      padding: 3px 6px;
-      color: #fff;
-      background: linear-gradient(119deg, #00b2bd 11%, #2ceb85 55%);
-      transform: scale(0.8);
-      border-radius: 10px;
-    }
-    .version {
-      margin-top: 6px;
-      font-size: 12px;
+    .header-select {
+      &-box {
+        position: relative;
+        &.select-down {
+          .header-select-hd {
+            background-image: url('@/assets/images/icon-select-gray-down.png');
+          }
+        }
+        &.select-up {
+          .header-select-hd {
+            background-image: url('@/assets/images/icon-select-gray-up.png');
+          }
+        }
+        .guild-line {
+          position: absolute;
+          right: 0%;
+          height: 20px;
+          width: 77px;
+          background: transparent;
+        }
+        .guid-data {
+          position: absolute;
+          top: 40px;
+          right: 0%;
+          margin-left: -60px;
+          border-radius: 3px;
+          overflow: hidden;
+          padding-left: 29px;
+          padding-right: 29px;
+          width: 336px;
+          background: $theme-white;
+          border: 1px solid $theme-white-select-border;
+          border-radius: 12px;
+          z-index: 3;
+          .info {
+            padding-top: 16px;
+            padding-bottom: 22px;
+            &:first-child {
+              border-bottom: 1px solid $theme-black-nav-select-border;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              line-height: 24px;
+              .icon {
+                width: 22px;
+                height: 19px;
+                margin-right: 9px;
+              }
+            }
+            .content {
+              padding-top: 6px;
+              padding-bottom: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              line-height: 24px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              border-radius: 4px;
+              &.active {
+                background-color: $theme-white-select-active;
+              }
+              &:hover {
+                background-color: $theme-white-select-hover;
+              }
+              .version {
+                width: 91px;
+                text-align: center;
+              }
+              .list {
+                width: 95px;
+                height: 24px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                .lang {
+                  height: 24px;
+                  background: $doc-nav-icon-bg1;
+                  border-radius: 4px;
+                  margin-right: 4px;
+                  &:nth-child(2) {
+                    background: $doc-nav-icon-bg2;
+                    .name {
+                      color: $doc-nav-icon-color2;
+                    }
+                  }
+                  .name {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    font-family: PingFangSC;
+                    font-weight: normal;
+                    color: $doc-nav-icon-color1;
+                  }
+                }
+              }
+              .app {
+                display: flex;
+                justify-content: flex-start;
+                width: 64px;
+                margin-left: 18px;
+                margin-right: 19px;
+              }
+            }
+          }
+          .contentKey {
+            @extend .info;
+            .content {
+              .list {
+                .lang {
+                  background: $doc-nav-icon-bg2;
+                  .name {
+                    color: $doc-nav-icon-color2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &-hd {
+        color: $theme-white-select-word;
+        border: 1px solid $theme-white-select-border;
+      }
+      &-bd {
+        color: $theme-white-select-word;
+      }
+      &-item {
+        border-color: $theme-white-select-border;
+        background-color: $theme-white-select-bg;
+        &:hover {
+          color: $theme-white-actice;
+        }
+      }
     }
   }
+  // 黑色
+  &-black {
+    background: $black;
+    color: $theme-black-word;
+    border-bottom: 1px solid $theme-black-box-border;
+    .header {
+      &-logo {
+        .logo-link {
+          background: url('@/assets/images/logo-header-red.png') no-repeat center/100%;
+          &.react {
+            background: url('@/assets/images/logo-header-red-react.png') no-repeat center/100%;
+          }
+          &.jdb {
+            background: url('@/assets/images/logo-header-red-jdb.png') no-repeat center/100%;
+          }
+          &.jddkh {
+            background: url('@/assets/images/logo-header-red-jddkh.png') no-repeat center/100%;
+          }
+        }
+        .logo-border {
+          background: $theme-black-border;
+        }
+      }
+      &-nav {
+        .search-box {
+          .search-input {
+            color: $theme-black-word;
+            background-position: 0 -44px;
+            &::-webkit-input-placeholder {
+              color: $theme-black-input;
+            }
+          }
+        }
+        .nav-box {
+          .nav-item {
+            color: $theme-black-word;
+            a {
+              color: $theme-black-word;
+            }
+            &.active {
+              color: $theme-black-actice;
+              &:after {
+                background-position: 0 -13px;
+              }
+              a {
+                color: $theme-black-actice;
+              }
+            }
+          }
+          .user-link {
+            background-position: 0 -51px;
+            // &:hover {
+            //   background-position: -26px -51px;
+            // }
+          }
+        }
+      }
+    }
+    .header-select {
+      &-box {
+        &.select-down {
+          .header-select-hd {
+            background-image: url('@/assets/images/icon-select-white-down.png');
+          }
+        }
+        &.select-up {
+          .header-select-hd {
+            background-image: url('@/assets/images/icon-select-white-up.png');
+          }
+        }
+        .guild-line {
+          position: absolute;
+          height: 20px;
+          right: 0%;
+          width: 77px;
+          background: transparent;
+        }
+        .guid-data {
+          position: absolute;
+          top: 40px;
+          right: 0%;
+          margin-left: -60px;
+          border-radius: 3px;
+          overflow: hidden;
+          padding-left: 29px;
+          padding-right: 29px;
+          width: 336px;
+          background: $theme-black-nav-select-bg;
+          border: 1px solid $theme-black-nav-select-border;
+          border-radius: 12px;
+          z-index: 3;
+          .info {
+            padding-top: 16px;
+            padding-bottom: 22px;
+            &:first-child {
+              border-bottom: 1px solid $theme-black-nav-select-border;
+            }
+            .header {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              line-height: 24px;
+              .icon {
+                width: 22px;
+                height: 19px;
+                margin-right: 9px;
+              }
+            }
+            .content {
+              padding-top: 6px;
+              padding-bottom: 6px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              line-height: 24px;
+              margin-top: 2px;
+              margin-bottom: 2px;
+              border-radius: 4px;
+              &.active {
+                background-color: $theme-black-nav-select-active-bg;
+              }
+              &:hover {
+                background-color: $theme-black-nav-select-hover-bg;
+              }
+              .version {
+                width: 91px;
+                text-align: center;
+              }
+              .list {
+                width: 95px;
+                height: 24px;
+                align-items: center;
+                justify-content: flex-start;
+                display: flex;
+                .lang {
+                  height: 24px;
+                  background: $doc-nav-icon-bg1;
+                  border-radius: 4px;
+                  margin-right: 4px;
+                  &:nth-child(2) {
+                    background: $doc-nav-icon-bg2;
+                    .name {
+                      color: $doc-nav-icon-color2;
+                    }
+                  }
+                  .name {
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    font-family: PingFangSC;
+                    font-weight: normal;
+                    color: $doc-nav-icon-color1;
+                  }
+                }
+              }
+              .app {
+                display: flex;
+                justify-content: flex-start;
+                width: 64px;
+                margin-left: 18px;
+                margin-right: 19px;
+              }
+            }
+          }
+          .contentKey {
+            @extend .info;
+            .content {
+              .list {
+                .lang {
+                  background: $doc-nav-icon-bg2;
+                  .name {
+                    color: $doc-nav-icon-color2;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &-hd {
+        color: $theme-black-select-word;
+        background-color: $theme-black-select-bg;
+        border: 1px solid $theme-black-select-border;
+      }
+      &-bd {
+        color: $theme-black-select-word;
+      }
+      &-item {
+        background-color: $theme-black-select-bg;
+        border-color: $theme-black-select-bg;
+        &:hover {
+          background-color: $theme-black-select-hover;
+          border-color: $theme-black-select-hover;
+        }
+      }
+    }
+  }
+}
+// 下拉列表选择动画效果
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
