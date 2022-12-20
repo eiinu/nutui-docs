@@ -73,15 +73,9 @@ for (const path in modulesEnDocs) {
 }
 
 const routes: Array<RouteRecordRaw> = [
-  // {
-  //   path: '/',
-  //   name: '/',
-  //   component: Main
-  //   // children: pagesRouter
-  // },
   {
-    path: '/index',
-    name: 'index',
+    path: '/',
+    name: '/',
     component: Index,
     children: [
       {
@@ -130,7 +124,7 @@ routes.push({
   name: 'notFound',
   path: '/:path(.*)+',
   redirect: {
-    name: '/'
+    name: '/zh-CN/guide/intro-react'
   }
 });
 const router = createRouter({

@@ -2,7 +2,7 @@ import vueConfig from '../docs_vue/config.json';
 import vueConfigTaro from '../docs_vue_taro/config.json';
 import reactConfig from '../docs_react/config.json';
 
-import { SiteReact, SiteVue, SiteVueTaro, SiteJDB, SiteJDT, SiteJDDKH } from './baseConfig';
+import { SiteReact, SiteReactTaro, SiteVue, SiteVueTaro, SiteJDB, SiteJDT, SiteJDDKH } from './baseConfig';
 import { isJDT, isJDB, isJDDKH } from '@/assets/util';
 
 let config: any = {};
@@ -162,4 +162,4 @@ export const {
   repository,
   newRepository
 } = config;
-export { guide, products, SiteVueTaro, vueConfigTaro };
+export { guide, products, SiteVueTaro, SiteReactTaro, vueConfigTaro };

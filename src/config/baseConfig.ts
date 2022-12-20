@@ -47,37 +47,153 @@ export const SiteReact = {
       cName: '组件',
       path: '/zh-CN/component/button',
       pathName: '/zh-CN/component/button'
-    },
+    }
     // {
     //   name: 'example',
     //   cName: '示例',
     //   path: 'demo.html'
     // },
-    {
-      name: '/zh-CN/case',
-      cName: '案例',
-      eName: 'Cases',
-      path: '/zh-CN/case',
-      pathName: 'case'
+    // {
+    //   name: '/zh-CN/case',
+    //   cName: '案例',
+    //   eName: 'Cases',
+    //   path: '/zh-CN/case',
+    //   pathName: 'case'
+    // },
+    // {
+    //   name: 'resource',
+    //   cName: '资源',
+    //   path: '/zh-CN/resource',
+    //   pathName: '/zh-CN/resource'
+    // },
+    // {
+    //   name: 'notice',
+    //   cName: '通知',
+    //   path: '/zh-CN/notice',
+    //   pathName: '/zh-CN/notice'
+    // },
+    // {
+    //   name: 'joinus',
+    //   cName: '加入我们',
+    //   path: '/zh-CN/guide/joinus',
+    //   pathName: '/zh-CN/guide/joinus'
+    // }
+  ],
+  homePage: {
+    gitstar: 'https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui-react&type=star&count=true&size=large',
+    platform: [
+      {
+        title: '京东风格',
+        desc: '遵循京东 App 10.0 设计规范',
+        url: homefeatures1
+      },
+      {
+        title: '前沿技术',
+        desc: 'React Vite 2.x TypeScript',
+        url: homefeatures3
+      },
+      {
+        title: '适配多端',
+        desc: '基于 Taro 轻松开发多端小程序',
+        url: homefeatures5
+      },
+      {
+        title: '组件丰富',
+        desc: '60+ 组件，覆盖多数业务场景',
+        url: homefeatures2
+      }
+      // {
+      //   title: '贴心通道',
+      //   desc: '社区维护 高效服务<br />技术支持 经验沉淀',
+      //   url: homefeatures4
+      // }
+    ],
+    // 是否展示taro楼层
+    taroShow: true,
+    bizComponent: [],
+    cases: {
+      show: false
     },
-    {
-      name: 'resource',
-      cName: '资源',
-      path: '/zh-CN/resource',
-      pathName: '/zh-CN/resource'
-    },
-    {
-      name: 'notice',
-      cName: '通知',
-      path: '/zh-CN/notice',
-      pathName: '/zh-CN/notice'
-    },
-    {
-      name: 'joinus',
-      cName: '加入我们',
-      path: '/zh-CN/guide/joinus',
-      pathName: '/zh-CN/guide/joinus'
+    // 学习资源
+    article: {
+      show: true,
+      moreRouter: '#/zh-CN/resource'
     }
+  },
+  language: 'react'
+};
+// React Taro 官网配置
+export const SiteReactTaro = {
+  repository: {
+    git: 'https://github.com/jdf2e/nutui-react',
+    gitee: '',
+    releases: 'https://github.com/jdf2e/nutui-react/releases', // git 更新日志
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui-react&lang=zh-cn',
+    discussions: 'https://github.com/jdf2e/nutui-react/discussions',
+    plan: 'https://github.com/jdf2e/nutui/projects/1'
+  },
+  newRepository: {
+    git: 'https://github.com/jdf2e',
+    gitee: 'https://gitee.com/jd-platform-opensource',
+    releases: 'https://github.com/jdf2e/nutui/releases', // git 更新日志
+    issues: 'https://nutui.jd.com/nutui-issue-helper/?repo=jdf2e/nutui&lang=zh-cn',
+    discussions: 'https://github.com/jdf2e/nutui/discussions',
+    plan: 'https://github.com/jdf2e/nutui/projects/1'
+  },
+  versions: [
+    {
+      name: '1.x',
+      link: '/'
+    },
+    {
+      name: 'nutui-vue',
+      link: 'https://nutui.jd.com/'
+    }
+  ],
+  newHeader: [],
+  header: [
+    {
+      name: 'intro-react,theme-react,start-react',
+      cName: '指南',
+      path: '/zh-CN/guide/intro-react',
+      pathName: 'intro-react'
+    },
+    {
+      name: 'component',
+      cName: '组件',
+      path: '/zh-CN/component/button',
+      pathName: '/zh-CN/component/button'
+    }
+    // {
+    //   name: 'example',
+    //   cName: '示例',
+    //   path: 'demo.html'
+    // },
+    // {
+    //   name: '/zh-CN/case',
+    //   cName: '案例',
+    //   eName: 'Cases',
+    //   path: '/zh-CN/case',
+    //   pathName: 'case'
+    // },
+    // {
+    //   name: 'resource',
+    //   cName: '资源',
+    //   path: '/zh-CN/resource',
+    //   pathName: '/zh-CN/resource'
+    // },
+    // {
+    //   name: 'notice',
+    //   cName: '通知',
+    //   path: '/zh-CN/notice',
+    //   pathName: '/zh-CN/notice'
+    // },
+    // {
+    //   name: 'joinus',
+    //   cName: '加入我们',
+    //   path: '/zh-CN/guide/joinus',
+    //   pathName: '/zh-CN/guide/joinus'
+    // }
   ],
   homePage: {
     gitstar: 'https://ghbtns.com/github-btn.html?user=jdf2e&repo=nutui-react&type=star&count=true&size=large',
