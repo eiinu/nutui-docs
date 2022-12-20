@@ -68,7 +68,7 @@ const products = [
         icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/111058/12/30939/2225/639703a1E27d6984e/38cbe27759020dc9.png',
         status: 1,
         statusDesc: '已上线',
-        link: 'http://storage.jd.local/nutui/newsite/vue/index.react.html#/zh-CN/guide/intro'
+        link: 'http://storage.jd.local/nutui/newsite/react/index.react.html#/zh-CN/guide/intro-react'
       },
       {
         name: 'NutUI-Vue',

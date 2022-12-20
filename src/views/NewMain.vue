@@ -94,7 +94,7 @@
                 <span class="infor-name">多端小程序</span>
                 <!-- <span class="infor-version">1.2.2</span> -->
                 <div class="infor-child">
-                  <span class="infor-child-name" @click="goMainSite('react')">NutUI-React</span>
+                  <span class="infor-child-name" @click="goMainSite('react-taro')">NutUI-React</span>
                   <span class="infor-child-name" @click="goMainSite('vue-taro')">NutUI-Vue</span>
                 </div>
               </div>
@@ -634,10 +634,15 @@ export default defineComponent({
           window.open('http://storage.jd.local/nutui/newsite/vue/index.vue.html#/zh-CN/guide/intro');
           break;
         case 'react':
-          window.open('http://storage.jd.local/nutui/newsite/vue/index.react.html#/zh-CN/guide/intro');
+          window.open('http://storage.jd.local/nutui/newsite/react/index.react.html#/zh-CN/guide/intro-react');
           break;
         case 'vue-taro':
           window.open('http://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro');
+          break;
+        case 'react-taro':
+          window.open(
+            'http://storage.jd.local/nutui/newsite/react_taro/index.react.taro.html#/zh-CN/guide/intro-react'
+          );
           break;
       }
     };
