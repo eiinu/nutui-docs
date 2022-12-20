@@ -82,17 +82,6 @@
           "tarodoc": false,
           "type": "component",
           "author": "richard1015"
-        },
-        {
-          "version": "3.0.0",
-          "name": "Image",
-          "cType": "基础组件",
-          "cName": "图片",
-          "desc": "图片展示",
-          "show": true,
-          "tarodoc": true,
-          "type": "component",
-          "author": "yangxiaolu"
         }
       ]
     },
@@ -641,18 +630,6 @@
         },
         {
           "version": "3.0.0",
-          "name": "InfiniteLoading",
-          "taro": true,
-          "tarodoc": true,
-          "type": "component",
-          "cName": "滚动加载",
-          "desc": "列表滚动到底部自动加载更多数据",
-          "sort": 15,
-          "show": true,
-          "author": "yangxiaolu"
-        },
-        {
-          "version": "3.0.0",
           "name": "Notify",
           "tarodoc": true,
           "taro": true,
@@ -695,32 +672,6 @@
           "show": true,
           "desc": "轻提示",
           "author": "undo"
-        },
-        {
-          "version": "3.0.0",
-          "name": "Audio",
-          "taro": true,
-          "tarodoc": true,
-          "type": "component",
-          "cName": "音频播放器",
-          "desc": "音频播放器",
-          "sort": 25,
-          "show": true,
-          "exportEmpty": false,
-          "exportEmptyTaro": false,
-          "author": "yangxiaolu"
-        },
-        {
-          "version": "3.0.0",
-          "name": "AudioOperate",
-          "type": "component",
-          "cName": "音频操作按钮",
-          "desc": "音频操作按钮",
-          "sort": 26,
-          "show": false,
-          "exportEmpty": false,
-          "exportEmptyTaro": false,
-          "author": "yangxiaolu"
         }
       ]
     },

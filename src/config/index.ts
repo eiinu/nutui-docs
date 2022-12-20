@@ -68,14 +68,14 @@ const products = [
         icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/111058/12/30939/2225/639703a1E27d6984e/38cbe27759020dc9.png',
         status: 1,
         statusDesc: '已上线',
-        link: 'https://nutui.jd.com/react/#/zh-CN/guide/intro-react'
+        link: 'http://storage.jd.local/nutui/newsite/vue/index.react.html#/zh-CN/guide/intro'
       },
       {
         name: 'NutUI-Vue',
         icon: 'https://img12.360buyimg.com/imagetools/jfs/t1/196475/33/30665/2108/639703a1Ef17ae707/ad59fc912f3681d2.png',
         status: 1,
         statusDesc: '已上线',
-        link: 'https://nutui.jd.com/#/'
+        link: 'http://storage.jd.local/nutui/newsite/vue/index.vue.html#/zh-CN/guide/intro'
       },
       {
         name: 'NutUI-Angular',

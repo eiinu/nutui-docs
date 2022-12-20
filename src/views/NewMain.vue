@@ -631,13 +631,13 @@ export default defineComponent({
     const goMainSite = (f: string) => {
       switch (f) {
         case 'vue':
-          window.open('/vue/index.vue.html#/zh-CN/guide/intro');
+          window.open('http://storage.jd.local/nutui/newsite/vue/index.vue.html#/zh-CN/guide/intro');
           break;
         case 'react':
-          window.open('https://nutui.jd.com/react/#/zh-CN/guide/starttaro-react');
+          window.open('http://storage.jd.local/nutui/newsite/vue/index.react.html#/zh-CN/guide/intro');
           break;
         case 'vue-taro':
-          window.open('/vue_taro/index.vue.taro.html#/zh-CN/guide/intro');
+          window.open('http://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro');
           break;
       }
     };
