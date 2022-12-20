@@ -2,13 +2,12 @@
 
 ### 介绍
     
-    基于Canvas的签名组件。
+基于Canvas的签名组件。默认竖屏模式使用，如使用横屏模式，请开发者自行设置旋转角度或者宽高。
     
 ### 安装
 
 ``` javascript
 import { createApp } from 'vue';
-// vue
 import { Signature} from '@nutui/nutui';
 
 const app = createApp();

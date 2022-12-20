@@ -8,10 +8,7 @@
 
 ``` javascript
 import { createApp } from 'vue';
-//vue
 import { NumberKeyboard,Popup } from '@nutui/nutui';
-//taro
-import { NumberKeyboard,Popup } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(NumberKeyboard);
@@ -26,7 +23,7 @@ app.use(Popup);
 ```html
 <template>
     <nut-cell :isLink="true" @click="showKeyBoard" :showIcon="true" title="默认键盘"></nut-cell>
-    <nut-numberkeyboard v-model:visible="visible" @input="input" @delete="onDelete" @close="close"> </nut-numberkeyboard>
+    <nut-number-keyboard v-model:visible="visible" @input="input" @delete="onDelete" @close="close"> </nut-number-keyboard>
 </template>
 <script>
 import { ref } from 'vue';
@@ -65,7 +62,7 @@ export default{
 ```html
 <template>
     <nut-cell :isLink="true" @click="showKeyBoard" :showIcon="true" title="带右侧栏键盘"></nut-cell>
-     <nut-numberkeyboard
+     <nut-number-keyboard
       type="rightColumn"
       v-model:visible="visible"
       :custom-key="customKey"
@@ -73,7 +70,7 @@ export default{
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -111,7 +108,7 @@ export default{
 ```html
 <template>
     <nut-cell :isLink="true" @click="showKeyBoard" :showIcon="true" title="随机数键盘"></nut-cell>
-    <nut-numberkeyboard
+    <nut-number-keyboard
       type="rightColumn"
       v-model:visible="visible"
       :randomKeys="true"
@@ -119,7 +116,7 @@ export default{
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -155,14 +152,14 @@ export default{
 ```html
 <template>
      <nut-cell :isLink="true" @click="showKeyBoard(4)" :showIcon="true" title="带标题栏键盘"></nut-cell>
-    <nut-numberkeyboard
+    <nut-number-keyboard
       title="默认键盘"
       v-model:visible="visible"
       :custom-key="customKey"
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -198,13 +195,13 @@ export default{
 ```html
 <template>
      <nut-cell :isLink="true" @click="showKeyBoard(4)" :showIcon="true" title="身份证键盘"></nut-cell>
-    <nut-numberkeyboard
+    <nut-number-keyboard
       v-model:visible="visible"
       :custom-key="customKey"
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -248,12 +245,12 @@ export default{
       :showIcon="true"
       title="双向绑定："
     ></nut-cell>
-     <nut-numberkeyboard 
+     <nut-number-keyboard 
        v-model:visible="visible" 
        v-model:value="value" 
        maxlength="6" 
        @close="close">
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -296,7 +293,7 @@ export default{
 | v-model:value | 当前输入值		 | String | - |
 | maxlength  | 输入值最大长度，结合 v-model 使用 | Number ｜ String| 6 |
 | confirm-text  | 自定义完成按钮文字，如"支付"，"下一步"，"提交"等 | String | 完成 |
-| teleport    | 指定挂载节点(`小程序不支持`)   | String         | `"body"`      |
+| teleport    | 指定挂载节点  | String         | `"body"`      |
 | pop-class    | 自定义弹框类名     | String         | -             |
 
 

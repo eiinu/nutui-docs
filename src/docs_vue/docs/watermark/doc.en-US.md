@@ -7,10 +7,7 @@
 ```javascript 
 
 import { createApp } from 'vue';
-// vue
 import { Watermark } from '@nutui/nutui';
-// taro
-import { Watermark } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Watermark);
@@ -24,8 +21,8 @@ app.use(Watermark);
 ```html
 <template>
   <nut-cell class="wrap">
-    <nut-button @click="showTextMark">Text WaterMark</nut-button>
-    <nut-button @click="showImageMark">Image WaterMark</nut-button>
+    <nut-button @click="showTextMark">Text Watermark</nut-button>
+    <nut-button @click="showImageMark">Image Watermark</nut-button>
     <nut-watermark v-if="!flag" class="mark1" z-index="1" content="nut-ui-water-mark"></nut-watermark>
     <nut-watermark
       v-if="flag"

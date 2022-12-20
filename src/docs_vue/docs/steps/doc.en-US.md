@@ -8,10 +8,7 @@ Split and display the steps of a process, guide users to complete tasks accordin
 
 ```javascript
 import { createApp } from 'vue';
-//vue
 import { Steps, Step } from '@nutui/nutui';
-//taro
-import { Steps, Step  } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Steps);
@@ -27,7 +24,7 @@ app.use(Step);
   <nut-steps :current="current1" @click-step="handleClickStep">
     <nut-step title="Step One">
       1
-      <template v-slot:title>Step One</template>
+      <template #title>Step One</template>
     </nut-step>
     <nut-step title="Not started">2</nut-step>
     <nut-step title="Not started">3</nut-step>
@@ -85,9 +82,15 @@ app.use(Step);
 ```html
 <template>
   <nut-steps current="1">
-    <nut-step title="Completed" icon="service">1</nut-step>
-    <nut-step title="In progress" icon="people">2</nut-step>
-    <nut-step title="Not started" icon="location2">3</nut-step>
+    <nut-step title="Completed">
+      <template #icon><Service /></template>
+    </nut-step>
+    <nut-step title="In progress">
+      <template #icon><People /></template>
+    </nut-step>
+    <nut-step title="Not started">
+      <template #icon><Location2 /></template>
+    </nut-step>
   </nut-steps>
 </template>
 ```
@@ -121,7 +124,7 @@ app.use(Step);
     <nut-step title="In progress" content="Your order is in transit">2</nut-step>
     <nut-step title="Not started">
       3
-      <template v-slot:content>
+      <template #content>
         <p>The receiving address is：</p>
         <p>Jingdong building, yard 18, Kechuang 11th Street, Beijing Economic and Technological Development Zone</p>
       </template>
@@ -140,9 +143,9 @@ app.use(Step);
 
 | Attribute       | Description                                         | Type             | Default |
 | ---------------------- | ----------------------------------------------------------- | -------------- | ----------- |
-| direction	             | 	Show direction，`horizontal`,`vertical`  | String        | 'horizontal'  | 
-| current	               | 	Current step           | Number、String        | '0'      |
-| progress-dot            |  Dot step bar     | Boolean | false         |
+| direction	             | 	Show direction，`horizontal`,`vertical`  | String        | `horizontal`  | 
+| current	               | 	Current step           | Number、String        | `0`      |
+| progress-dot            |  Dot step bar     | Boolean | `false`         |
 
 ### Steps Events
 
@@ -154,10 +157,8 @@ app.use(Step);
 
 | Attribute       | Description                         | Type             | Default |
 | ---------------- | ---------------------- | ------------ | ----------- |
-| title            | Title of the process step         | String | Step |
-| content          | Descriptive text of process steps (supporting HTML structure)      | String | Step description |
-| icon          | Icon       | String | null |
-| icon-color          | Icon color       | String | null |
+| title            | Title of the process step         | String | `Step` |
+| content          | Descriptive text of process steps (supporting HTML structure)      | String | `Step description` |
 
 ### Step Slots
 
@@ -165,3 +166,4 @@ app.use(Step);
 | ---------------- | ---------------------- |
 | title            | Step title         |
 | content          | Step content       |
+| icon             | Step icon          |

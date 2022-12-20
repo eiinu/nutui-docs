@@ -8,10 +8,7 @@
 
 ``` ts
 import { createApp } from 'vue';
-//vue
 import { Radio,RadioGroup,Icon } from '@nutui/nutui';
-//taro
-import { Radio,RadioGroup,Icon } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Radio);
@@ -20,7 +17,7 @@ app.use(Icon);
 ```
 ### 基础用法
 
-通过 **v-model** 绑定值当前选项的 **label** 。并且必须 **nut-radiogroup** 和 **nut-radio** 相结合进行使用
+通过 **v-model** 绑定值当前选项的 **label** 。并且必须 **nut-radio-group** 和 **nut-radio** 相结合进行使用
 
 :::demo
 
@@ -28,25 +25,25 @@ app.use(Icon);
 <template>
   <nut-cell-group title="基本用法">
     <nut-cell>
-      <nut-radiogroup v-model="radioVal">
+      <nut-radio-group v-model="radioVal">
         <nut-radio label="1">选项1</nut-radio>
         <nut-radio disabled label="2">选项2</nut-radio>
         <nut-radio label="3">选项3</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
     <nut-cell>
-      <nut-radiogroup v-model="radioVal" text-position="left">
+      <nut-radio-group v-model="radioVal" text-position="left">
         <nut-radio label="1">选项1</nut-radio>
         <nut-radio disabled label="2">选项2</nut-radio>
         <nut-radio label="3">选项3</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
     <nut-cell>
-      <nut-radiogroup v-model="radioVal">
+      <nut-radio-group v-model="radioVal">
         <nut-radio shape="button" label="1">选项1</nut-radio>
         <nut-radio disabled shape="button" label="2">选项2</nut-radio>
         <nut-radio shape="button" label="3">选项3</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
   </nut-cell-group>
 </template>
@@ -72,25 +69,25 @@ app.use(Icon);
 <template>
   <nut-cell-group title="水平使用">
     <nut-cell>
-      <nut-radiogroup v-model="radioVal" direction="horizontal">
+      <nut-radio-group v-model="radioVal" direction="horizontal">
         <nut-radio label="1">选项1</nut-radio>
         <nut-radio label="2">选项2</nut-radio>
         <nut-radio label="3">选项3</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
     <nut-cell>
-      <nut-radiogroup v-model="radioVal" text-position="left" direction="horizontal">
+      <nut-radio-group v-model="radioVal" text-position="left" direction="horizontal">
         <nut-radio label="1">选项1</nut-radio>
         <nut-radio label="2">选项2</nut-radio>
         <nut-radio label="3">选项3</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
     <nut-cell>
-      <nut-radiogroup v-model="radioVal" direction="horizontal">
+      <nut-radio-group v-model="radioVal" direction="horizontal">
         <nut-radio shape="button" label="1">选项1</nut-radio>
         <nut-radio shape="button" label="2">选项2</nut-radio>
         <nut-radio shape="button" label="3">选项3</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
   </nut-cell-group>
 </template>
@@ -115,10 +112,10 @@ app.use(Icon);
 <template>
   <nut-cell-group title="自定义尺寸">
     <nut-cell>
-      <nut-radiogroup v-model="radioVal">
+      <nut-radio-group v-model="radioVal">
         <nut-radio label="1" icon-size="12">自定义尺寸12</nut-radio>
         <nut-radio label="2" icon-size="12">自定义尺寸12</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
   </nut-cell-group>
 </template>
@@ -146,10 +143,10 @@ app.use(Icon);
 <template>
   <nut-cell-group title="Radio自定义图标">
     <nut-cell>
-      <nut-radiogroup v-model="radioVal">
+      <nut-radio-group v-model="radioVal">
         <nut-radio label="1" icon-name="checklist" icon-active-name="checklist">自定义图标</nut-radio>
         <nut-radio label="2" icon-name="checklist" icon-active-name="checklist">自定义图标</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
   </nut-cell-group>
 </template>
@@ -175,10 +172,10 @@ app.use(Icon);
 <template>
   <nut-cell-group title="触发事件">
     <nut-cell>
-      <nut-radiogroup v-model="radioVal" @change="handleChange">
+      <nut-radio-group v-model="radioVal" @change="handleChange">
         <nut-radio label="1">触发事件</nut-radio>
         <nut-radio label="2">触发事件</nut-radio>
-      </nut-radiogroup>
+      </nut-radio-group>
     </nut-cell>
     <nut-cell title="当前选中值" :desc="radioVal"></nut-cell>
   </nut-cell-group>
@@ -206,9 +203,9 @@ app.use(Icon);
 | 字段             | 说明                                                         | 类型                    | 默认值            |
 |------------------|--------------------------------------------------------------|-------------------------|-------------------|
 | disabled         | 是否禁用选择                                                 | Boolean                 | `false`           |
-| icon-size        | [图标尺寸](#/icon)                                           | String、Number          | `18`              |
-| icon-name        | [图标名称](#/icon)，选中前(建议和`icon-active-name`一起修改) | String                  | `'check-normal'`  |
-| icon-active-name | [图标名称](#/icon)，选中后(建议和`icon-name`一起修改)        | String                  | `'check-checked'` |
+| icon-size        | [图标尺寸](#/zh-CN/component/icon)                                           | String、Number          | `18`              |
+| icon-name        | [图标名称](#/zh-CN/component/icon)，选中前(建议和`icon-active-name`一起修改) | String                  | `'check-normal'`  |
+| icon-active-name | [图标名称](#/zh-CN/component/icon)，选中后(建议和`icon-name`一起修改)        | String                  | `'check-checked'` |
 | icon-class-prefix | 自定义 icon 类名前缀，用于使用自定义图标        | String                  | `nut-icon` |
 | icon-font-class-name | 自定义 icon 字体基础类名        | String                  | `nutui-iconfont` |
 | label            | 单选框标识                                                   | String、Number、Boolean | -                 |

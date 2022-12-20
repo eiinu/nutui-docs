@@ -1,4 +1,4 @@
-#  CountUp 数字滚动
+#  Countup 数字滚动
 
 ### 介绍
 
@@ -9,13 +9,10 @@
 
 ``` javascript
 import { createApp } from 'vue';
-// vue
-import { CountUp } from '@nutui/nutui';
-// taro
-import { CountUp } from '@nutui/nutui-taro';
+import { Countup } from '@nutui/nutui';
 
 const app = createApp();
-app.use(CountUp);
+app.use(Countup);
 ```
 
 ### 基础用法

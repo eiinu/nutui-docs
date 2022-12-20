@@ -9,10 +9,7 @@ Provide navigation function, often used at the top of the page.
 ```javascript
 
 import { createApp } from 'vue';
-// vue
 import { Navbar,Icon,Tabs, TabPane } from '@nutui/nutui';
-// taro
-import { Navbar,Icon,Tabs, TabPane } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Navbar);
@@ -98,8 +95,8 @@ app.use(TabPane);
   >
     <template #content>
       <nut-tabs v-model="tab1value" @click="changeTab">
-        <nut-tabpane title="Title1"> </nut-tabpane>
-        <nut-tabpane title="Title2"> </nut-tabpane>
+        <nut-tab-pane title="Title1"> </nut-tab-pane>
+        <nut-tab-pane title="Title2"> </nut-tab-pane>
       </nut-tabs>
     </template>
 
@@ -147,9 +144,9 @@ export default {
   <nut-navbar @on-click-back="back" >
     <template #content>
       <nut-tabs v-model="tab2value" @click="changeTabList">
-        <nut-tabpane title="Title1"> </nut-tabpane>
-        <nut-tabpane title="Title2"> </nut-tabpane>
-        <nut-tabpane title="Title3"> </nut-tabpane>
+        <nut-tab-pane title="Title1"> </nut-tab-pane>
+        <nut-tab-pane title="Title2"> </nut-tab-pane>
+        <nut-tab-pane title="Title3"> </nut-tab-pane>
       </nut-tabs>
     </template>
     <template #icons>

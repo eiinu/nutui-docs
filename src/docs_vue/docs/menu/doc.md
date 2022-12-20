@@ -8,14 +8,11 @@
 
 ``` javascript
 import { createApp } from 'vue';
-// vue
-import { Menu, MenuItem,OverLay, Popup } from '@nutui/nutui';
-// taro
-import { Menu, MenuItem,OverLay, Popup } from '@nutui/nutui-taro';
+import { Menu, MenuItem,Overlay, Popup } from '@nutui/nutui';
 const app = createApp();
 app.use(Menu);
 app.use(MenuItem);
-app.use(OverLay);
+app.use(Overlay);
 app.use(Popup);
 
 ```
@@ -414,3 +411,5 @@ export default {
 |--------|----------------------|--------------|
 | change | 选择 option 之后触发 | 选择的 value |
 | toggle | 切换菜单展示状态，传 `true` 为显示，`false` 为隐藏，不传参为取反 | show?: boolean |
+| open `v3.2.7` | 打开菜单栏时触发 | - |
+| close `v3.2.7` | 关闭菜单栏时触发 | - |

@@ -7,10 +7,7 @@
 
 ``` javascript
 import { createApp } from 'vue';
-//vue
 import { Tabbar, TabbarItem, Icon } from '@nutui/nutui';
-//taro
-import { Tabbar, TabbarItem, Icon } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Tabbar);
@@ -116,6 +113,42 @@ app.use(TabbarItem);
         console.log(item, index);
       }
       return {
+        tabSwitch,
+      };
+    },
+  }
+</script>
+```
+:::
+
+### 自定义图标
+通过 icon 插槽自定义图标，可以通过 slot-scope 判断标签是否选中
+
+:::demo
+```html
+<template>
+  <nut-tabbar @tab-switch="tabSwitch">
+    <nut-tabbar-item tab-title="首页">
+      <template #icon="props">
+          <img :src="props.active ? icon.active : icon.unactive" alt="" />
+        </template>
+    </nut-tabbar-item>
+    <nut-tabbar-item tab-title="分类" icon="category"></nut-tabbar-item>
+    <nut-tabbar-item tab-title="发现" icon="find"></nut-tabbar-item>
+  </nut-tabbar>
+</template>
+<script>
+  export default{
+    setup() {
+      function tabSwitch(item, index) {
+        console.log(item, index);
+      }
+      const icon = {
+        active: 'https://img11.360buyimg.com/imagetools/jfs/t1/70423/4/20553/3652/62e74629E23ba550e/aeeed0e3b9f43ae6.png',
+        unactive:'https://img13.360buyimg.com/imagetools/jfs/t1/23319/19/18329/3084/62e7c346E957c54ef/6c3e8a49e52b76f2.png',
+      };
+      return {
+        icon，
         tabSwitch,
       };
     },
@@ -231,17 +264,23 @@ app.use(TabbarItem);
 |-----------|-------------------------------------------|--------|--------|
 | tab-title | 标签页的标题                              | string | --    |
 | name| 标签名称，作为匹配的标识符                             | string | 当前标签的索引值   |
-| icon      | 标签页显示的[图标名称](#/icon)  | string | --     |
+| icon      | 标签页显示的[图标名称](#/zh-CN/component/icon)  | string | --     |
 | font-class-name | 自定义icon 字体基础类名     | string           | `nutui-iconfont` |
 | class-prefix | 自定义icon 类名前缀，用于使用自定义图标     | string           | `nut-icon` |
 | img      | 标签页显示图片链接 | String | --     |
 | active-img      | 激活以后的标签页显示图片链接（同一个item中icon和img只能选择一个） | string | --     |
 | href      | 标签页的跳转链接；如果同时存在 `to`，优先级高于 `to`    | string | --     |
-| to  `小程序不支持`      | 	标签页的路由对象，等于 vue-router 的 [to 属性](https://router.vuejs.org/zh/api/#to) 属性 | string｜object | --     |
+| to      | 	标签页的路由对象，等于 vue-router 的 [to 属性](https://router.vuejs.org/zh/api/#to) 属性 | string｜object | --     |
 | num       | 页签右上角的数字角标，超出99之后为99+     | number | --     |
 | dot       | 是否显示图标右上角小红点   | boolean | false    |
 | placeholder `3.2.6` | 固定在底部时，是否在标签位置生成一个等高的占位元素 | boolean | false |
 
+
+### TabbarItem Slots
+
+| 事件名称   | 说明               | 参数           |
+|------------|--------------------|--------------------|
+| icon | 自定义图标	 | active: boolean |
 
 ### Tabbar Events
 

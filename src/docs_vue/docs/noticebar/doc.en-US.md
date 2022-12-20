@@ -1,4 +1,4 @@
-# NoticeBar
+# Noticebar
 
 ### Intro
 
@@ -9,13 +9,10 @@ Used to display a group of message notifications in a continuons loop.
 ```javascript
 
 import { createApp } from 'vue';
-// vue
-import { NoticeBar } from '@nutui/nutui';
-// taro
-import { NoticeBar } from '@nutui/nutui-taro';
+import { Noticebar } from '@nutui/nutui';
 
 const app = createApp();
-app.use(NoticeBar);
+app.use(Noticebar);
 
 ```
 
@@ -129,7 +126,7 @@ When text is long, you can enable multi-line display by setting the wrapable pro
   import { ref } from 'vue';
   export default {
     setup(props) {
-      const horseLamp1 = ref(['NoticeBar', 'Cascader', 'DatePicker', 'CheckBox']);
+      const horseLamp1 = ref(['Noticebar', 'Cascader', 'DatePicker', 'CheckBox']);
       const go = (item) => {
         console.log(item)
       }
@@ -154,7 +151,7 @@ When text is long, you can enable multi-line display by setting the wrapable pro
   import { ref } from 'vue';
   export default {
     setup(props) {
-      const horseLamp2 = ref(['NoticeBar', 'Cascader', 'DatePicker', 'CheckBox']);
+      const horseLamp2 = ref(['Noticebar', 'Cascader', 'DatePicker', 'CheckBox']);
       return { horseLamp2 };
     }
   }
@@ -178,7 +175,7 @@ When text is long, you can enable multi-line display by setting the wrapable pro
   import { ref } from 'vue';
   export default {
     setup(props) {
-      const horseLamp3 = ref(['NoticeBar', 'Cascader', 'DatePicker', 'CheckBox']);
+      const horseLamp3 = ref(['Noticebar', 'Cascader', 'DatePicker', 'CheckBox']);
       return { horseLamp3 };
     }
   }
@@ -204,7 +201,7 @@ When text is long, you can enable multi-line display by setting the wrapable pro
   import { ref } from 'vue';
   export default {
     setup(props) {
-      const horseLamp1 = ref(['NoticeBar', 'Cascader', 'DatePicker', 'CheckBox']);
+      const horseLamp1 = ref(['Noticebar', 'Cascader', 'DatePicker', 'CheckBox']);
       return { horseLamp1 };
     }
   }
@@ -252,5 +249,5 @@ When text is long, you can enable multi-line display by setting the wrapable pro
 
 | Attribute  | Description                             | Arguments     |
 | ---------- | --------------------------------------- | ------------ |
-| click      | Emitted when NoticeBar is clicked       | event: Event |
-| close      | Emitted when NoticeBar is closed        | event: Event |
+| click      | Emitted when Noticebar is clicked       | event: Event |
+| close      | Emitted when Noticebar is closed        | event: Event |

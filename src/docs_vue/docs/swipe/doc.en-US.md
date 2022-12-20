@@ -8,10 +8,7 @@ Used for cell components that can slide left and right to display operation butt
 
 ```javascript
 import { createApp } from 'vue';
-//vue
 import { Swipe,Cell,Button } from '@nutui/nutui';
-//taro
-import { Swipe,Cell,Button } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Swipe);
@@ -129,7 +126,7 @@ Need to introduce the `inputnumber` component separately
     </template>
     <nut-cell title="product description">
     <template v-slot:link>
-        <nut-inputnumber v-model="number" />
+        <nut-input-number v-model="number" />
     </template>
     </nut-cell>
     <template #right>

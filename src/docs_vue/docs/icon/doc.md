@@ -2,24 +2,36 @@
 
 ### 介绍
 
-基于 IconFont 字体的图标集，可以通过 Icon 组件使用。
+独立安装 @nutui/icons-vue 图标组件包。
 
 ### 安装
 
-``` javascript
-import { createApp } from 'vue';
-// vue
-import { Icon } from '@nutui/nutui';
-// taro
-import { Icon } from '@nutui/nutui-taro';
-
-const app = createApp();
-app.use(Icon);
-
+```bash
+npm i --save @nutui/icons-vue
 ```
 
+``` javascript
+import { createApp } from 'vue';
+import { IconFont } from '@nutui/icons-vue';
 
-### 基础用法
+const app = createApp();
+app.use(IconFont);
+```
+### Svg 按需加载使用
+
+按需加载组件使用方式，可选项见 @nutui/icons-vue/dist/types/index.d.ts
+
+```js
+import { Add } from '@nutui/icons-vue';
+// template
+<Add color='red'>
+```
+
+### IconFont 全量使用
+
+```js
+import { IconFont } from '@nutui/icons-vue';
+```
 
 `Icon` 的 `name` 属性支持传入图标名称或图片链接。
 
@@ -33,7 +45,7 @@ app.use(Icon);
 ```
 :::
 
-### 图标颜色
+#### 图标颜色
 
 `Icon` 的 `color` 属性用来设置图标的颜色。
 
@@ -47,7 +59,7 @@ app.use(Icon);
 ```
 :::
 
-### 图标大小
+#### 图标大小
 
 `Icon` 的 `size` 属性用来设置图标的尺寸大小，默认单位为 `px`。
 
@@ -60,7 +72,7 @@ app.use(Icon);
 </template>
 ```
 :::
-### 通用动态图标
+#### 通用动态图标
 
 添加指定的 class 类就可以实现图片动态效果，默认是播放1次，添加 `nut-icon-am-infinite` 类即可实现循环播放。通过设置 css 可实现动画启动前的延迟间隔、动画在多久时间内完成
 
@@ -88,7 +100,7 @@ app.use(Icon);
 
 
 
-### 自定义图标
+#### 自定义图标
 
 如果需要在现有 Icon 的基础上使用更多图标，可以引入第三方 iconfont 对应的字体文件和 CSS 文件，之后就可以在 Icon 组件中直接使用。
 

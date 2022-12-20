@@ -300,7 +300,7 @@ export default {
 import { ref } from 'vue';
 export default {
   setup() {
-      // source file https://github.com/jdf2e/nutui/blob/next/src/packages/__VUE/uploader/uploader.ts#L51
+      // source file https://github.com/jdf2e/nutui/blob/v4/src/packages/__VUE/uploader/uploader.ts#L51
      const beforeXhrUpload=(xhr:XMLHttpRequest,options:any)=>{
         if (options.method.toLowerCase() == 'put') {
           xhr.send(options.sourceFile);
@@ -380,8 +380,8 @@ export default {
 | accept            | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)       | String                            | *                |
 | headers           | Set request headers                                                                                                                              | Object                            | {}               |
 | data              | Uploading extra params or function which can return uploading extra params                                                                       | Object                            | {}               |
-| upload-icon       | Upload area [icon name](#/icon) or image link                                                                                                    | String                            | "photograph"     |
-| upload-icon-size  | Upload area [icon size] (#/icon) size, such as `20px` `2em` `2rem`                                                                               | String or Number                  | -                |
+| upload-icon       | Upload area [icon name](#/en-US/component/icon) or image link                                                                                                    | String                            | "photograph"     |
+| upload-icon-size  | Upload area [icon size] (#/en-US/component/icon) size, such as `20px` `2em` `2rem`                                                                               | String or Number                  | -                |
 | xhr-state         | The success status (status) value of the interface response                                                                                      | Number                            | 200              |
 | with-credentials  | The ajax upload with cookie sent                                                                                                                 | Boolean                           | false            |
 | multiple          | Whether to support multiple file selection                                                                                                       | Boolean                           | false            |

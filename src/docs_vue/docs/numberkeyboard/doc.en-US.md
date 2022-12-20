@@ -8,10 +8,7 @@ Virtual numeric keypad, used for scenarios where payment passwords are entered.
 
 ``` javascript
 import { createApp } from 'vue';
-//vue
 import { NumberKeyboard,Popup } from '@nutui/nutui';
-//taro
-import { NumberKeyboard,Popup } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(NumberKeyboard);
@@ -26,7 +23,7 @@ For online debugging, please change the browser to mobile mode
 ```html
 <template>
     <nut-cell :isLink="true" @click="showKeyBoard" :showIcon="true" title="Default Keyboard"></nut-cell>
-    <nut-numberkeyboard v-model:visible="visible" @input="input" @delete="onDelete" @close="close"> </nut-numberkeyboard>
+    <nut-number-keyboard v-model:visible="visible" @input="input" @delete="onDelete" @close="close"> </nut-number-keyboard>
 </template>
 <script>
 import { ref } from 'vue';
@@ -65,7 +62,7 @@ export default{
 ```html
 <template>
     <nut-cell :isLink="true" @click="showKeyBoard" :showIcon="true" title="Keyboard With Sidebar"></nut-cell>
-     <nut-numberkeyboard
+     <nut-number-keyboard
       type="rightColumn"
       v-model:visible="visible"
       :custom-key="customKey"
@@ -73,7 +70,7 @@ export default{
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -111,7 +108,7 @@ export default{
 ```html
 <template>
     <nut-cell :isLink="true" @click="showKeyBoard" :showIcon="true" title="Random Key Order"></nut-cell>
-    <nut-numberkeyboard
+    <nut-number-keyboard
       type="rightColumn"
       v-model:visible="visible"
       :randomKeys="true"
@@ -119,7 +116,7 @@ export default{
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -155,14 +152,14 @@ export default{
 ```html
 <template>
      <nut-cell :isLink="true" @click="showKeyBoard(4)" :showIcon="true" title="Show Keyboard With Title"></nut-cell>
-    <nut-numberkeyboard
+    <nut-number-keyboard
       title="title"
       v-model:visible="visible"
       :custom-key="customKey"
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -198,13 +195,13 @@ export default{
 ```html
 <template>
      <nut-cell :isLink="true" @click="showKeyBoard(4)" :showIcon="true" title="IdNumber Keyboard"></nut-cell>
-    <nut-numberkeyboard
+    <nut-number-keyboard
       v-model:visible="visible"
       :custom-key="customKey"
       @input="input"
       @close="close"
     >
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -248,12 +245,12 @@ export default{
       :showIcon="true"
       title="Bind Value"
     ></nut-cell>
-     <nut-numberkeyboard 
+     <nut-number-keyboard 
        v-model:visible="visible" 
        v-model:value="value" 
        maxlength="6" 
        @close="close">
-    </nut-numberkeyboard>
+    </nut-number-keyboard>
 </template>
 <script>
 import { ref,reactive } from 'vue';
@@ -296,7 +293,7 @@ export default{
 | overlay | Whether to show the mask  | Boolean| true |
 | maxlength  | Value maxlength，Use with v-model | Number ｜ String| 6 |
 | confirm-text  | Custom done button text,Such as "pay", "next", "submit" | String | done |
-| teleport    | Specify the mount node `(not supported by miniProgram)`  | String         | `"body"`      |
+| teleport    | Specify the mount node  | String         | `"body"`      |
 | pop-class    | Custom bullet box classname     | String         | -             |
 
 

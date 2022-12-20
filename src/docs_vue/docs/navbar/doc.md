@@ -9,10 +9,7 @@
 ```javascript
 
 import { createApp } from 'vue';
-// vue
 import { Navbar,Icon,Tabs, TabPane } from '@nutui/nutui';
-// taro
-import { Navbar,Icon,Tabs, TabPane } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Navbar);
@@ -98,8 +95,8 @@ app.use(TabPane);
   >
     <template #content>
       <nut-tabs v-model="tab1value" @click="changeTab">
-        <nut-tabpane title="标题1"> </nut-tabpane>
-        <nut-tabpane title="标题2"> </nut-tabpane>
+        <nut-tab-pane title="标题1"> </nut-tab-pane>
+        <nut-tab-pane title="标题2"> </nut-tab-pane>
       </nut-tabs>
     </template>
 
@@ -147,9 +144,9 @@ export default {
   <nut-navbar @on-click-back="back" >
     <template #content>
       <nut-tabs v-model="tab2value" @click="changeTabList">
-        <nut-tabpane title="标题1"> </nut-tabpane>
-        <nut-tabpane title="标题2"> </nut-tabpane>
-        <nut-tabpane title="标题3"> </nut-tabpane>
+        <nut-tab-pane title="标题1"> </nut-tab-pane>
+        <nut-tab-pane title="标题2"> </nut-tab-pane>
+        <nut-tab-pane title="标题3"> </nut-tab-pane>
       </nut-tabs>
     </template>
     <template #icons>

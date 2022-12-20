@@ -8,10 +8,7 @@
 
 ```javascript
 import { createApp } from 'vue';
-//vue
 import { Swipe,Cell,Button } from '@nutui/nutui';
-//taro
-import { Swipe,Cell,Button } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Swipe);
@@ -130,7 +127,7 @@ export default {
     </template>
     <nut-cell title="商品描述">
     <template v-slot:link>
-        <nut-inputnumber v-model="number" />
+        <nut-input-number v-model="number" />
     </template>
     </nut-cell>
     <template #right>

@@ -8,14 +8,12 @@ The menu list that pops down downwards.
 
 ``` javascript
 import { createApp } from 'vue';
-// vue
-import { Menu, MenuItem,OverLay, Popup } from '@nutui/nutui';
-// taro
-import { Menu, MenuItem,OverLay, Popup } from '@nutui/nutui-taro';
+import { Menu, MenuItem,Overlay, Popup } from '@nutui/nutui';
+
 const app = createApp();
 app.use(Menu);
 app.use(MenuItem);
-app.use(OverLay);
+app.use(Overlay);
 app.use(Popup);
 
 ```
@@ -415,3 +413,5 @@ export default {
 |--------|-------------------------------|----------------|
 | change | Emitted select option changed | Selected value |
 | toggle | Toggle menu display status, `true` to show，`false` to hide, no param is negated | show?: boolean |
+| open `v3.2.7` | Emitted when opening menu | - |
+| close `v3.2.7` | Emitted when closing menu | - |

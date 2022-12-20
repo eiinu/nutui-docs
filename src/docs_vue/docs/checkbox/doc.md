@@ -8,10 +8,7 @@
 
 ``` ts
 import { createApp } from 'vue';
-// vue
 import { Checkbox,CheckboxGroup,Icon } from '@nutui/nutui';
-// taro
-import { Checkbox,CheckboxGroup,Icon } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Checkbox);
@@ -193,12 +190,12 @@ app.use(Icon);
 
 ```html
 <template>
-  <nut-checkboxgroup v-model="checkboxgroup1">
+  <nut-checkbox-group v-model="checkboxgroup1">
     <nut-checkbox label="1">组合复选框</nut-checkbox>
     <nut-checkbox label="2">组合复选框</nut-checkbox>
     <nut-checkbox label="3">组合复选框</nut-checkbox>
     <nut-checkbox label="4">组合复选框</nut-checkbox>
-  </nut-checkboxgroup>
+  </nut-checkbox-group>
   <nut-cell>
     <div class="demo-check">当前选中值</div>
     <div>{{ checkboxgroup1 }}</div>
@@ -227,9 +224,9 @@ app.use(Icon);
 
 ```html
 <template>
-  <nut-checkboxgroup v-model="checkboxgroup3" ref="group" @change="changeBox4">
+  <nut-checkbox-group v-model="checkboxgroup3" ref="group" @change="changeBox4">
     <nut-checkbox v-for="item in checkboxsource" :key="item.label" :label="item.label">{{item.value}}</nut-checkbox>
-  </nut-checkboxgroup>
+  </nut-checkbox-group>
   <span class="btn">
     <nut-button type="primary" @click="toggleAll(true)" style="margin: 0 20px 0 0">全选</nut-button>
     <nut-button type="primary" @click="toggleAll(false)" style="margin: 0 20px 0 0">取消</nut-button>
@@ -284,12 +281,12 @@ app.use(Icon);
 <template>
   <nut-cell-group title="checkboxGroup使用，限制最大可选数（2个）">
     <nut-cell>
-      <nut-checkboxgroup v-model="checkboxgroup4" :max="2">
+      <nut-checkbox-group v-model="checkboxgroup4" :max="2">
         <nut-checkbox label="1" style="margin: 2px 20px 0 0">组合复选框</nut-checkbox>
         <nut-checkbox label="2">组合复选框</nut-checkbox>
         <nut-checkbox label="3" style="margin: 2px 20px 0 0">组合复选框</nut-checkbox>
         <nut-checkbox label="4">组合复选框</nut-checkbox>
-      </nut-checkboxgroup>
+      </nut-checkbox-group>
     </nut-cell>
     <nut-cell>
       <div class="demo-check">选中</div>
@@ -326,12 +323,12 @@ app.use(Icon);
     <nut-cell>
       <nut-checkbox :indeterminate="indeterminate" v-model="checkbox10" @change="changeBox5">全选</nut-checkbox>
     </nut-cell>
-    <nut-checkboxgroup v-model="checkboxgroup5" ref="group2" @change="changeBox6">
+    <nut-checkbox-group v-model="checkboxgroup5" ref="group2" @change="changeBox6">
       <nut-cell><nut-checkbox label="1" style="margin: 2px 20px 0 0">组合复选框</nut-checkbox></nut-cell>
       <nut-cell><nut-checkbox label="2">组合复选框</nut-checkbox></nut-cell>
       <nut-cell><nut-checkbox label="3">组合复选框</nut-checkbox></nut-cell>
       <nut-cell><nut-checkbox label="4">组合复选框</nut-checkbox></nut-cell>
-    </nut-checkboxgroup>
+    </nut-checkbox-group>
   </nut-cell-group>
 </template>
 <script lang="ts">
@@ -381,10 +378,10 @@ app.use(Icon);
 | v-model | 是否处于选中状态 | Boolean | `false`
 | disabled | 是否禁用选择 | Boolean | `false`
 | text-position | 文本所在的位置，可选值：`left`,`right` | String | `right`
-| icon-size | [图标尺寸](#/icon) | String、Number | `18`
-| icon-name | [图标名称](#/icon)，选中前(建议和`icon-active-name`一起修改) | String | `'check-normal'`
-| icon-active-name | [图标名称](#/icon)，选中后(建议和`icon-name`一起修改) | String | `'checked'`
-| icon-indeterminate-name | [图标名称](#/icon)，半选状态 | String | `'check-disabled'`
+| icon-size | [图标尺寸](#/zh-CN/component/icon) | String、Number | `18`
+| icon-name | [图标名称](#/zh-CN/component/icon)，选中前(建议和`icon-active-name`一起修改) | String | `'check-normal'`
+| icon-active-name | [图标名称](#/zh-CN/component/icon)，选中后(建议和`icon-name`一起修改) | String | `'checked'`
+| icon-indeterminate-name | [图标名称](#/zh-CN/component/icon)，半选状态 | String | `'check-disabled'`
 | icon-class-prefix | 自定义 icon 类名前缀，用于使用自定义图标        | String                  | `nut-icon` |
 | icon-font-class-name | 自定义 icon 字体基础类名        | String                  | `nutui-iconfont` |
 | label | 复选框的文本内容 | String | -

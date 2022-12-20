@@ -9,10 +9,7 @@
 ```javascript
 
 import { createApp } from 'vue';
-// vue
 import { ConfigProvider } from '@nutui/nutui';
-// taro
-import { ConfigProvider } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(ConfigProvider);
@@ -56,6 +53,40 @@ app.use(ConfigProvider);
 
 :::
 
+### 动态主题
+ConfigProvider 组件提供了覆盖 CSS 变量的能力，你需要在根节点包裹一个 ConfigProvider 组件，并通过 theme-vars 属性来配置一些主题变量
+:::demo
+
+```html
+<template>
+    <nut-config-provider :theme-vars="themeVars">
+      <nut-form>
+        <nut-form-item :label="动态主题">
+          <nut-range hidden-tag v-model="range"></nut-range>
+        </nut-form-item>
+      </nut-form>
+    </nut-config-provider>
+</template>
+<script lang="ts">
+  import { ref } from 'vue';
+  export default {
+    setup() {
+      const range = ref(30);
+       const themeVars = {
+      rangeBgColor: 'rgba(25,137,250,0.15)',
+      rangeBarBgColor: '#0289fa',
+      rangeBarBtnBorder: '1px solid #0289fa'
+    };
+
+      return { range, themeVars };
+    }
+  };
+</script>
+```
+
+:::
+
+
 ## API
 
 ### Props
@@ -64,26 +95,3 @@ app.use(ConfigProvider);
 |-------|--------------------------------------------------|--------|--------|
 | theme | 主题风格，设置为 `dark` 来开启深色模式，全局生效 | String | -      |
 | tag   | 根节点对应的 HTML 标签名                         | String | div    |
-
-
-### 暗黑模式适配进度
-
-目前，只有以下组件支持了暗黑模式，其他组件还在持续完善中，请关注后续的发布 欢迎 PR 共建：
-
-- Button  
-- Cell  
-- Icon  
-- OverLay  
-- Popup  
-- Layout  
-- Sticky  
-- Divider  
-- Grid  
-- Navbar  
-- FixedNav  
-- Menu  
-- Tabbar  
-- Elevator  
-- Pagination  
-- Tabs  
-- Form...

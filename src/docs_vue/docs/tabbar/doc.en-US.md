@@ -7,10 +7,7 @@ Bottom navigation bar
 
 ``` javascript
 import { createApp } from 'vue';
-//vue
 import { Tabbar,TabbarItem,Icon } from '@nutui/nutui';
-//taro
-import { Tabbar,TabbarItem,Icon } from '@nutui/nutui-taro';
 
 const app = createApp();
 app.use(Tabbar);
@@ -94,6 +91,42 @@ If you need to use more icons based on the existing Icon, please refer to the Ic
     },
   }
   
+</script>
+```
+:::
+
+### Custom Icon
+Use icon slot to custom icon.
+
+:::demo
+```html
+<template>
+  <nut-tabbar @tab-switch="tabSwitch">
+    <nut-tabbar-item tab-title="首页">
+      <template #icon="props">
+          <img :src="props.active ? icon.active : icon.unactive" alt="" />
+        </template>
+    </nut-tabbar-item>
+    <nut-tabbar-item tab-title="分类" icon="category"></nut-tabbar-item>
+    <nut-tabbar-item tab-title="发现" icon="find"></nut-tabbar-item>
+  </nut-tabbar>
+</template>
+<script>
+  export default{
+    setup() {
+      function tabSwitch(item, index) {
+        console.log(item, index);
+      }
+      const icon = {
+        active: 'https://img11.360buyimg.com/imagetools/jfs/t1/70423/4/20553/3652/62e74629E23ba550e/aeeed0e3b9f43ae6.png',
+        unactive:'https://img13.360buyimg.com/imagetools/jfs/t1/23319/19/18329/3084/62e7c346E957c54ef/6c3e8a49e52b76f2.png',
+      };
+      return {
+        icon，
+        tabSwitch,
+      };
+    },
+  }
 </script>
 ```
 :::
@@ -198,10 +231,16 @@ If you need to use more icons based on the existing Icon, please refer to the Ic
 | img      | ImgUrl of unactive tab item | String | --     |
 | active-img      | ImgUrl of active tab item（Only one icon and img can be selected in the same item） | string | --     |
 | href      | Jump links for tabs                          | string | --     |
-| to  `applet not supported`      | 	Target route of the link, same as to of vue-router | string｜object | --     |
+| to    | 	Target route of the link, same as to of vue-router | string｜object | --     |
 | num       | Numbered corner label in the upper right corner of the tab    | number | --     |
 | dot       | Whether to show red dot   | boolean | false    |
 
+
+### TabbarItem Slots
+
+| Name   | Description               | SlotProps           |
+|------------|--------------------|--------------------|
+| icon | Custom Icon	 | active: boolean |
 
 ### Tabbar Events
 
