@@ -46,7 +46,7 @@
     "build:oss:vue:taro": "vite build --config vite.config.vue.taro.ts --base=/nutui/newsite/vue_taro/",
     "build:react:taro": "vite build --config vite.config.react.taro.ts",
     "build:oss:react:taro": "vite build --config vite.config.react.taro.ts --base=/nutui/newsite/react_taro/",
-    "build:oss:react": "vite build --base=/nutui/newsite/react/",
+    "build:oss:react": "vite build --config vite.config.react.ts  --base=/nutui/newsite/react/",
     "build:gh-pages": "vite build --base=/nutui-docs/4x/",
     "build:gh-pages:react": "vite build --config vite.config.react.ts --base=/nutui-docs/react/",
     "build:gh-pages:vue:taro": "vite build --config vite.config.vue.taro.ts --base=/nutui-docs/vue_taro/",
