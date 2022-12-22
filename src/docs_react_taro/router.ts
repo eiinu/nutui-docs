@@ -15,9 +15,9 @@ const guideEnRouters: Array<RouteRecordRaw> = [];
 
 /** vite */
 
-const modulesPage = (import.meta as any).glob('./docs/**/doc.md');
+const modulesPage = (import.meta as any).glob('./docs/**/doc.taro.md');
 for (const path in modulesPage) {
-  let name = (/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
+  let name = (/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
   pagesRouter.push({
     path: `/zh-CN/component/${name}`,
     component: modulesPage[path],
