@@ -337,7 +337,7 @@ export const SiteVue = {
   newHeader: [
     {
       name: 'component',
-      cName: '生态产品',
+      cName: '基础组件',
       eName: 'Components',
       key: '1',
       path: '/zh-CN/component/button',

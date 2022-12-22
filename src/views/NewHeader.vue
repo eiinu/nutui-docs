@@ -12,12 +12,16 @@
       <div class="nav-box">
         <ul class="nav-list">
           <template v-for="item in newHeader" :key="item.name">
-            <li class="nav-item nav-normal" :class="{ active: isActive(item.name) }" v-if="item.key != '1'">
+            <li
+              class="nav-item nav-normal"
+              :class="{ active: isActive(item.name) }"
+              v-if="item.key != '1' && item.key != '2'"
+            >
               <a @click="toLink(item)">
                 {{ isZh ? item.cName : item.eName }}
               </a>
             </li>
-            <li class="nav-item nav-normal" :class="{ active: data.isShowGuid }" v-else>
+            <li class="nav-item nav-normal" :class="{ active: data.isShowGuid }" v-else-if="item.key == '1'">
               <div
                 @mouseenter="onMouseHover(true)"
                 @mouseleave="onMouseHover(false)"
@@ -32,6 +36,25 @@
                     src="@/assets/images/icon-select-white-down.png"
                     class="hover-arrow"
                     :style="{ transform: 'rotate(' + (data.isShowGuid ? '180deg' : '0') + ')' }"
+                  />
+                </a>
+              </div>
+            </li>
+            <li class="nav-item nav-normal" :class="{ active: data.isShowBiz }" v-else-if="item.key == '2'">
+              <div
+                @mouseenter="onMouseHoverBiz(true)"
+                @mouseleave="onMouseHoverBiz(false)"
+                tabindex="0"
+                class="site-header-select-box"
+                :class="[data.isShowBiz == true ? 'select-up' : 'select-down']"
+                @click.stop="data.isShowBiz = !data.isShowBiz"
+              >
+                <a class="nav-item-title"
+                  >业务组件
+                  <img
+                    src="@/assets/images/icon-select-white-down.png"
+                    class="hover-arrow"
+                    :style="{ transform: 'rotate(' + (data.isShowBiz ? '180deg' : '0') + ')' }"
                   />
                 </a>
               </div>
@@ -111,6 +134,41 @@
               </div>
             </div>
           </transition>
+          <transition name="fade">
+            <div
+              class="biz-guid-data"
+              @mouseenter="onMouseHoverBiz(true)"
+              @mouseleave="onMouseHoverBiz(false)"
+              v-show="data.isShowBiz"
+            >
+              <div class="site-guid-data-arrow"></div>
+              <div
+                class="info"
+                v-for="(item, indexKey) in businessGuide"
+                :key="indexKey"
+                :class="{ contentKey: indexKey === 1 }"
+              >
+                <div
+                  class="content"
+                  v-for="(info, index) in item.data"
+                  :key="index"
+                  @click.stop="checkGuidTheme(info)"
+                  :class="{
+                    disabled: info.name === 'Biz'
+                  }"
+                >
+                  <div class="version"> {{ info.name }}</div>
+                  <div class="list">
+                    <div class="lang" v-for="(lang, index) in info.language" :key="index"
+                      ><div class="name">{{ lang }}</div>
+                    </div></div
+                  >
+
+                  <div class="app"> {{ info.app }}</div>
+                </div>
+              </div>
+            </div>
+          </transition>
         </ul>
       </div>
     </div>
@@ -119,7 +177,7 @@
 <script lang="ts">
 import { defineComponent, reactive, computed, onMounted, toRefs } from 'vue';
 // import Search from './Search.vue';
-import { newHeader, nav, newRepository, language, guide, products } from '@/config/index';
+import { newHeader, nav, newRepository, language, guide, products, businessGuide } from '@/config/index';
 import { RefData } from '@/assets/util/ref';
 import { useRouter } from 'vue-router';
 import { useLocale } from '@/assets/util/locale';
@@ -139,7 +197,8 @@ export default defineComponent({
       verson: language == 'vue' ? '3.x' : '1.x',
       navIndex: 0,
       activeIndex: 2,
-      isShowGuid: false
+      isShowGuid: false,
+      isShowBiz: false
     });
     const versionList = reactive({
       reactVersion: '已发版',
@@ -171,6 +230,9 @@ export default defineComponent({
 
     const onMouseHover = (flag: any) => {
       data.isShowGuid = flag;
+    };
+    const onMouseHoverBiz = (flag: any) => {
+      data.isShowBiz = flag;
     };
 
     const toHome = () => {
@@ -239,6 +301,7 @@ export default defineComponent({
 
     return {
       newHeader,
+      businessGuide,
       ...toRefs(versionList),
       newRepository,
       data,
@@ -250,6 +313,7 @@ export default defineComponent({
       handleFocus,
       handleGuidFocusOut,
       onMouseHover,
+      onMouseHoverBiz,
       guide,
       products,
       toLink,
@@ -383,6 +447,8 @@ export default defineComponent({
           display: flex;
           align-items: center;
           .hover-arrow {
+            width: 10px;
+            height: 8px;
             transition: all linear 0.2s;
             margin-left: 5px;
           }
@@ -422,7 +488,7 @@ export default defineComponent({
     position: absolute;
     width: 100px;
     height: 30px;
-    top: -30px;
+    top: -26px;
     left: 37%;
     cursor: pointer;
   }
@@ -504,6 +570,115 @@ export default defineComponent({
   }
   .child-content {
     width: 100%;
+  }
+}
+.biz-guid-data {
+  // display: block !important;
+  position: absolute;
+  z-index: 100;
+  top: 60px;
+  left: 0;
+  padding: 20px;
+  width: 300px;
+  background: $theme-black-nav-select-bg;
+  border: 1px solid $theme-black-nav-select-border;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #fff;
+  .site-guid-data-arrow {
+    position: absolute;
+    z-index: 99;
+    width: 100px;
+    height: 30px;
+    top: -26px;
+    left: 37%;
+    cursor: pointer;
+  }
+  .disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .info {
+    padding-top: 16px;
+    padding-bottom: 22px;
+    &:first-child {
+      border-bottom: 1px solid $theme-black-nav-select-border;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 24px;
+      .icon {
+        width: 22px;
+        height: 19px;
+        margin-right: 9px;
+      }
+    }
+    .content {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      line-height: 24px;
+      margin-top: 2px;
+      margin-bottom: 2px;
+      border-radius: 4px;
+      &.active {
+        background-color: $theme-black-nav-select-active-bg;
+      }
+      &:hover {
+        background-color: $theme-black-nav-select-hover-bg;
+      }
+      .version {
+        width: 80px;
+        text-align: center;
+        display: inline-block;
+      }
+      .list {
+        width: 110px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: bottom;
+        .lang {
+          float: left;
+          height: 24px;
+          background: $doc-nav-icon-bg1;
+          border-radius: 4px;
+          margin-right: 4px;
+          &:nth-child(2) {
+            background: $doc-nav-icon-bg2;
+            .name {
+              color: $doc-nav-icon-color2;
+            }
+          }
+          .name {
+            padding-left: 6px;
+            padding-right: 6px;
+            font-size: 14px;
+            font-family: PingFangSC;
+            font-weight: normal;
+            color: $doc-nav-icon-color1;
+          }
+        }
+      }
+      .app {
+        display: inline-block;
+        // width: 64px;
+        margin-left: 8px;
+      }
+    }
+  }
+  .contentKey {
+    @extend .info;
+    .content {
+      .list {
+        .lang {
+          background: $doc-nav-icon-bg2;
+          .name {
+            color: $doc-nav-icon-color2;
+          }
+        }
+      }
+    }
   }
 }
 </style>
