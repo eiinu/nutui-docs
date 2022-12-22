@@ -1,6 +1,6 @@
 # NutUI-React
 
-NutUI is a JD-style React mobile component library that develops and serves enterprise-class products for mobile web interfaces.
+The NutUI-React component library is suitable for H5 applications of the React technology stack. It can be used out of the box to help developers quickly develop user interfaces, improve development efficiency, and improve development experience.
 
 <div style="margin:30px 0;">
     <img src="https://img14.360buyimg.com/imagetools/jfs/t1/167902/2/8762/791358/603742d7E9b4275e3/e09d8f9a8bf4c0ef.png" width="150" alt="NutUI">

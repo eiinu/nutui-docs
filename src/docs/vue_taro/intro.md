@@ -1,7 +1,7 @@
 # NutUI
 
 <!-- NutUI 是京东风格的 Vue 移动端组件库，开发和服务于移动Web界面的企业级产品。 -->
-NutUI-Taro 是京东风格的移动端组件库，使用 Vue 语言来编写多端应用，帮助研发人员提升开发效率，改善开发体验。
+NutUI-Vue 组件库，基于 Taro，使用 Vue 技术栈开发小程序应用，开箱即用，帮助研发快速开发用户界面，提升开发效率，改善开发体验。
 
 <div style="margin:30px 0;">
     <img src="https://img14.360buyimg.com/imagetools/jfs/t1/167902/2/8762/791358/603742d7E9b4275e3/e09d8f9a8bf4c0ef.png" width="150" alt="NutUI">
