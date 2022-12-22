@@ -7,7 +7,9 @@ Icon set based on IconFont fonts, which can be used through the Icon component.
 ### Install
 
 ``` javascript
+// react
 import { Icon } from '@nutui/nutui-react';
+
 ```
 
 ## Demo

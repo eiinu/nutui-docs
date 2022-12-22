@@ -7,7 +7,9 @@ Displays the progress of a task or process, often used for provisioning processe
 ### Install
 
 ```javascript
+// react
 import { Indicator } from '@nutui/nutui-react'
+
 ```
 ### Basic Usage
 :::demo

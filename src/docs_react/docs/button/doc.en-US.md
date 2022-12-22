@@ -7,7 +7,9 @@ Buttons are used to trigger an action, such as submitting a form.
 ### Install
 
 ``` javascript
+// react
 import { Button } from '@nutui/nutui-react';
+
 ```
 
 ## Demo

@@ -7,7 +7,9 @@
 
 ### 安装
 ``` javascript
+// react
 import { Address } from '@nutui/nutui-react';
+
 ```
 
 ## 代码示例

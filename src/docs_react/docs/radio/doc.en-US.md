@@ -7,7 +7,9 @@ Used to single select in a set of alternatives
 ### Install
 
 ``` ts
+// react
 import { Radio } from '@nutui/nutui-react';
+
 ```
 
 ## Basic Usage

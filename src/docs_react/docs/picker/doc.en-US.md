@@ -6,7 +6,9 @@ The picker component is usually used with Popup Component.
 
 ### Install
 ```ts
+// react
 import { Picker } from '@nutui/nutui-react';
+
 ```
 
 

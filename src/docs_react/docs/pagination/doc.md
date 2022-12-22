@@ -6,7 +6,9 @@
     
 ### 安装
 ``` javascript
+// react
 import { Pagination } from '@nutui/nutui-react';
+
 ```    
 
 ### 基础用法

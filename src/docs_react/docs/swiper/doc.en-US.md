@@ -7,7 +7,9 @@ Often used in a group of pictures or card rotation.
 ### Install
 
 ```javascript
+// react
 import { Swiper,SwiperItem } from '@nutui/nutui-react';
+
 ```
 
 

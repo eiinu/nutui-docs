@@ -7,7 +7,9 @@ Scrolling to the bottom of the list automatically loads more data.
 ### Install
 
 ```ts
+// react
 import { InfiniteLoading } from '@nutui/nutui-react';
+
 ```
 
 ### Basic Usage

@@ -6,7 +6,9 @@ Show message tips at the top of the page
 
 ### Install
 ```javascript
+// react
 import { Notify } from '@nutui/nutui-react';
+
 ```
 
 ## Demo

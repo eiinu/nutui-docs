@@ -6,8 +6,10 @@
 
 ### 安装
 
-```javascript
+```ts
+// react
 import { CountDown } from '@nutui/nutui-react'
+
 ```
 
 ## 代码演示

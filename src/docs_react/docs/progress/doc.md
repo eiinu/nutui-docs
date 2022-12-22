@@ -7,7 +7,9 @@
 ### 安装
 
 ```js
+// react
 import { Progress, Icon } from '@nutui/nutui-react';
+
 ```
 
 ## 代码演示

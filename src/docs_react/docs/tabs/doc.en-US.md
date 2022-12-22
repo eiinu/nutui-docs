@@ -7,7 +7,9 @@ It is often used for the storage and display of large blocks of content in the l
 ### Install
 
 ```ts
+// react
 import { Tabs, TabPane } from '@nutui/nutui-react';
+
 ```
 
 ### Basic Usage

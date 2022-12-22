@@ -7,7 +7,9 @@
 ### 安装
 
 ```javascript
+// react
 import { Elevator } from '@nutui/nutui-react'
+
 ```
 
 ## 代码演示

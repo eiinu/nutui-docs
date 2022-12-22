@@ -6,7 +6,9 @@
 
 ### 安装
 ``` ts
+// react
 import { Avatar } from '@nutui/nutui-react';
+
 ```
 
 ## 代码示例

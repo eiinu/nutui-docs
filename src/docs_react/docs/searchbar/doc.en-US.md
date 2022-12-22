@@ -7,6 +7,7 @@ The input box component used to search the scene.
 ### Install
 
 ```javascript
+// react
 import { SearchBar } from '@nutui/nutui-react';
 
 ```

@@ -7,6 +7,7 @@
 ### 安装
 
 ```javascript
+// react
 import { Input } from '@nutui/nutui-react';
 
 ```

@@ -8,8 +8,10 @@ The pop -up box components support the function call and component call.
 
 ### Install
 
-```js
+```ts
+// react
 import { Dialog } from '@nutui/nutui-react'
+
 ```
 
 

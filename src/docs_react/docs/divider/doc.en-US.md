@@ -6,8 +6,10 @@ Separate content into multiple areas.
 
 ### Install
 
-```js
+```ts
+// react
 import { Divider } from '@nutui/nutui-react';
+
 ```
 ### code demo
 ### Basic Usage

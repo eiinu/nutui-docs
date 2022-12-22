@@ -6,7 +6,9 @@ Load on demand Load the  Icon、Popup、Elevator dependent component
 
 ### Install
 ``` javascript
+// react
 import { Address } from '@nutui/nutui-react';
+
 ```
 
 ### Choose Custom Address
@@ -139,7 +141,7 @@ const App = () => {
   const onChange = (cal) => {
     const name = address[cal.next]
 
-    if(cal.next == 'town') setNormal(false)
+    if(cal.next === 'town') setNormal(false)
   }
   const close = (val) => {
       console.log(val)
@@ -533,7 +535,7 @@ const App = () => {
   }
   const close = (val) => {
       setOther(false)
-      if (val.type == 'exist') {
+      if (val.type === 'exist') {
         const { provinceName, cityName, countyName, townName, addressDetail } = val.data as AddressResult
         if (provinceName) {
           setText(provinceName + cityName + countyName + townName + addressDetail)
@@ -543,7 +545,7 @@ const App = () => {
         }
   }
   const switchModule = (val) => {
-      if (val.type == 'custom') {
+      if (val.type === 'custom') {
         console.log('点击了“选择其他地址”按钮')
       } else {
         console.log('点击了自定义地址左上角的返回按钮')
