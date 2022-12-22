@@ -6,7 +6,9 @@
 
 ### 安装
 ```javascript
+// react
 import { Notify } from '@nutui/nutui-react';
+
 ```
 
 ## 代码演示

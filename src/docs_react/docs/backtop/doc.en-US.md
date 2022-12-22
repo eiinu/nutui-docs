@@ -7,7 +7,9 @@ Provides a quick return to the top function for long pages.
 ### Install
 
 ```javascript
+// react
 import { BackTop } from '@nutui/nutui-react';
+
 ```
 
 

@@ -5,8 +5,10 @@
 短密码输入框，可用于输入密码、短信验证码等
 
 ### 安装
-```js
+```ts
+// react
 import { ShortPassword } from '@nutui/nutui-react';
+
 ```
 
 

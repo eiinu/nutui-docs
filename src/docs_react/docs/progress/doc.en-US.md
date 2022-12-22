@@ -7,7 +7,9 @@ Used to show the current progress of the operation.
 ### Install
 
 ```js
+// react
 import { Progress, Icon } from '@nutui/nutui-react';
+
 ```
 
 ## Demo

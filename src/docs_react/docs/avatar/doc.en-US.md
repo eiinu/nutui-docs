@@ -6,7 +6,9 @@ Avatars can be used to represent people or objects. It supports images, Icons, o
 
 ### Install
 ``` ts
+// react
 import { Avatar } from '@nutui/nutui-react';
+
 ```
 ### Basic usage
 

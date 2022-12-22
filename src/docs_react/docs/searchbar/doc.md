@@ -7,6 +7,7 @@
 ### 安装
 
 ```javascript
+// react
 import { SearchBar } from '@nutui/nutui-react';
 
 ```

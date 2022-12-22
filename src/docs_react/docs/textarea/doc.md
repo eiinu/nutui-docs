@@ -7,7 +7,7 @@
 ### 安装
 
 ```javascript
-
+// react
 import { TextArea } from '@nutui/nutui-react';
 
 ```

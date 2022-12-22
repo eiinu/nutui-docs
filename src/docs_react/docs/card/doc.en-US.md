@@ -6,7 +6,11 @@ Used to display product pictures, prices and other information.
 
 ### Install
 
-import { Card,Price, Tag} from '@nutui/nutui-react';
+```js
+// react
+import { Card, Price, Tag } from '@nutui/nutui-react';
+
+```
 
 
 ## Demo

@@ -7,7 +7,9 @@
 ### 安装
 
 ``` javascript
+// react
 import { TimeSelect } from '@nutui/nutui-react';
+
 ```
 
 ### 基本用法

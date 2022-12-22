@@ -6,8 +6,10 @@
 
 ### 安装
 
-```js
+```ts
+// react
 import { Divider } from '@nutui/nutui-react';
+
 ```
 
 ## 代码演示

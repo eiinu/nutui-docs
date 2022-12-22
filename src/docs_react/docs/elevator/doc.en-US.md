@@ -8,7 +8,9 @@ It is used to quickly locate the list and display the index
 ### Install
 
 ```javascript
+// react
 import { Elevator } from '@nutui/nutui-react'
+
 ```
 
 ## Demo

@@ -7,7 +7,9 @@
 ### 安装
 
 ```ts
+// react
 import { Rate } from '@nutui/nutui-react';
+
 ```
 
 ## 代码演示

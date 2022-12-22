@@ -7,7 +7,9 @@ Used to display a group of message notifications in a continuons loop.
 ### Install
 
 ```javascript
+// react
 import { NoticeBar } from '@nutui/nutui-react';
+
 ```
 
 ## Demo

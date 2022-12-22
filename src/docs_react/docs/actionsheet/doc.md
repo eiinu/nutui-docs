@@ -7,7 +7,9 @@
 ### 安装
 
 ```ts
+// react
 import { ActionSheet } from '@nutui/nutui-react';
+
 ```
 ## 代码示例
 

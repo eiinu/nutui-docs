@@ -7,7 +7,9 @@
 ### 安装
     
 ``` javascript
+// react
 import { FixedNav } from '@nutui/nutui-react';
+
 ```
 
 

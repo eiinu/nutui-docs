@@ -7,7 +7,9 @@
 ### 安装
 
 ``` ts
+// react
 import { Radio } from '@nutui/nutui-react';
+
 ```
 
 ## 基本用法

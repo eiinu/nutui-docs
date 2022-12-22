@@ -7,7 +7,9 @@ Placeholder prompt when empty
 ### Install
 
 ```javascript
+// react
 import { Empty } from '@nutui/nutui-react'
+
 ```
 
 
