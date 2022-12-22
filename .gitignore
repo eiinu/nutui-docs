@@ -14,7 +14,7 @@ package-lock.json
 /.nyc_output
 /coverage
 /tsc/test
-/jd/upload.js
+jd/upload.js
 
 
 # local env files
