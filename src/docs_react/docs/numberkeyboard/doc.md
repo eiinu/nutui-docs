@@ -5,8 +5,10 @@
 虚拟数字键盘，用于输入支付密码的场景。
 
 ### 安装
-```js
+```ts
+// react
 import { NumberKeyboard } from '@nutui/nutui-react';
+
 ```
 
 

@@ -963,7 +963,7 @@ export default defineComponent({
     bottom: 0;
     z-index: 10;
     width: 100%;
-    padding: 5px 15px;
+    padding: 10px 15px;
     background-color: rgba(0, 0, 0, 0.5);
   }
   .item-title-name {
@@ -987,7 +987,7 @@ export default defineComponent({
     text-overflow: ellipsis;
     white-space: nowrap;
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
   }
   &:nth-child(2) {
     margin: 0 10px;
@@ -2022,7 +2022,7 @@ body {
   position: absolute;
   width: 100%;
   left: 130px;
-  bottom: 6px !important;
+  bottom: 13px !important;
   z-index: 9999;
   text-align: center;
 }

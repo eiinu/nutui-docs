@@ -6,7 +6,11 @@ Place the content in multiple folded panels, and click the panel title to expand
 
 ### Install
 
-`import { Collapse,CollapseItem } from 'nutui-react'`
+```ts
+// react
+import { Collapse,CollapseItem } from 'nutui-react'
+
+```
 
 
 ## Code demonstration

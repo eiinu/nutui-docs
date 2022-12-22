@@ -7,7 +7,7 @@ Enter or edit text in the text box, and limit the number of entries is supported
 ### Install
 
 ```javascript
-
+// react
 import { TextArea } from '@nutui/nutui-react';
 
 ```

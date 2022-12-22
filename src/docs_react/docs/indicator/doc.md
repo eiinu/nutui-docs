@@ -7,7 +7,9 @@
 ### 安装
 
 ```javascript
+// react
 import { Indicator } from '@nutui/nutui-react'
+
 ```
 ### 基础用法
 :::demo

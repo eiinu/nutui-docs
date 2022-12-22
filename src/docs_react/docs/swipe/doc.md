@@ -7,7 +7,9 @@
 ### 安装
 
 ```javascript
+// react
 import { Swipe } from '@nutui/nutui-react';
+
 ```
 
 

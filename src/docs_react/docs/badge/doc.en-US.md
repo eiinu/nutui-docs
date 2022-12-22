@@ -7,7 +7,9 @@
 ### Install
 
 ``` javascript
+// react
 import { Badge } from '@nutui/nutui-react';
+
 ```
 
 ## Demo

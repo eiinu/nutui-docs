@@ -7,7 +7,9 @@
 ### 安装
 
 ```ts
+// react
 import { Steps } from '@nutui/nutui-react';
+
 ```
 
 ### 基本用法

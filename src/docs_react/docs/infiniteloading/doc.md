@@ -7,7 +7,9 @@
 ### 安装
 
 ```ts
+// react
 import { InfiniteLoading } from '@nutui/nutui-react';
+
 ```
 ### 基础用法
 

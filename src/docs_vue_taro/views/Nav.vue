@@ -44,8 +44,8 @@ import { defineComponent, reactive, computed, onMounted, toRefs, ref } from 'vue
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router';
 import { RefData } from '@/assets/util/ref';
 import { useLocale } from '@/assets/util/locale';
-import { docs, vueConfigTaro } from '@/config/index';
-const { nav } = vueConfigTaro;
+import { vueConfigTaro } from '@/config/index';
+const { nav, docs } = vueConfigTaro;
 export default defineComponent({
   name: 'doc-nav',
   setup(props: any) {

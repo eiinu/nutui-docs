@@ -7,23 +7,23 @@
         <div class="doc-title-position" :class="{ fixed: fixed, hidden: hidden }">
           <div class="doc-title-content">
             <div class="title">{{ componentName.name }}&nbsp;{{ isZh ? componentName.cName : '' }}</div>
-            <div
-              class="doc-content-tabs"
-              :class="{ hidden: !fixed }"
-              v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"
-            >
-              <template v-for="item in tabs">
-                <div
-                  class="tab-item"
-                  :class="{ cur: curKey === item.key }"
-                  :key="item.key"
-                  v-if="item.key == language || item.key == 'taro'"
-                  @click="handleTabs(item.key)"
-                >
-                  {{ item.text }}
-                </div>
-              </template>
-            </div>
+            <!--            <div-->
+            <!--              class="doc-content-tabs"-->
+            <!--              :class="{ hidden: !fixed }"-->
+            <!--              v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"-->
+            <!--            >-->
+            <!--              <template v-for="item in tabs">-->
+            <!--                <div-->
+            <!--                  class="tab-item"-->
+            <!--                  :class="{ cur: curKey === item.key }"-->
+            <!--                  :key="item.key"-->
+            <!--                  v-if="item.key == language || item.key == 'taro'"-->
+            <!--                  @click="handleTabs(item.key)"-->
+            <!--                >-->
+            <!--                  {{ item.text }}-->
+            <!--                </div>-->
+            <!--              </template>-->
+            <!--            </div>-->
             <!--            <div-->
             <!--              class="doc-content-tabs single"-->
             <!--              :class="{ hidden: !fixed }"-->
@@ -36,22 +36,22 @@
         </div>
       </div>
       <div class="doc-content-document" :class="{ isComponent: isShow(), full: !isShow() }">
-        <div
-          class="doc-content-tabs"
-          :class="{ hidden: fixed }"
-          v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"
-        >
-          <template v-for="item in tabs">
-            <div
-              class="tab-item"
-              :class="{ cur: curKey === item.key }"
-              :key="item.key"
-              v-if="item.key == language || item.key == 'taro'"
-              @click="handleTabs(item.key)"
-              >{{ item.text }}</div
-            >
-          </template>
-        </div>
+        <!--        <div-->
+        <!--          class="doc-content-tabs"-->
+        <!--          :class="{ hidden: fixed }"-->
+        <!--          v-if="isShow() && isShowTaroDoc && (language == 'vue' || language == 'react')"-->
+        <!--        >-->
+        <!--          <template v-for="item in tabs">-->
+        <!--            <div-->
+        <!--              class="tab-item"-->
+        <!--              :class="{ cur: curKey === item.key }"-->
+        <!--              :key="item.key"-->
+        <!--              v-if="item.key == language || item.key == 'taro'"-->
+        <!--              @click="handleTabs(item.key)"-->
+        <!--              >{{ item.text }}</div-->
+        <!--            >-->
+        <!--          </template>-->
+        <!--        </div>-->
         <!--        <div-->
         <!--          class="doc-content-tabs single"-->
         <!--          :class="{ hidden: fixed }"-->
@@ -91,7 +91,8 @@
 import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue';
 import { demoUrl, language, nav, docs } from '@/config/index';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
-import Header from './Header.vue';
+// import Header from './Header.vue';
+import Header from '@/components/Header.vue';
 import Nav from './Nav.vue';
 import Footer from '@/components/Footer.vue';
 import DemoPreview from '@/components/DemoPreview.vue';

@@ -6,7 +6,8 @@
 
 ### 安装
 
-``` ts
+```ts
+// react
 import { Checkbox } from '@nutui/nutui-react';
 
 ```

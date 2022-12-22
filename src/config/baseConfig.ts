@@ -44,7 +44,7 @@ export const SiteReact = {
     },
     {
       name: 'component',
-      cName: '组件',
+      cName: 'API文档',
       path: '/zh-CN/component/button',
       pathName: '/zh-CN/component/button'
     }
@@ -160,7 +160,7 @@ export const SiteReactTaro = {
     },
     {
       name: 'component',
-      cName: '组件',
+      cName: 'API文档',
       path: '/zh-CN/component/button',
       pathName: '/zh-CN/component/button'
     }
@@ -294,7 +294,7 @@ export const SiteVue = {
     },
     {
       name: 'component',
-      cName: '组件',
+      cName: 'API文档',
       eName: 'Components',
       path: '/zh-CN/component/button',
       pathName: 'zh-CN/component/button'
@@ -485,7 +485,7 @@ export const SiteVueTaro = {
     },
     {
       name: 'component',
-      cName: '组件',
+      cName: 'API文档',
       eName: 'Components',
       path: '/zh-CN/component/button',
       pathName: 'zh-CN/component/button'

@@ -7,7 +7,9 @@
 ### 安装
 
 ```javascript
+// react
 import { Empty } from '@nutui/nutui-react'
+
 ```
 
 

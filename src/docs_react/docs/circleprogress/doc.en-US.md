@@ -6,9 +6,12 @@ Circular progress bar component
 
 ### Install
 
-``` ts
-import { CirecleProgress } from '@nutui/nutui-react';
+```ts
+// react
+import { CircleProgress } from '@nutui/nutui-react';
+
 ```
+
 
 ### Basic Usage
 

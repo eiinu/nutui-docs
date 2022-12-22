@@ -6,7 +6,9 @@ When the amount of data is too much, use pagination to separate the data.
     
 ### Install
 ``` javascript
+// react
 import { Pagination } from '@nutui/nutui-react';
+
 ```    
 
 ### Basic Usage

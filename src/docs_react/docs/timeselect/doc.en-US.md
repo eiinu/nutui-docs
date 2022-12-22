@@ -7,7 +7,9 @@ For delivery time selection
 ### Install
 
 ``` javascript
+// react
 import { TimeSelect } from '@nutui/nutui-react';
+
 ```
 
 ### Basic Usage

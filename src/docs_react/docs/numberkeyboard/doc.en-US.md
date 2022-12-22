@@ -5,8 +5,10 @@
 Virtual numeric keypad, used for scenarios where payment passwords are entered.
 
 ### Install
-```js
+```ts
+// react
 import { NumberKeyboard } from '@nutui/nutui-react';
+
 ```
 
 

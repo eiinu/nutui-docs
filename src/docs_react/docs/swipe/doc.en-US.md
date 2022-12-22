@@ -6,7 +6,9 @@ It is often used for gesture operations such as sliding left and right to delete
 ### Install
 
 ```javascript
+// react
 import { Swipe } from '@nutui/nutui-react';
+
 ```
 
 ## Code demonstration

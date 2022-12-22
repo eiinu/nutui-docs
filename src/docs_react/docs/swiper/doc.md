@@ -7,7 +7,9 @@
 ### 安装
 
 ```javascript
+// react
 import { Swiper,SwiperItem } from '@nutui/nutui-react';
+
 ```
 
 ## 代码演示
