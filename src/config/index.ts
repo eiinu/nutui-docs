@@ -59,6 +59,21 @@ const guide = [
   // }
 ];
 
+const reactGuide = [
+  {
+    type: 'React',
+    icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/91454/20/21042/3482/61d64815E5c35af0a/ecf7aded2f5ffc6b.png',
+    data: [
+      {
+        name: '1.x',
+        link: 'https://nutui.jd.com/react',
+        language: ['React18'],
+        app: 'App 10.0'
+      }
+    ]
+  }
+];
+
 const businessGuide = [
   {
     data: [
@@ -133,7 +148,7 @@ const products = [
           },
           {
             name: 'NutUI-Vue',
-            url: 'ttp://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro'
+            url: 'http://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro'
           }
         ]
       },
@@ -210,4 +225,4 @@ export const {
   repository,
   newRepository
 } = config;
-export { guide, businessGuide, products, SiteVueTaro, SiteReactTaro, vueConfigTaro };
+export { guide, reactGuide, businessGuide, products, SiteVueTaro, SiteReactTaro, vueConfigTaro };

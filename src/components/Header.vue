@@ -53,7 +53,7 @@
                     v-for="(info, index) in item.data"
                     :class="['content', info.child && info.child.length > 0 ? 'child-content' : '']"
                     :key="index"
-                    @click="checkGuidTheme(info)"
+                    @click="checkGuidTheme2(info)"
                   >
                     <div class="item-logo">
                       <img :src="info.icon" />
@@ -74,7 +74,7 @@
                           v-for="child of info.child"
                           :key="child.name"
                           class="infor-child-name"
-                          @click.stop="toLink(child)"
+                          @click.stop="toLink2(child)"
                           >{{ child.name }}</span
                         >
                       </div>
@@ -153,7 +153,7 @@
               {{ isZh ? item.cName : item.eName }}
             </a>
           </li>
-          <li class="nav-item" v-if="!isReact">
+          <li class="nav-item">
             <div
               @mouseenter="onMouseHover(true)"
               @mouseleave="onMouseHover(false)"
@@ -168,7 +168,7 @@
                 <div class="guid-data" v-show="data.isShowGuid">
                   <div
                     class="info"
-                    v-for="(item, indexKey) in guide"
+                    v-for="(item, indexKey) in isReact ? reactGuide : guide"
                     :key="indexKey"
                     :class="{ contentKey: indexKey === 1 }"
                   >
@@ -222,6 +222,7 @@ import {
   repository,
   language,
   guide,
+  reactGuide,
   businessGuide,
   products
 } from '@/config/index';
@@ -306,6 +307,12 @@ export default defineComponent({
       }
     };
 
+    const toLink2 = (item: any) => {
+      if (item.url) {
+        window.open(item.url);
+      }
+    };
+
     const isActive = computed(() => {
       const route = RefData.getInstance().currentRoute.value;
       const values = route.split('/');
@@ -340,6 +347,12 @@ export default defineComponent({
       if (item.name === 'Biz') return;
       window.open(item.link);
     };
+    const checkGuidTheme2 = (item: any) => {
+      if (item.link) {
+        data.isShowGuid = false;
+        window.open(item.link);
+      }
+    };
 
     let headerBck = isVueTaro.value ? SiteVueTaro.header : isReactTaro.value ? SiteReactTaro.header : header;
 
@@ -359,6 +372,7 @@ export default defineComponent({
       toHome,
       isActive,
       checkGuidTheme,
+      checkGuidTheme2,
       themeName,
       handleFocus,
       handleGuidFocusOut,
@@ -366,8 +380,10 @@ export default defineComponent({
       onMouseHover2,
       onMouseHover3,
       guide,
+      reactGuide,
       businessGuide,
       toLink,
+      toLink2,
       translate,
       isZh,
       products,
