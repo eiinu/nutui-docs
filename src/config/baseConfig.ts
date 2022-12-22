@@ -344,22 +344,21 @@ export const SiteVue = {
       pathName: 'zh-CN/component/button'
     },
     {
+      name: 'component',
+      cName: '业务组件',
+      eName: 'Components',
+      key: '2',
+      path: '/zh-CN/component/button',
+      pathName: 'zh-CN/component/button'
+    },
+    {
       name: 'intro-jdt,intro,theme,start,start-jdt,starttaro,international,ide,contributing,en-intro,en-start,en-starttaro,en-theme,en-international,en-ide,en-contributing',
       cName: '资源',
       eName: 'Guide',
-      key: '2',
+      key: '3',
       path: '/zh-CN/guide/intro',
       pathName: 'intro',
       url: 'https://nutui.jd.com/#/zh-CN/resource'
-    },
-    {
-      name: '/zh-CN/case',
-      cName: '案例',
-      eName: 'Cases',
-      path: '/zh-CN/case',
-      pathName: 'case',
-      key: '3',
-      url: 'https://nutui.jd.com/#/zh-CN/case'
     },
     {
       name: 'joinus',

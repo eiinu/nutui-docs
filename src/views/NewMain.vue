@@ -8,9 +8,9 @@
         <div :class="bannerName()">
           <div class="content-title"> NutUI</div>
           <div class="content-smile"> </div>
-          <div class="content-subTitle">京东风格的轻量级移动端 UI 库</div>
-          <div class="content-desc">支持 React、Vue、Taro</div>
-          <div class="content-desc">适配 H5、小程序、APP</div>
+          <div class="content-subTitle">京东风格的轻量级移动端组件库</div>
+          <!-- <div class="content-desc">支持 React、Vue、Taro</div>
+          <div class="content-desc">适配 H5、小程序、APP</div> -->
         </div>
 
         <!-- <div class="doc-content-banner-image">
@@ -41,7 +41,7 @@
 
     <div class="doc-content-product">
       <div class="doc-content-hd">
-        <h4 class="doc-content-title">产品能力</h4>
+        <h4 class="doc-content-title">基础组件</h4>
       </div>
       <div class="product-list">
         <div class="product-item">
@@ -72,14 +72,6 @@
                 <span class="infor-child-name">NutUI-Bingo</span>
               </div> -->
             </div>
-
-            <div class="resource-item">
-              <div class="resource-infor">
-                <img src="@/assets/images/Angular.png" class="small-icon" />
-                <span class="infor-name">NutUI-Angular</span>
-                <span class="infor-version infor-disabled">规划中</span>
-              </div>
-            </div>
           </div>
         </div>
         <div class="product-item">
@@ -100,20 +92,24 @@
               </div>
             </div>
             <div class="resource-item">
-              <div
-                class="resource-infor"
-                @click="toJointDetails('https://mp-docs.jd.com/jdmpTechnology/nutui/nutui.html')"
-              >
+              <div class="resource-infor" @click="toJointDetails('https://github.com/jwaterwater/uni-nutui')">
+                <img src="@/assets/images/Uniapp.png" class="small-icon" />
+                <span class="infor-name">uniapp</span>
+                <span class="infor-version infor-coding">社区维护</span>
+              </div>
+            </div>
+            <div class="resource-item">
+              <div class="resource-infor">
                 <img src="@/assets/images/Jdweapp.png" class="small-icon" />
                 <span class="infor-name">京东小程序</span>
-                <!-- <span class="infor-version infor-goline">待上线</span> -->
+                <span class="infor-version infor-disabled">规划中</span>
               </div>
             </div>
             <div class="resource-item">
               <div class="resource-infor">
                 <img src="@/assets/images/Wechat.png" class="small-icon" />
                 <span class="infor-name">微信小程序</span>
-                <span class="infor-version infor-goline">待上线</span>
+                <span class="infor-version infor-disabled">规划中</span>
               </div>
             </div>
           </div>
@@ -128,7 +124,7 @@
               <div class="resource-infor">
                 <img src="@/assets/images/React.png" class="small-icon" />
                 <span class="infor-name">React Native</span>
-                <span class="infor-version infor-goline">待上线</span>
+                <span class="infor-version infor-coding">开发中</span>
               </div>
             </div>
             <div class="resource-item">
@@ -139,6 +135,153 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-content-business">
+      <div class="doc-content-hd">
+        <h4 class="doc-content-title">业务组件</h4>
+      </div>
+      <div class="doc-content-catmarketing-content">
+        <div class="doc-content-module module-0">
+          <div class="img-box" @click="toJointDetails('https://nutui.jd.com/cat/#/')">
+            <img style="width: 86%; padding: 10px 0" src="@/assets/images/cat-back.png" alt="" />
+          </div>
+          <div class="content-box">
+            <h2 class="title"
+              >NutUI-Cat
+              <img
+                title="支持 vue 开发"
+                src="https://img12.360buyimg.com/imagetools/jfs/t1/196475/33/30665/2108/639703a1Ef17ae707/ad59fc912f3681d2.png"
+                class="tech-type-icon"
+            /></h2>
+            <div class="desc">NutUI 大促域业务组件</div>
+          </div>
+          <div class="bottom-box">
+            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/cat/#/')">
+              <img
+                src="https://img13.360buyimg.com/imagetools/jfs/t1/64910/1/22973/784/6371fdcfE7c3ddd5e/55991bde924aceef.jpg"
+              />
+            </div>
+            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/cat/#/intro')">
+              <img
+                src="https://img10.360buyimg.com/imagetools/jfs/t1/137367/4/30750/1047/6371fd26Ebb4b76df/4f4566002a7610fa.jpg"
+              />
+            </div>
+            <div class="bottom-box-item" @click="toJointDetails('https://github.com/jdf2e/nutui-cat')">
+              <img
+                src="https://img11.360buyimg.com/imagetools/jfs/t1/198491/2/27227/4572/63631a32E61d664ee/10c9b1b90ef220c7.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="doc-content-module module-1">
+          <div class="img-box" @click="toJointDetails('https://nutui.jd.com/bingo/#/')">
+            <img
+              src="https://img10.360buyimg.com/imagetools/jfs/t1/186436/12/31398/508034/63a400afE49cb73f6/3f0b87fd535de041.png"
+              alt=""
+            />
+          </div>
+          <div class="content-box">
+            <h2 class="title"
+              >NutUI-Bingo
+              <img
+                title="支持 vue 开发"
+                src="https://img12.360buyimg.com/imagetools/jfs/t1/196475/33/30665/2108/639703a1Ef17ae707/ad59fc912f3681d2.png"
+                class="tech-type-icon"
+              />
+              <img
+                title="支持 taro 开发"
+                src="https://img13.360buyimg.com/imagetools/jfs/t1/169186/5/33010/1762/639703a1E898bcb96/6c372c661c6dddfe.png"
+                class="tech-type-icon"
+              />
+            </h2>
+            <div class="desc">NutUI 抽奖域业务组件</div>
+          </div>
+          <div class="bottom-box">
+            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/bingo/#/')">
+              <img
+                src="https://img13.360buyimg.com/imagetools/jfs/t1/64910/1/22973/784/6371fdcfE7c3ddd5e/55991bde924aceef.jpg"
+              />
+            </div>
+            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/bingo/#/intro')">
+              <img
+                src="https://img10.360buyimg.com/imagetools/jfs/t1/137367/4/30750/1047/6371fd26Ebb4b76df/4f4566002a7610fa.jpg"
+              />
+            </div>
+            <div class="bottom-box-item" @click="toJointDetails('https://github.com/jdf2e/nutui-bingo')">
+              <img
+                src="https://img11.360buyimg.com/imagetools/jfs/t1/198491/2/27227/4572/63631a32E61d664ee/10c9b1b90ef220c7.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="doc-content-module module-2">
+          <div class="img-box">
+            <div class="image">
+              <div class="compontent compontent1">
+                <img
+                  style="padding-top: 38px; background: #f7f8fa"
+                  src="https://img11.360buyimg.com/imagetools/jfs/t1/89252/34/26149/31724/63720f7bEdf836ee7/081567be55685c13.jpg"
+                />
+              </div>
+              <div class="compontent compontent2">
+                <img
+                  src="https://img11.360buyimg.com/imagetools/jfs/t1/160202/28/32428/57971/63720c98E9f8dbdca/ce0398a6dbfd6030.jpg"
+                />
+              </div>
+              <div class="compontent compontent3">
+                <img
+                  src="https://img11.360buyimg.com/imagetools/jfs/t1/213899/11/23434/46535/63720c97Ee096161a/6ccc5f1a9057d84e.jpg"
+                />
+              </div>
+              <section class="stage stage1">
+                <figure class="ball"><span class="shadow"></span></figure>
+              </section>
+              <section class="stage stage2">
+                <figure class="ball"><span class="shadow"></span></figure>
+              </section>
+              <section class="stage stage3">
+                <figure class="ball"><span class="shadow"></span></figure>
+              </section>
+              <section class="stage stage4">
+                <figure class="ball"><span class="shadow"></span></figure>
+              </section>
+              <section class="stage stage5">
+                <figure class="ball"><span class="shadow"></span></figure>
+              </section>
+            </div>
+          </div>
+          <div class="content-box">
+            <h2 class="title">NutUI-Biz</h2>
+            <div class="desc">NutUI 商城域业务组件</div>
+          </div>
+          <div class="bottom-box">
+            <div class="bottom-box-item">
+              <a href="" target="_blank">
+                <img
+                  src="https://img13.360buyimg.com/imagetools/jfs/t1/64910/1/22973/784/6371fdcfE7c3ddd5e/55991bde924aceef.jpg"
+                />
+              </a>
+            </div>
+            <div class="bottom-box-item">
+              <a href="" target="_blank">
+                <img
+                  src="https://img10.360buyimg.com/imagetools/jfs/t1/137367/4/30750/1047/6371fd26Ebb4b76df/4f4566002a7610fa.jpg"
+                />
+              </a>
+            </div>
+            <div class="bottom-box-item">
+              <a href="" target="_blank">
+                <img
+                  src="https://img11.360buyimg.com/imagetools/jfs/t1/198491/2/27227/4572/63631a32E61d664ee/10c9b1b90ef220c7.png"
+                />
+              </a>
+            </div>
+          </div>
+          <!-- <div class="marketing-content-right-godetail" @click="goAwait">敬请期待</div> -->
+          <div class="marketing-content-mask"> 正在建设中，敬请期待~ </div>
         </div>
       </div>
     </div>
@@ -245,14 +388,14 @@
         <div class="jointly-box-left">
           <div class="left-title">
             <h1>开源迭代，持续创新</h1>
-            <span class="sub-title">汇集 20+ 团队的 80+ 贡献者，欢迎成为 Contributor 一起共建共享。</span>
+            <span class="sub-title">汇集 100+ 贡献者的代码力量，欢迎成为 NutUI Contributor ~</span>
           </div>
           <div class="left-contributor">
             <!-- <div class="contributor-item" v-for="item of 80" :key="item">
               <div class="headPortrait-img-panel avatarRotation" v-if="item == 1"> </div>
               <img src="@/assets/images/logo-red.png" class="contributor-head" />
             </div> -->
-            <div class="contributor-item">
+            <div class="contributor-item" @click="toJointDetails('https://github.com/jdf2e/nutui/graphs/contributors')">
               <img :src="contributorImg" v-if="contributorImgShow" />
               <img
                 src="https://img10.360buyimg.com/imagetools/jfs/t1/165584/36/30765/292664/6396d3bbEf987376d/3dfbb9cfc532dbe5.png"
@@ -351,7 +494,7 @@ export default defineComponent({
       jointDirection: [
         { key: '合作共建', url: 'https://jelly.jd.com/article/6320528b92d94a0068685525' },
         { key: 'Issue 类', url: 'https://github.com/jdf2e/nutui/issues' },
-        { key: 'Bug 类', url: 'https://github.com/jdf2e/nutui/issues' },
+        // { key: 'Bug 类', url: 'https://github.com/jdf2e/nutui/issues' },
         { key: '新增组件', url: 'https://github.com/jdf2e/nutui/issues/1671' },
         { key: '国际化', url: 'https://nutui.jd.com/#/zh-CN/guide/international' },
         {
@@ -365,9 +508,9 @@ export default defineComponent({
         {
           key: '跨端扩展',
           url: 'https://www.bilibili.com/video/BV1aB4y1j7WV/?spm_id_from=333.999.0.0&vd_source=8a2b2ff0852d3ad502bd22dc02338db2'
-        },
-        { key: '文章', url: 'https://juejin.cn/user/3949101495616919' },
-        { key: '视频', url: 'https://space.bilibili.com/549965366' }
+        }
+        // { key: '文章', url: 'https://juejin.cn/user/3949101495616919' }
+        // { key: '视频', url: 'https://space.bilibili.com/549965366' }
       ]
     });
     let caseSwiper: any = null;
@@ -511,7 +654,7 @@ export default defineComponent({
             let type = parseInt(item.category);
             // let varData = ['practiceArticle', 'principleArticle', 'studyArticle'];
             let key = iList[type];
-            if (data.articleProxy[key]['article']?.length != 5) {
+            if (data.articleProxy[key]['article']?.length != 4) {
               data.articleProxy[key]['article']?.push(item);
             }
           });
@@ -747,14 +890,14 @@ export default defineComponent({
     opacity: 0;
   }
 }
-@keyframes maskedAnimation {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: -100% 0;
-  }
-}
+// @keyframes maskedAnimation {
+//   0% {
+//     background-position: 0 0;
+//   }
+//   100% {
+//     background-position: -100% 0;
+//   }
+// }
 ::selection {
   background: $doc-default-color;
   color: #fff;
@@ -787,7 +930,7 @@ export default defineComponent({
     padding: 3px 20px;
   }
   .swiper-container {
-    width: 380px;
+    width: 335px;
     height: 180px;
     box-shadow: 0 0 2px 2px rgb(0 0 0 / 10%);
     border-radius: 10px;
@@ -796,7 +939,7 @@ export default defineComponent({
   }
   .swiper-slide-item {
     position: relative;
-    width: 380px;
+    width: 335px;
     height: 180px;
     overflow: hidden;
     display: flex;
@@ -960,6 +1103,286 @@ export default defineComponent({
       }
       .infor-goline {
         background: linear-gradient(315deg, #6772ff 0, #00f9e5 100%);
+      }
+      .infor-coding {
+        background: linear-gradient(90deg, #00b2bd, #2ceb85);
+      }
+    }
+  }
+  &-business {
+    width: 1366px;
+    margin: 90px auto 0;
+    .doc-content-catmarketing-content {
+      display: flex;
+      justify-content: space-between;
+    }
+    .marketing-content-mask {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.52);
+      border-radius: 4px 4px 4px 0 4px;
+      text-align: center;
+      line-height: 270px;
+      font-size: 30px;
+      color: #ffffff;
+      cursor: not-allowed;
+    }
+    .doc-content-module {
+      position: relative;
+      flex: 1;
+      background: #fff;
+      box-shadow: 0 1px 1px rgb(0 0 0 / 10%), 0 1px 1px rgb(0 0 0 / 5%);
+      border-radius: 8px;
+      overflow: hidden;
+      &:nth-child(2) {
+        margin: 0 30px;
+      }
+      &:hover {
+        transform: translateY(0);
+        box-shadow: 0 20px 80px rgb(0 0 0 / 10%), 0 5px 20px rgb(0 0 0 / 5%);
+      }
+      .img-box {
+        position: relative;
+        margin: 0;
+        height: 228px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+          margin: 0 auto;
+          display: block;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+      }
+      .image {
+        position: relative;
+        height: 100%;
+        .compontent {
+          position: absolute;
+          width: 168px;
+          height: 163px;
+          border-radius: 15px;
+          box-shadow: 0 2px 5px rgb(0 0 0 / 50%);
+          img {
+            border-radius: 15px;
+          }
+          &.compontent1 {
+            top: 55px;
+            left: 128px;
+            transform: rotateZ(10deg);
+          }
+          &.compontent2 {
+            height: 175px;
+            top: 15px;
+            left: 80px;
+            transform: rotateZ(8deg);
+          }
+          &.compontent3 {
+            width: 143px;
+            height: 175px;
+            top: 16px;
+            left: 58px;
+            transform: rotateZ(-10deg);
+          }
+        }
+      }
+      &.module-0 {
+        .img-box {
+          background: linear-gradient(
+            130.16deg,
+            #f9bccb 0%,
+            #f7eff7 26.6663024476%,
+            #f1f0f6 66.6930725524%,
+            #b4e4e4 100%
+          );
+        }
+      }
+      &.module-1 {
+        .img-box {
+          background: linear-gradient(
+            130.16deg,
+            #dbd2ff 0%,
+            #f7eff7 26.6663024476%,
+            #f1f0f6 66.6930725524%,
+            #ffeccb 100%
+          );
+        }
+      }
+      &.module-2 {
+        .img-box {
+          background: linear-gradient(
+            130.16deg,
+            #add9ff 0%,
+            #d7e1ff 26.6663024476%,
+            #f1f0f6 66.6930725524%,
+            #73a2ff 100%
+          );
+        }
+      }
+      .content-box {
+        position: relative;
+        padding: 20px 32px;
+        background: #fff;
+        overflow: hidden;
+        h2 {
+          margin-bottom: 12px;
+          font-size: 24px;
+          // font-family: MD Primer Bold, Rubik, Lato, Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
+          font-family: Rubik, sans-serif;
+          color: #434343;
+        }
+        .tech-type-icon {
+          width: 20px;
+          height: 20px;
+          vertical-align: middle;
+          margin-left: 5px;
+        }
+        .desc {
+          position: relative;
+          color: #434343;
+          font-family: MD Primer Bold, Rubik, Lato, Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
+          text-transform: uppercase;
+          font-weight: 700;
+          font-size: 12px;
+        }
+      }
+      .bottom-box {
+        display: flex;
+        flex: 0 1 auto;
+        border-top: 1px solid #f2f2f2;
+        padding: 5px 0;
+        .bottom-box-item {
+          display: flex;
+          flex: 0 1 auto;
+          width: 33.33%;
+          height: 47px;
+          font-size: 15px;
+          color: #807f7f;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      .stage {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        display: inline-block;
+        perspective: 1200px;
+        perspective-origin: 50% 50%;
+      }
+      .ball {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border-radius: 50%;
+        position: relative;
+        background: radial-gradient(circle at 50% 120%, #81e8f6, #76deef 10%, #055194 80%, #062745 100%);
+        background: radial-gradient(circle at 50% 120%, #f9f5f8, #dcb1c6 10%, #faf5f8 80%, #ead8e4 100%);
+        &:before {
+          content: '';
+          position: absolute;
+          top: 1%;
+          left: 5%;
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+          background: radial-gradient(circle at 50% 0px, #ffffff, rgba(255, 255, 255, 0) 58%);
+          -webkit-filter: blur(5px);
+          z-index: 2;
+        }
+        .shadow {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(
+            circle at 50% 50%,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0) 50%
+          );
+          transform: rotateX(90deg) translateZ(-150px);
+          z-index: -1;
+        }
+      }
+      .stage1 {
+        top: -30px;
+        right: 26px;
+        width: 70px;
+        height: 70px;
+      }
+      .stage2 {
+        bottom: 20px;
+        right: 2px;
+        width: 60px;
+        height: 60px;
+      }
+      .stage3 {
+        bottom: 33px;
+        left: -4px;
+        width: 20px;
+        height: 20px;
+      }
+      .stage4 {
+        top: -10px;
+        left: -5px;
+        width: 70px;
+        height: 70px;
+      }
+      .stage5 {
+        bottom: -48px;
+        left: 67px;
+        width: 70px;
+        height: 70px;
+        &:before {
+          background: radial-gradient(circle at 50% 0px, rgba(255, 255, 255, 0), #ffffff 58%);
+        }
+        .ball {
+          background: radial-gradient(circle at 50% 120%, #ead8e4, #faf5f8 10%, #dcb1c6 70%, #f9f5f8 100%);
+        }
+      }
+    }
+    .demo2 {
+      .image .compontent {
+        position: absolute;
+        width: 194px;
+        height: 182px;
+        border-radius: 15px;
+        -webkit-box-shadow: 0 2px 5px rgb(0 0 0 / 50%);
+        box-shadow: 0 2px 5px rgb(0 0 0 / 50%);
+      }
+      .image .compontent.compontent1 {
+        width: 181px;
+        height: 180px;
+        top: 55px;
+        left: 156px;
+        transform: rotateZ(10deg);
+      }
+      .image .compontent.compontent2 {
+        width: 239px;
+        height: 172px;
+        top: 15px;
+        left: 35px;
+        transform: rotateZ(8deg);
+      }
+      .image .compontent.compontent3 {
+        width: 183px;
+        height: 239px;
+        top: 9px;
+        left: -1px;
+        -webkit-transform: rotateZ(-10deg);
+        transform: rotateZ(-10deg);
       }
     }
   }
@@ -1216,6 +1639,7 @@ export default defineComponent({
         img {
           width: 100%;
           height: 100%;
+          cursor: pointer;
         }
         // 头像旋转动画
         // .avatarRotation {
@@ -1314,18 +1738,18 @@ export default defineComponent({
         @include breathe-circle(#d83e4a, 80px, 2s);
       }
       .direction-item-1 {
-        left: 70px;
+        left: 170px;
         top: 70px;
         @include breathe-circle(#ffa853, 40px, 3.5s);
       }
       .direction-item-2 {
-        left: 200px;
+        left: 300px;
         top: 80px;
         @include breathe-circle(#3ed0f7, 40px, 2.5s);
       }
       .direction-item-3 {
-        left: 350px;
-        top: 170px;
+        left: 370px;
+        top: 200px;
         @include breathe-circle(#eb7271, 40px, 3s);
       }
       .direction-item-4 {
@@ -1334,13 +1758,13 @@ export default defineComponent({
         @include breathe-circle(#bbe9aa, 30px, 2.5s);
       }
       .direction-item-5 {
-        left: 380px;
-        top: 30px;
+        left: 120px;
+        top: 320px;
         @include breathe-circle(#27c2a3, 40px, 3s);
       }
       .direction-item-6 {
-        left: 360px;
-        top: 310px;
+        left: 330px;
+        top: 360px;
         @include breathe-circle(#ff999c, 20px, 4s);
       }
       .direction-item-7 {
@@ -1387,6 +1811,7 @@ export default defineComponent({
     z-index: 999;
     top: -10%;
     width: 420px;
+    min-width: 420px;
     .content-title {
       font-size: 64px;
       color: rgba(255, 255, 255, 1);
@@ -1408,17 +1833,17 @@ export default defineComponent({
       color: rgba(255, 255, 255, 1);
       letter-spacing: 2px;
     }
-    .content-desc {
-      margin-bottom: 10px;
-      font-size: 22px;
-      color: rgb(194, 194, 194);
-      background-image: -webkit-linear-gradient(left, #147b96, #e6d205 25%, #147b96 50%, #e6d205 75%, #147b96);
-      // background-image: -webkit-linear-gradient(left, #ff232c, #e6d205 25%, #147b96 50%, #e6d205 75%, #ff232c);
-      -webkit-text-fill-color: transparent;
-      -webkit-background-clip: text;
-      -webkit-background-size: 200% 100%;
-      -webkit-animation: maskedAnimation 4s infinite linear;
-    }
+    // .content-desc {
+    //   margin-bottom: 10px;
+    //   font-size: 22px;
+    //   color: rgb(194, 194, 194);
+    //   background-image: -webkit-linear-gradient(left, #147b96, #e6d205 25%, #147b96 50%, #e6d205 75%, #147b96);
+    //   // background-image: -webkit-linear-gradient(left, #ff232c, #e6d205 25%, #147b96 50%, #e6d205 75%, #ff232c);
+    //   -webkit-text-fill-color: transparent;
+    //   -webkit-background-clip: text;
+    //   -webkit-background-size: 200% 100%;
+    //   -webkit-animation: maskedAnimation 4s infinite linear;
+    // }
   }
 
   .doc-content-banner-box {

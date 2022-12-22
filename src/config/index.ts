@@ -76,13 +76,6 @@ const products = [
         status: 1,
         statusDesc: '已上线',
         link: 'http://storage.jd.local/nutui/newsite/vue/index.vue.html#/zh-CN/guide/intro'
-      },
-      {
-        name: 'NutUI-Angular',
-        icon: 'https://img14.360buyimg.com/imagetools/jfs/t1/74435/24/19418/2152/639703a1E0883f2c3/1ef702a42b818294.png',
-        status: 0,
-        statusDesc: '规划中',
-        link: ''
       }
     ]
   },
@@ -94,20 +87,37 @@ const products = [
         icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/169186/5/33010/1762/639703a1E898bcb96/6c372c661c6dddfe.png',
         status: 1,
         statusDesc: '已上线',
-        link: 'https://taro-docs.jd.com/docs/nutui'
+        link: 'https://taro-docs.jd.com/docs/nutui',
+        child: [
+          {
+            name: 'NutUI-React',
+            url: 'http://storage.jd.local/nutui/newsite/react_taro/index.react.taro.html#/zh-CN/guide/intro-react'
+          },
+          {
+            name: 'NutUI-Vue',
+            url: 'ttp://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro'
+          }
+        ]
+      },
+      {
+        name: 'uniapp',
+        icon: 'https://img12.360buyimg.com/imagetools/jfs/t1/123438/40/29913/321/63a2d051E0ca085be/1b2db5d619ed359d.png',
+        status: 1,
+        statusDesc: '社区维护',
+        link: 'https://github.com/jwaterwater/uni-nutui'
       },
       {
         name: '京东小程序',
         icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/103951/26/21635/41737/639703a1Eddcccb0d/cab0dc9f249b5596.png',
-        status: 1,
-        statusDesc: '已上线',
-        link: 'https://mp-docs.jd.com/jdmpTechnology/nutui/nutui.html'
+        status: 0,
+        statusDesc: '规划中',
+        link: ''
       },
       {
         name: '微信小程序',
         icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/168379/20/33440/54623/639703a1E93579691/cee76d1b50865cb9.png',
-        status: 2,
-        statusDesc: '待上线',
+        status: 0,
+        statusDesc: '规划中',
         link: ''
       }
     ]
@@ -119,7 +129,7 @@ const products = [
         name: 'React Native',
         icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/111058/12/30939/2225/639703a1E27d6984e/38cbe27759020dc9.png',
         status: 2,
-        statusDesc: '待上线',
+        statusDesc: '开发中',
         link: ''
       },
       {
