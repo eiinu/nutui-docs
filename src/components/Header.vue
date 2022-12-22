@@ -22,7 +22,13 @@
               :class="[data.isShowGuid2 == true ? 'select-up' : 'select-down']"
               @click.stop="data.isShowGuid2 = !data.isShowGuid2"
             >
-              <a>基础组件</a>
+              <a class="nav-item-title"
+                >基础组件
+                <img
+                  src="@/assets/images/icon-select-white-down.png"
+                  class="hover-arrow"
+                  :style="{ transform: 'rotate(' + (data.isShowGuid2 ? '180deg' : '0') + ')' }"
+              /></a>
             </div>
           </li>
           <transition name="fade">
@@ -44,10 +50,10 @@
                 </div>
                 <div class="product-type">
                   <div
-                    class="content"
                     v-for="(info, index) in item.data"
+                    :class="['content', info.child && info.child.length > 0 ? 'child-content' : '']"
                     :key="index"
-                    @click.stop="checkGuidTheme(info)"
+                    @click="checkGuidTheme(info)"
                   >
                     <div class="item-logo">
                       <img :src="info.icon" />
@@ -63,8 +69,15 @@
                             info.status == 2 && 'infor-goline'
                           ]"
                           >{{ info.statusDesc }}</span
-                        ></div
-                      >
+                        >
+                        <span
+                          v-for="child of info.child"
+                          :key="child.name"
+                          class="infor-child-name"
+                          @click.stop="toLink(child)"
+                          >{{ child.name }}</span
+                        >
+                      </div>
                       <div class="version" v-if="info.status == 1 && item.type == 'H5'">
                         <a
                           :href="
@@ -96,7 +109,13 @@
               :class="[data.isShowGuid3 == true ? 'select-up' : 'select-down']"
               @click.stop="data.isShowGuid3 = !data.isShowGuid3"
             >
-              <div>业务组件</div>
+              <a class="nav-item-title"
+                >业务组件
+                <img
+                  src="@/assets/images/icon-select-white-down.png"
+                  class="hover-arrow"
+                  :style="{ transform: 'rotate(' + (data.isShowGuid3 ? '180deg' : '0') + ')' }"
+              /></a>
               <div class="guild-line"></div>
               <transition name="fade">
                 <div class="guid-data guid-data-business" v-show="data.isShowGuid3">
@@ -1147,7 +1166,7 @@ export default defineComponent({
 
 .site-guid-data {
   // display: block !important;
-  line-height: initial;
+  line-height: normal;
   position: absolute;
   z-index: 10;
   top: 60px;
@@ -1165,6 +1184,7 @@ export default defineComponent({
     height: 30px;
     top: -30px;
     left: 37%;
+    cursor: pointer;
   }
   .info {
     // &:first-child {
@@ -1223,10 +1243,27 @@ export default defineComponent({
     .infor-goline {
       background: linear-gradient(315deg, #6772ff 0, #00f9e5 100%);
     }
+    .infor-child-name {
+      padding: 3px 10px;
+      margin-left: 10px;
+      font-size: 12px;
+      color: #00b2bd;
+      border: 1px solid #00b2bd;
+      border-radius: 40px;
+      &:hover {
+        color: #2ceb85;
+        border-color: #2ceb85;
+        background-color: rgba(0, 178, 189, 0.5);
+        cursor: pointer;
+      }
+    }
     .version {
       margin-top: 6px;
       font-size: 12px;
     }
+  }
+  .child-content {
+    width: 100%;
   }
 }
 .guid-data-business {
@@ -1236,6 +1273,14 @@ export default defineComponent({
   .content.disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+}
+.nav-item-title {
+  display: flex !important;
+  align-items: center;
+  .hover-arrow {
+    transition: all linear 0.2s;
+    margin-left: 5px;
   }
 }
 </style>
