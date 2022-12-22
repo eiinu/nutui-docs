@@ -91,6 +91,18 @@
           "type": "component",
           "author": "richard1015",
           "styleDeps": []
+        },
+        {
+          "version": "3.0.0",
+          "name": "Image",
+          "cType": "基础组件",
+          "cName": "图片",
+          "desc": "图片展示",
+          "show": true,
+          "tarodoc": true,
+          "type": "component",
+          "author": "yangxiaolu",
+          "styleDeps": []
         }
       ]
     },
@@ -718,6 +730,21 @@
         },
         {
           "version": "3.0.0",
+          "name": "InfiniteLoading",
+          "taro": true,
+          "tarodoc": true,
+          "type": "component",
+          "cName": "滚动加载",
+          "desc": "列表滚动到底部自动加载更多数据",
+          "sort": 15,
+          "show": true,
+          "author": "yangxiaolu",
+          "exportEmpty": false,
+          "exportEmptyTaro": false,
+          "styleDeps": []
+        },
+        {
+          "version": "3.0.0",
           "name": "PullRefresh",
           "taro": true,
           "tarodoc": true,
@@ -770,6 +797,23 @@
           "desc": "轻提示",
           "author": "undo",
           "styleDeps": []
+        },
+        {
+          "version": "3.0.0",
+          "name": "Audio",
+          "taro": true,
+          "tarodoc": true,
+          "type": "component",
+          "cName": "音频播放器",
+          "desc": "音频播放器",
+          "sort": 25,
+          "show": true,
+          "exportEmpty": false,
+          "exportEmptyTaro": false,
+          "author": "yangxiaolu",
+          "styleDeps": [
+            "Range"
+          ]
         },
         {
           "version": "3.0.0",
@@ -1363,7 +1407,7 @@
       },
       {
         "name": "starttaro",
-        "cName": "快速上手",
+        "cName": "小程序开发",
         "eName": "WeChat",
         "show": true
       },
@@ -1403,6 +1447,12 @@
         "name": "resource",
         "cName": "资源",
         "eName": "Resources",
+        "show": true
+      },
+      {
+        "name": "notice",
+        "cName": "常见问题",
+        "eName": "FAQ",
         "show": true
       }
     ]
