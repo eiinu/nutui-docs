@@ -5,6 +5,7 @@ import path from 'path';
 import config from './src/docs_react_taro/config.json';
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const resolve = path.resolve;
+import { renameIndexPlugin } from './src/assets/util/renameIndexPlugin';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/react_taro',
@@ -53,7 +54,8 @@ export default defineConfig({
           return ''; // 使用额外的默认转义
         }
       }
-    })
+    }),
+    renameIndexPlugin('index.react.taro.html', 'index.html')
   ],
   build: {
     target: 'es2015',

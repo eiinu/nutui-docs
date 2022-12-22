@@ -6,14 +6,15 @@ import config from './src/docs_vue/config.json';
 import { compressText } from './src/components/demo-block/basedUtil';
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const refRandom = Math.random().toString(36).slice(-8);
+import { renameIndexPlugin } from './src/assets/util/renameIndexPlugin';
 const resolve = path.resolve;
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/vue/',
+  base: '/4x/',
   server: {
     port: 2021,
     host: '0.0.0.0',
-    open: '/vue/index.vue.html',
+    open: '/4x/index.vue.html',
     proxy: {
       '/devServer': {
         target: 'https://nutui.jd.com',
@@ -83,11 +84,12 @@ export default defineConfig({
           }
         });
       }
-    })
+    }),
+    renameIndexPlugin('index.vue.html', 'index.html')
   ],
   build: {
     target: 'es2015',
-    outDir: './dist/vue/',
+    outDir: './dist/4x/',
     assetsDir: `${config.version}-${refRandom}`,
     cssCodeSplit: true,
     rollupOptions: {

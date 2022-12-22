@@ -6,6 +6,7 @@ import config from './src/docs_react/config.json';
 import { compressText } from './src/components/demo-block/basedUtil';
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const resolve = path.resolve;
+import { renameIndexPlugin } from './src/assets/util/renameIndexPlugin';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/react',
@@ -76,10 +77,8 @@ export default defineConfig({
           }
         });
       }
-    })
-    // legacy({
-    //   targets: ['defaults', 'not IE 11']
-    // })
+    }),
+    renameIndexPlugin('index.react.html', 'index.html')
   ],
   build: {
     target: 'es2015',
