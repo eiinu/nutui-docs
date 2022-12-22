@@ -276,6 +276,8 @@ export default defineComponent({
       };
     });
     const checkGuidTheme = (item: any, index: number) => {
+      if (item.name === 'Biz') return;
+
       if (item.link) {
         data.isShowGuid = false;
         window.open(item.link);
@@ -585,6 +587,7 @@ export default defineComponent({
   border-radius: 12px;
   font-size: 14px;
   color: #fff;
+  cursor: pointer;
   .site-guid-data-arrow {
     position: absolute;
     z-index: 99;
