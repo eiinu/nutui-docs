@@ -59,6 +59,44 @@ const guide = [
   // }
 ];
 
+const businessGuide = [
+  {
+    data: [
+      {
+        name: 'Cat',
+        link: 'https://nutui.jd.com/cat/#/',
+        language: ['Vue2'],
+        app: '已上线'
+      },
+      {
+        name: 'Bingo',
+        link: 'https://nutui.jd.com/bingo/#/',
+        language: ['Vue3', 'Taro'],
+        app: '已上线'
+      },
+      {
+        name: 'Biz',
+        link: '/jdl/',
+        language: ['React'],
+        app: '开发中'
+      }
+    ]
+  }
+
+  // {
+  //   type: 'React',
+  //   icon: 'https://img10.360buyimg.com/imagetools/jfs/t1/91454/20/21042/3482/61d64815E5c35af0a/ecf7aded2f5ffc6b.png',
+  //   data: [
+  //     {
+  //       name: '1.x',
+  //       link: 'https://nutui.jd.com/react',
+  //       language: ['React18'],
+  //       app: 'App 10.0'
+  //     }
+  //   ]
+  // }
+];
+
 const products = [
   {
     type: 'H5',
@@ -162,4 +200,4 @@ export const {
   repository,
   newRepository
 } = config;
-export { guide, products, SiteVueTaro, SiteReactTaro, vueConfigTaro };
+export { guide, businessGuide, products, SiteVueTaro, SiteReactTaro, vueConfigTaro };

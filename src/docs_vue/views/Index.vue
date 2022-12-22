@@ -80,7 +80,8 @@
 import { defineComponent, onMounted, reactive, toRefs, computed, ref } from 'vue';
 import { demoUrl, language, nav } from '@/config/index';
 import { onBeforeRouteUpdate, RouteLocationNormalized, useRoute, useRouter } from 'vue-router';
-import Header from './Header.vue';
+// import Header from './Header.vue';
+import Header from '@/components/Header.vue';
 import Nav from './Nav.vue';
 import Footer from '@/components/Footer.vue';
 import DemoPreview from '@/components/DemoPreview.vue';

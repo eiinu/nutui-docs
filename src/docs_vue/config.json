@@ -1448,12 +1448,6 @@
         "cName": "资源",
         "eName": "Resources",
         "show": true
-      },
-      {
-        "name": "notice",
-        "cName": "常见问题",
-        "eName": "FAQ",
-        "show": true
       }
     ]
   },
