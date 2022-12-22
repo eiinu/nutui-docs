@@ -14,9 +14,9 @@ const guideEnRouters: Array<RouteRecordRaw> = [];
 
 /** vite */
 
-const modulesPage = (import.meta as any).glob('./docs/**/doc.md');
+const modulesPage = (import.meta as any).glob('./docs/**/doc.taro.md');
 for (const path in modulesPage) {
-  let name = (/docs\/(.*)\/doc.md/.exec(path) as any[])[1];
+  let name = (/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
   pagesRouter.push({
     path: `/zh-CN/component/${name}`,
     component: modulesPage[path],
@@ -24,35 +24,8 @@ for (const path in modulesPage) {
   });
 }
 
-const modulesEnPage = (import.meta as any).glob('./docs/**/doc.en-US.md');
-for (const path in modulesEnPage) {
-  let name = (/docs\/(.*)\/doc.en-US.md/.exec(path) as any[])[1];
-  pagesEnRouter.push({
-    path: `/en-US/component/${name}`,
-    component: modulesEnPage[path],
-    name: `en-US/component/${name}`
-  });
-}
-
-/** vite-taro **/
-const modulesPageTaro = (import.meta as any).glob('/src/docs_vue/docs/**/*.taro.md');
-for (const path in modulesPageTaro) {
-  let name = (/docs_vue\/docs\/(.*)\/doc.taro.md/.exec(path) as any[])[1];
-  pagesRouter.push({
-    path: `/zh-CN/component/${name}-taro`,
-    component: modulesPageTaro[path],
-    name: `zh-CN/component/${name}-taro`
-  });
-  pagesEnRouter.push({
-    path: `/en-US/component/${name}-taro`,
-    component: modulesPageTaro[path],
-    name: `en-US/component/${name}-taro`
-  });
-}
-
 /** vite */
 const modulesDocs = (import.meta as any).glob('/src/docs/vue_taro/*.md');
-// console.log('路由', modulesDocs);
 for (const path in modulesDocs) {
   let name = (/docs\/vue_taro\/(.*).md/.exec(path) as any[])[1];
   guideRouters.push({
@@ -94,12 +67,6 @@ const routes: Array<RouteRecordRaw> = [
         name: 'component',
         component: Component,
         children: pagesRouter
-      },
-      {
-        path: '/en-US/component',
-        name: 'enComponent',
-        component: Component,
-        children: pagesEnRouter
       }
     ]
   },

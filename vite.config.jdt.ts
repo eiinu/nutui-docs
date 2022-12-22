@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import Markdown from 'vite-plugin-md';
 import path from 'path';
@@ -7,6 +7,24 @@ import { compressText } from './src/components/demo-block/basedUtil';
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const refRandom = Math.random().toString(36).slice(-8);
 const resolve = path.resolve;
+
+/**
+ * @param newFilename {string}
+ * @returns {import('vite').Plugin}
+ */
+const renameIndexPlugin = (oldFileName, newFilename) => {
+  if (!newFilename) return;
+
+  return {
+    name: 'renameIndex',
+    enforce: 'post',
+    generateBundle(options, bundle) {
+      const indexHtml = bundle[oldFileName];
+      indexHtml.fileName = newFilename;
+    }
+  } as Plugin;
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/jdt/',
@@ -54,6 +72,7 @@ export default defineConfig({
     vue({
       include: [/\.vue$/, /\.md$/]
     }),
+
     Markdown({
       // default options passed to markdown-it
       // see: https://markdown-it.github.io/markdown-it/
@@ -87,10 +106,11 @@ export default defineConfig({
           }
         });
       }
-    })
+    }),
     // legacy({
     //   targets: ['defaults', 'not IE 11']
     // })
+    renameIndexPlugin('index.jdt.html', 'index.html')
   ],
   build: {
     target: 'es2015',
@@ -99,7 +119,7 @@ export default defineConfig({
     cssCodeSplit: true,
     rollupOptions: {
       input: {
-        vue: resolve(__dirname, 'index.jdt.html')
+        index: resolve(__dirname, 'index.jdt.html')
       },
       output: {
         entryFileNames: `${config.version}-${refRandom}/[name].js`,
