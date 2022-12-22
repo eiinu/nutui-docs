@@ -161,17 +161,17 @@
           <div class="bottom-box">
             <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/cat/#/')">
               <img
-                src="https://img13.360buyimg.com/imagetools/jfs/t1/64910/1/22973/784/6371fdcfE7c3ddd5e/55991bde924aceef.jpg"
+                src="https://img12.360buyimg.com/imagetools/jfs/t1/128915/29/34233/564/63a42dc9E3763ec6d/00c5954a6c033c25.png"
               />
             </div>
             <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/cat/#/intro')">
               <img
-                src="https://img10.360buyimg.com/imagetools/jfs/t1/137367/4/30750/1047/6371fd26Ebb4b76df/4f4566002a7610fa.jpg"
+                src="https://img10.360buyimg.com/imagetools/jfs/t1/132787/21/33206/926/63a42dcaE93c2b7ce/17037b8539a0e504.png"
               />
             </div>
             <div class="bottom-box-item" @click="toJointDetails('https://github.com/jdf2e/nutui-cat')">
               <img
-                src="https://img11.360buyimg.com/imagetools/jfs/t1/198491/2/27227/4572/63631a32E61d664ee/10c9b1b90ef220c7.png"
+                src="https://img11.360buyimg.com/imagetools/jfs/t1/146163/4/34533/1045/63a42dcaE0e7aeb1f/3d0344c8f91f3c5b.png"
               />
             </div>
           </div>
@@ -202,17 +202,17 @@
           <div class="bottom-box">
             <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/bingo/#/')">
               <img
-                src="https://img13.360buyimg.com/imagetools/jfs/t1/64910/1/22973/784/6371fdcfE7c3ddd5e/55991bde924aceef.jpg"
+                src="https://img12.360buyimg.com/imagetools/jfs/t1/128915/29/34233/564/63a42dc9E3763ec6d/00c5954a6c033c25.png"
               />
             </div>
             <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/bingo/#/intro')">
               <img
-                src="https://img10.360buyimg.com/imagetools/jfs/t1/137367/4/30750/1047/6371fd26Ebb4b76df/4f4566002a7610fa.jpg"
+                src="https://img10.360buyimg.com/imagetools/jfs/t1/132787/21/33206/926/63a42dcaE93c2b7ce/17037b8539a0e504.png"
               />
             </div>
             <div class="bottom-box-item" @click="toJointDetails('https://github.com/jdf2e/nutui-bingo')">
               <img
-                src="https://img11.360buyimg.com/imagetools/jfs/t1/198491/2/27227/4572/63631a32E61d664ee/10c9b1b90ef220c7.png"
+                src="https://img11.360buyimg.com/imagetools/jfs/t1/146163/4/34533/1045/63a42dcaE0e7aeb1f/3d0344c8f91f3c5b.png"
               />
             </div>
           </div>
@@ -261,21 +261,21 @@
             <div class="bottom-box-item">
               <a href="" target="_blank">
                 <img
-                  src="https://img13.360buyimg.com/imagetools/jfs/t1/64910/1/22973/784/6371fdcfE7c3ddd5e/55991bde924aceef.jpg"
+                  src="https://img12.360buyimg.com/imagetools/jfs/t1/128915/29/34233/564/63a42dc9E3763ec6d/00c5954a6c033c25.png"
                 />
               </a>
             </div>
             <div class="bottom-box-item">
               <a href="" target="_blank">
                 <img
-                  src="https://img10.360buyimg.com/imagetools/jfs/t1/137367/4/30750/1047/6371fd26Ebb4b76df/4f4566002a7610fa.jpg"
+                  src="https://img10.360buyimg.com/imagetools/jfs/t1/132787/21/33206/926/63a42dcaE93c2b7ce/17037b8539a0e504.png"
                 />
               </a>
             </div>
             <div class="bottom-box-item">
               <a href="" target="_blank">
                 <img
-                  src="https://img11.360buyimg.com/imagetools/jfs/t1/198491/2/27227/4572/63631a32E61d664ee/10c9b1b90ef220c7.png"
+                  src="https://img11.360buyimg.com/imagetools/jfs/t1/146163/4/34533/1045/63a42dcaE0e7aeb1f/3d0344c8f91f3c5b.png"
                 />
               </a>
             </div>
@@ -677,7 +677,7 @@ export default defineComponent({
         })
         .then((res) => {
           if (res?.state == 0) {
-            data.articleProxy[3]['article'] = res.value.data.arrays.splice(0, 5);
+            data.articleProxy[3]['article'] = res.value.data.arrays.splice(0, 4);
             renderSwiperArticle(3);
           }
         });
@@ -1270,6 +1270,10 @@ export default defineComponent({
           img {
             width: 24px;
             height: 24px;
+          }
+          &:hover {
+            cursor: pointer;
+            background-color: #efefef;
           }
         }
       }
