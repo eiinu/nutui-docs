@@ -6,7 +6,8 @@
 
 ### 安装
 ```javascript
-import { Notify } from '@nutui/nutui-react';
+
+import { Notify } from '@nutui/nutui-react-taro';
 ```
 
 ## 代码演示
@@ -17,7 +18,7 @@ import { Notify } from '@nutui/nutui-react';
 
 ```tsx
 import  React, {useState} from "react";
-import { Notify, Cell } from '@nutui/nutui-react';
+import { Notify, Cell } from '@nutui/nutui-react-taro';
 
 const App = () => {
     const [showNotify, SetShowNotify] = useState(false)
@@ -62,7 +63,7 @@ export default App
 
 ```tsx
 import  React, {useState} from "react";
-import { Notify, Cell } from '@nutui/nutui-react';
+import { Notify, Cell } from '@nutui/nutui-react-taro';
 
 const App = () => {
     const [showNotify, SetShowNotify] = useState(false)
@@ -128,7 +129,7 @@ export default App
 
 ```tsx
 import  React, {useState} from "react";
-import { Notify, Cell } from '@nutui/nutui-react';
+import { Notify, Cell } from '@nutui/nutui-react-taro';
 
 const App = () => {
     const [customShow, SetCustomShow] = useState(false)
@@ -165,7 +166,7 @@ export default App
 
 ```tsx
 import  React, {useState} from "react";
-import { Notify, Cell } from '@nutui/nutui-react';
+import { Notify, Cell } from '@nutui/nutui-react-taro';
 
 const App = () => {
     const [showNotify, SetShowNotify] = useState(false)
