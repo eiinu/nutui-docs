@@ -6,11 +6,11 @@ const refRandom = Math.random().toString(36).slice(-8);
 const resolve = path.resolve;
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/4x/',
+  base: '/',
   server: {
     port: 2021,
     host: '0.0.0.0',
-    open: '/4x/index.html',
+    open: '/index.html',
     proxy: {
       '/devServer': {
         target: 'https://nutui.jd.com',
@@ -43,7 +43,7 @@ export default defineConfig({
   ],
   build: {
     target: 'es2015',
-    outDir: './dist/4x/',
+    outDir: './dist/',
     assetsDir: `${config.version}-${refRandom}`,
     cssCodeSplit: true,
     rollupOptions: {

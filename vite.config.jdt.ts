@@ -7,23 +7,7 @@ import { compressText } from './src/components/demo-block/basedUtil';
 const hljs = require('highlight.js'); // https://highlightjs.org/
 const refRandom = Math.random().toString(36).slice(-8);
 const resolve = path.resolve;
-
-/**
- * @param newFilename {string}
- * @returns {import('vite').Plugin}
- */
-const renameIndexPlugin = (oldFileName, newFilename) => {
-  if (!newFilename) return;
-
-  return {
-    name: 'renameIndex',
-    enforce: 'post',
-    generateBundle(options, bundle) {
-      const indexHtml = bundle[oldFileName];
-      indexHtml.fileName = newFilename;
-    }
-  } as Plugin;
-};
+import { renameIndexPlugin } from './src/assets/util/renameIndexPlugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({

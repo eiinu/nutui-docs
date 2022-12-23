@@ -150,7 +150,7 @@
       </div>
       <div class="doc-content-catmarketing-content">
         <div class="doc-content-module module-0">
-          <div class="img-box" @click="toJointDetails('https://nutui.jd.com/cat/#/')">
+          <div class="img-box" @click="toJointDetails('https://nutui-docs-test1.local-pf.jd.com/cat/index.html#/')">
             <img style="width: 86%; padding: 10px 0" src="@/assets/images/cat-back.png" alt="" />
           </div>
           <div class="content-box">
@@ -164,12 +164,18 @@
             <div class="desc">NutUI 大促域业务组件</div>
           </div>
           <div class="bottom-box">
-            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/cat/#/')">
+            <div
+              class="bottom-box-item"
+              @click="toJointDetails('https://nutui-docs-test1.local-pf.jd.com/cat/index.html#/intro')"
+            >
               <img
                 src="https://img12.360buyimg.com/imagetools/jfs/t1/128915/29/34233/564/63a42dc9E3763ec6d/00c5954a6c033c25.png"
               />
             </div>
-            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/cat/#/intro')">
+            <div
+              class="bottom-box-item"
+              @click="toJointDetails('https://nutui-docs-test1.local-pf.jd.com/cat/index.html#/intro')"
+            >
               <img
                 src="https://img10.360buyimg.com/imagetools/jfs/t1/132787/21/33206/926/63a42dcaE93c2b7ce/17037b8539a0e504.png"
               />
@@ -182,7 +188,7 @@
           </div>
         </div>
         <div class="doc-content-module module-1">
-          <div class="img-box" @click="toJointDetails('https://nutui.jd.com/bingo/#/')">
+          <div class="img-box" @click="toJointDetails('https://nutui-docs-test1.local-pf.jd.com/bingo/index.html#/')">
             <img
               src="https://img10.360buyimg.com/imagetools/jfs/t1/186436/12/31398/508034/63a400afE49cb73f6/3f0b87fd535de041.png"
               alt=""
@@ -205,12 +211,18 @@
             <div class="desc">NutUI 抽奖域业务组件</div>
           </div>
           <div class="bottom-box">
-            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/bingo/#/')">
+            <div
+              class="bottom-box-item"
+              @click="toJointDetails('https://nutui-docs-test1.local-pf.jd.com/bingo/index.html#/')"
+            >
               <img
                 src="https://img12.360buyimg.com/imagetools/jfs/t1/128915/29/34233/564/63a42dc9E3763ec6d/00c5954a6c033c25.png"
               />
             </div>
-            <div class="bottom-box-item" @click="toJointDetails('https://nutui.jd.com/bingo/#/intro')">
+            <div
+              class="bottom-box-item"
+              @click="toJointDetails('https://nutui-docs-test1.local-pf.jd.com/bingo/index.html#/intro')"
+            >
               <img
                 src="https://img10.360buyimg.com/imagetools/jfs/t1/132787/21/33206/926/63a42dcaE93c2b7ce/17037b8539a0e504.png"
               />
@@ -774,23 +786,25 @@ export default defineComponent({
       }
     }
     const toDetail = (f: string) => {
-      window.open(f == 'cat' ? 'https://nutui.jd.com/cat/#/' : 'https://nutui.jd.com/bingo/#/');
+      window.open(
+        f == 'cat'
+          ? 'https://nutui-docs-test1.local-pf.jd.com/cat/index.html#/'
+          : 'https://nutui-docs-test1.local-pf.jd.com/bingo/index.html#/'
+      );
     };
     const goMainSite = (f: string) => {
       switch (f) {
         case 'vue':
-          window.open('http://storage.jd.local/nutui/newsite/vue/index.vue.html#/zh-CN/guide/intro');
+          window.open('https://nutui-docs-test1.local-pf.jd.com/4x/index.html#/zh-CN/guide/intro');
           break;
         case 'react':
-          window.open('http://storage.jd.local/nutui/newsite/react/index.react.html#/zh-CN/guide/intro-react');
+          window.open('https://nutui-docs-test1.local-pf.jd.com/react/index.html#/zh-CN/guide/intro-react');
           break;
         case 'vue-taro':
-          window.open('http://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro');
+          window.open('https://nutui-docs-test1.local-pf.jd.com/vue_taro/index.html#/zh-CN/guide/intro');
           break;
         case 'react-taro':
-          window.open(
-            'http://storage.jd.local/nutui/newsite/react_taro/index.react.taro.html#/zh-CN/guide/intro-react'
-          );
+          window.open('https://nutui-docs-test1.local-pf.jd.com/react_taro/index.html#/zh-CN/guide/intro-react');
           break;
       }
     };

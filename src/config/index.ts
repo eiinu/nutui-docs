@@ -26,7 +26,7 @@ const guide = [
       },
       {
         name: '3.x',
-        link: '/',
+        link: '/3x/',
         language: ['Vue3', 'Taro'],
         app: 'App 10.0'
       },
@@ -79,13 +79,13 @@ const businessGuide = [
     data: [
       {
         name: 'Cat',
-        link: 'https://nutui.jd.com/cat/#/',
+        link: 'https://nutui-docs-test1.local-pf.jd.com/cat/index.html#/',
         language: ['Vue2'],
         app: '已上线'
       },
       {
         name: 'Bingo',
-        link: 'https://nutui.jd.com/bingo/#/',
+        link: 'https://nutui-docs-test1.local-pf.jd.com/bingo/index.html#/',
         language: ['Vue3', 'Taro'],
         app: '已上线'
       },
@@ -121,14 +121,14 @@ const products = [
         icon: 'https://img13.360buyimg.com/imagetools/jfs/t1/111058/12/30939/2225/639703a1E27d6984e/38cbe27759020dc9.png',
         status: 1,
         statusDesc: '已上线',
-        link: 'http://storage.jd.local/nutui/newsite/react/index.react.html#/zh-CN/guide/intro-react'
+        link: 'https://nutui-docs-test1.local-pf.jd.com/react/index.html#/zh-CN/guide/intro-react'
       },
       {
         name: 'NutUI-Vue',
         icon: 'https://img12.360buyimg.com/imagetools/jfs/t1/196475/33/30665/2108/639703a1Ef17ae707/ad59fc912f3681d2.png',
         status: 1,
         statusDesc: '已上线',
-        link: 'http://storage.jd.local/nutui/newsite/vue/index.vue.html#/zh-CN/guide/intro'
+        link: 'https://nutui-docs-test1.local-pf.jd.com/4x/index.html#/zh-CN/guide/intro'
       }
     ]
   },
@@ -144,11 +144,11 @@ const products = [
         child: [
           {
             name: 'NutUI-React',
-            url: 'http://storage.jd.local/nutui/newsite/react_taro/index.react.taro.html#/zh-CN/guide/intro-react'
+            url: 'https://nutui-docs-test1.local-pf.jd.com/react_taro/index.html#/zh-CN/guide/intro-react'
           },
           {
             name: 'NutUI-Vue',
-            url: 'http://storage.jd.local/nutui/newsite/vue_taro/index.vue.taro.html#/zh-CN/guide/intro'
+            url: 'https://nutui-docs-test1.local-pf.jd.com/vue_taro/index.html#/zh-CN/guide/intro'
           }
         ]
       },
