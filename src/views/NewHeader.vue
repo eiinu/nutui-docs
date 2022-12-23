@@ -85,9 +85,9 @@
                 <div class="product-type">
                   <div
                     v-for="(info, index) in item.data"
-                    :class="['content', info.child && info.child.length > 0 ? 'child-content' : '']"
+                    :class="['content', info.status == 0 && 'content-disabled', info.child ? 'child-content' : '']"
                     :key="index"
-                    @click="checkGuidTheme(info)"
+                    @click.stop="checkGuidTheme(info)"
                   >
                     <div class="item-logo">
                       <img :src="info.icon" />
@@ -240,6 +240,8 @@ export default defineComponent({
     };
 
     const toLink = (item: any) => {
+      onMouseHover(false);
+      onMouseHoverBiz(false);
       // if (item) {
       //   if (isEn.value) {
       //     item.path = item.path.replace('zh-CN', 'en-US');
@@ -473,6 +475,7 @@ export default defineComponent({
     }
   }
 }
+
 .site-guid-data {
   // display: block !important;
   position: absolute;
@@ -512,6 +515,11 @@ export default defineComponent({
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+  .content-disabled {
+    &:hover {
+      cursor: not-allowed !important;
+    }
   }
   .content {
     width: 230px;

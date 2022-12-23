@@ -157,7 +157,8 @@ const products = [
         icon: 'https://img12.360buyimg.com/imagetools/jfs/t1/123438/40/29913/321/63a2d051E0ca085be/1b2db5d619ed359d.png',
         status: 1,
         statusDesc: '社区维护',
-        link: 'https://github.com/jwaterwater/uni-nutui'
+        link: 'https://github.com/jwaterwater/uni-nutui',
+        child: []
       },
       {
         name: '京东小程序',

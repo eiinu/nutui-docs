@@ -98,20 +98,25 @@
                 <span class="infor-version infor-coding">社区维护</span>
               </div>
             </div>
-            <div class="resource-item">
-              <div class="resource-infor">
+            <div class="resource-item resource-item-disabled">
+              <div class="resource-infor resource-infor-disabled">
                 <img src="@/assets/images/Jdweapp.png" class="small-icon" />
                 <span class="infor-name">京东小程序</span>
                 <span class="infor-version infor-disabled">规划中</span>
               </div>
-            </div>
-            <div class="resource-item">
-              <div class="resource-infor">
+              <div class="resource-infor resource-infor-disabled">
                 <img src="@/assets/images/Wechat.png" class="small-icon" />
                 <span class="infor-name">微信小程序</span>
                 <span class="infor-version infor-disabled">规划中</span>
               </div>
             </div>
+            <!-- <div class="resource-item">
+              <div class="resource-infor">
+                <img src="@/assets/images/Wechat.png" class="small-icon" />
+                <span class="infor-name">微信小程序</span>
+                <span class="infor-version infor-disabled">规划中</span>
+              </div>
+            </div> -->
           </div>
         </div>
         <div class="product-item">
@@ -289,7 +294,7 @@
     <div class="doc-content-cases" v-if="homePage.cases.show && casesImages.length">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">应用案例</h4>
-        <a class="sub-more" :href="homePage.cases.moreRouter" v-if="homePage.cases.moreRouter">更多</a>
+        <a class="sub-more" href="https://nutui.jd.com/#/zh-CN/case" v-if="homePage.cases.moreRouter">更多</a>
       </div>
 
       <div class="doc-content-desc"
@@ -346,7 +351,7 @@
     <div class="doc-content-more" v-if="homePage.article.show">
       <div class="doc-content-hd">
         <h4 class="doc-content-title">资源共享</h4>
-        <a class="sub-more" :href="homePage.article.moreRouter" v-if="homePage.article.moreRouter">更多</a>
+        <a class="sub-more" href="https://nutui.jd.com/#/zh-CN/resource" v-if="homePage.article.moreRouter">更多</a>
       </div>
       <!-- <ul class="more-list">
         <li class="more-item" v-for="item in articleList.slice(0, 4)" :key="item.id" @click="toLink(item.id)">
@@ -1106,6 +1111,17 @@ export default defineComponent({
       }
       .infor-coding {
         background: linear-gradient(90deg, #00b2bd, #2ceb85);
+      }
+    }
+    .resource-item-disabled {
+      // display: block;
+      cursor: not-allowed;
+      .resource-infor-disabled {
+        float: left;
+        padding: 10px 10px 10px 20px;
+        .infor-name {
+          margin: 0 10px;
+        }
       }
     }
   }
