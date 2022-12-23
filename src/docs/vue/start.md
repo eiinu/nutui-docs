@@ -122,6 +122,79 @@ import { Button, Icon } from "@nutui/nutui";
 createApp(App).use(Button).use(Icon).mount("#app");
 ```
 
+#### 自动按需引入组件
+
+1、安装 `unplugin-vue-components` 插件
+```
+# 通过 npm 安装
+npm i unplugin-vue-components -D
+```
+
+2、自定义 resolver
+```
+const NutUIResolver = () => {
+  return (name: string) => {
+    if (name.startsWith('Nut')) {
+      return {
+        name: name.slice(3),
+        from: '@nutui/nutui',
+        sideEffects: `@nutui/nutui/dist/packages/${name.slice(3).toLowerCase()}/index`
+      }
+    }
+  }
+}
+```
+
+3、配置使用
+如果您使用 `vite`，需要在 `vite.config.js` 中作如下配置：
+```
+import vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite';
+
+export default {
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [NutUIResolver()],
+    }),
+  ],
+};
+```
+如果您使用 `vue-cli`，需要在 `vue.config.js` 中作如下配置：
+```
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      ComponentsPlugin({
+        resolvers: [NutUIResolver()],
+      }),
+    ],
+  },
+};
+```
+如果您使用 `webpack`，需要在 `webpack.config.js` 中作如下配置：
+```
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
+
+module.exports = {
+  plugins: [
+    ComponentsPlugin({
+      resolvers: [NutUIResolver()],
+    }),
+  ],
+};
+```
+
+4、函数式组件
+对于函数式组件，无法通过插件自动引入组件样式，需要您手动引入。
+```
+// Toast
+import { Toast } from '@nutui/nutui';
+import '@nutui/nutui/dist/packages/toast';
+```
+
 #### CDN 安装使用示例
 
 > 可以通过 CDN 的方式引入， 可以在 **jsdelivr** 和 **unpkg** 等公共 CDN 上获取到 NutUI。

@@ -124,6 +124,79 @@ import { Button, Icon } from "@nutui/nutui";
 createApp(App).use(Button).use(Icon).mount("#app");
 ```
 
+#### Auto import component
+
+1. install `unplugin-vue-components`
+```
+# npm
+npm i unplugin-vue-components -D
+```
+
+2. resolver
+```
+const NutUIResolver = () => {
+  return (name: string) => {
+    if (name.startsWith('Nut')) {
+      return {
+        name: name.slice(3),
+        from: '@nutui/nutui',
+        sideEffects: `@nutui/nutui/dist/packages/${name.slice(3).toLowerCase()}/index`
+      }
+    }
+  }
+}
+```
+
+3. configuration
+If you use `vite`, configure it in `vite.config.js`
+```
+import vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite';
+
+export default {
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [NutUIResolver()],
+    }),
+  ],
+};
+```
+If you use `vue-cli`, configure it in `vue.config.js`
+```
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      ComponentsPlugin({
+        resolvers: [NutUIResolver()],
+      }),
+    ],
+  },
+};
+```
+If you use `webpack`, configure it in `webpack.config.js`
+```
+const ComponentsPlugin = require('unplugin-vue-components/webpack');
+
+module.exports = {
+  plugins: [
+    ComponentsPlugin({
+      resolvers: [NutUIResolver()],
+    }),
+  ],
+};
+```
+
+4. functional component
+`Unplugin` can not import functional components automatically. You can import as follows.
+```
+// Toast
+import { Toast } from '@nutui/nutui';
+import '@nutui/nutui/dist/packages/toast';
+```
+
 #### CDN Use
 
 > NutUI also support CDN use, you can get the links in **jsdelivr** or **unpkg** and so on.
